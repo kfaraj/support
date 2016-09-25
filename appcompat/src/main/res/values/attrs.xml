@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- These are the attributes for the ImageView. -->
+    <declare-styleable name="ImageView">
+        <!-- The tint to apply to the drawable. -->
+        <attr name="tint" format="color" />
+        <!-- The tint mode to apply to the drawable. -->
+        <attr name="tintMode">
+            <!-- [Sa + (1 - Sa)*Da, Rc = Sc + (1 - Sa)*Dc] -->
+            <enum name="src_over" value="3" />
+            <!-- [Sa * Da, Sc * Da] -->
+            <enum name="src_in" value="5" />
+            <!-- [Da, Sc * Da + (1 - Sa) * Dc] -->
+            <enum name="src_atop" value="9" />
+            <!-- [Sa * Da, Sc * Dc] -->
+            <enum name="multiply" value="14" />
+            <!-- [Sa + Da - Sa * Da, Sc + Dc - Sc * Dc] -->
+            <enum name="screen" value="15" />
+            <!-- Saturate(S + D) -->
+            <enum name="add" value="16" />
+        </attr>
+    </declare-styleable>
+
+    <!-- These are the attributes for the SupportImageButton. -->
+    <declare-styleable name="SupportImageButton" parent="ImageView" />
+
+    <!-- These are the attributes for the SupportImageView. -->
+    <declare-styleable name="SupportImageView" parent="ImageView" />
+
+    <!-- These are the attributes for the TextView. -->
+    <declare-styleable name="TextView">
+        <!-- The tint to apply to the compound drawables. -->
+        <attr name="drawableTint" format="color" />
+        <!-- The tint mode to apply to the compound drawables. -->
+        <attr name="drawableTintMode">
+            <!-- [Sa + (1 - Sa)*Da, Rc = Sc + (1 - Sa)*Dc] -->
+            <enum name="src_over" value="3" />
+            <!-- [Sa * Da, Sc * Da] -->
+            <enum name="src_in" value="5" />
+            <!-- [Da, Sc * Da + (1 - Sa) * Dc] -->
+            <enum name="src_atop" value="9" />
+            <!-- [Sa * Da, Sc * Dc] -->
+            <enum name="multiply" value="14" />
+            <!-- [Sa + Da - Sa * Da, Sc + Dc - Sc * Dc] -->
+            <enum name="screen" value="15" />
+            <!-- Saturate(S + D) -->
+            <enum name="add" value="16" />
+        </attr>
+    </declare-styleable>
+
+    <!-- These are the attributes for the SupportAutoCompleteTextView. -->
+    <declare-styleable name="SupportAutoCompleteTextView" parent="TextView" />
+
+    <!-- These are the attributes for the SupportButton. -->
+    <declare-styleable name="SupportButton" parent="TextView" />
+
+    <!-- These are the attributes for the SupportCheckBox. -->
+    <declare-styleable name="SupportCheckBox" parent="TextView" />
+
+    <!-- These are the attributes for the SupportCheckedTextView. -->
+    <declare-styleable name="SupportCheckedTextView" parent="TextView" />
+
+    <!-- These are the attributes for the SupportEditText. -->
+    <declare-styleable name="SupportEditText" parent="TextView" />
+
+    <!-- These are the attributes for the SupportMultiAutoCompleteTextView. -->
+    <declare-styleable name="SupportMultiAutoCompleteTextView" parent="TextView" />
+
+    <!-- These are the attributes for the SupportRadioButton. -->
+    <declare-styleable name="SupportRadioButton" parent="TextView" />
+
+    <!-- These are the attributes for the SupportTextView. -->
+    <declare-styleable name="SupportTextView" parent="TextView" />
+
+</resources>

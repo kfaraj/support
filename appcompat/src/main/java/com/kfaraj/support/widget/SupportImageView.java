@@ -1,0 +1,133 @@
+package com.kfaraj.support.widget;
+
+import android.content.Context;
+import android.content.res.ColorStateList;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.v7.widget.AppCompatImageView;
+import android.util.AttributeSet;
+
+import com.kfaraj.support.appcompat.R;
+import com.kfaraj.support.view.TintableImageView;
+
+/**
+ * Adds support for {@link AppCompatImageView}.
+ * <ul>
+ * <li>{@link #setSupportImageTintList(ColorStateList)}</li>
+ * <li>{@link #getSupportImageTintList()}</li>
+ * <li>{@link #setSupportImageTintMode(PorterDuff.Mode)}</li>
+ * <li>{@link #getSupportImageTintMode()}</li>
+ * <li>{@link R.attr#tint}</li>
+ * <li>{@link R.attr#tintMode}</li>
+ * </ul>
+ */
+public class SupportImageView extends AppCompatImageView implements TintableImageView {
+
+    /**
+     * The helper.
+     */
+    private ImageViewHelper mHelper;
+
+    /**
+     * Constructor
+     *
+     * @param context the context.
+     */
+    public SupportImageView(Context context) {
+        super(context);
+        init(context, null);
+    }
+
+    /**
+     * Constructor
+     *
+     * @param context the context.
+     * @param attrs the attributes.
+     */
+    public SupportImageView(Context context, AttributeSet attrs) {
+        super(context, attrs);
+        init(context, attrs);
+    }
+
+    /**
+     * Constructor
+     *
+     * @param context the context.
+     * @param attrs the attributes.
+     * @param defStyleAttr the default style.
+     */
+    public SupportImageView(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+        init(context, attrs);
+    }
+
+    /**
+     * Common code for different constructors.
+     *
+     * @param context the context.
+     * @param attrs the attributes.
+     */
+    private void init(@NonNull Context context, @Nullable AttributeSet attrs) {
+        mHelper = new ImageViewHelper(this);
+        mHelper.loadFromAttributes(context, attrs);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void setSupportImageTintList(@Nullable ColorStateList tint) {
+        mHelper.setSupportImageTintList(tint);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Nullable
+    @Override
+    public ColorStateList getSupportImageTintList() {
+        return mHelper.getSupportImageTintList();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void setSupportImageTintMode(@Nullable PorterDuff.Mode tintMode) {
+        mHelper.setSupportImageTintMode(tintMode);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Nullable
+    @Override
+    public PorterDuff.Mode getSupportImageTintMode() {
+        return mHelper.getSupportImageTintMode();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void setImageDrawable(Drawable drawable) {
+        if (mHelper != null) {
+            drawable = mHelper.applyTint(drawable);
+        }
+        super.setImageDrawable(drawable);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    protected void drawableStateChanged() {
+        super.drawableStateChanged();
+        if (mHelper != null) {
+            invalidate();
+        }
+    }
+
+}
