@@ -1,0 +1,12 @@
+# Mac OS X
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# Android Studio
+/**/build/
+/**/*.iml
+/.gradle/
+/.idea/
+/local.properties
