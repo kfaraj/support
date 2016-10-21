@@ -6,6 +6,7 @@ import android.content.res.TypedArray;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuff.Mode;
 import android.graphics.drawable.Drawable;
+import android.support.annotation.AttrRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
@@ -53,9 +54,10 @@ class ImageViewHelper implements TintableImageView {
      *
      * @param context the context.
      * @param attrs the attributes.
+     * @param defStyleAttr the default style.
      */
-    void loadFromAttributes(@NonNull Context context, @Nullable AttributeSet attrs) {
-        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.ImageView);
+    void loadFromAttributes(@NonNull Context context, @Nullable AttributeSet attrs, @AttrRes int defStyleAttr) {
+        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.ImageView, defStyleAttr, 0);
         if (a.hasValue(R.styleable.ImageView_tint)) {
             ColorStateList tint = a.getColorStateList(R.styleable.ImageView_tint);
             setSupportImageTintList(tint);

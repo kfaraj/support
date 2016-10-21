@@ -7,6 +7,7 @@ import android.content.res.TypedArray;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Build.VERSION_CODES;
+import android.support.annotation.AttrRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
@@ -52,9 +53,10 @@ class TextViewHelper implements TintableTextView {
      *
      * @param context the context.
      * @param attrs the attributes.
+     * @param defStyleAttr the default style.
      */
-    void loadFromAttributes(@NonNull Context context, @Nullable AttributeSet attrs) {
-        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.TextView);
+    void loadFromAttributes(@NonNull Context context, @Nullable AttributeSet attrs, @AttrRes int defStyleAttr) {
+        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.TextView, defStyleAttr, 0);
         if (a.hasValue(R.styleable.TextView_drawableTint)) {
             ColorStateList tint = a.getColorStateList(R.styleable.TextView_drawableTint);
             setSupportCompoundDrawableTintList(tint);

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.ColorStateList;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
+import android.support.annotation.AttrRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.AppCompatTextView;
@@ -37,7 +38,7 @@ public class SupportTextView extends AppCompatTextView implements TintableTextVi
      */
     public SupportTextView(Context context) {
         super(context);
-        init(context, null);
+        init(context, null, 0);
     }
 
     /**
@@ -48,7 +49,7 @@ public class SupportTextView extends AppCompatTextView implements TintableTextVi
      */
     public SupportTextView(Context context, AttributeSet attrs) {
         super(context, attrs);
-        init(context, attrs);
+        init(context, attrs, 0);
     }
 
     /**
@@ -60,7 +61,7 @@ public class SupportTextView extends AppCompatTextView implements TintableTextVi
      */
     public SupportTextView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init(context, attrs);
+        init(context, attrs, defStyleAttr);
     }
 
     /**
@@ -68,10 +69,11 @@ public class SupportTextView extends AppCompatTextView implements TintableTextVi
      *
      * @param context the context.
      * @param attrs the attributes.
+     * @param defStyleAttr the default style.
      */
-    private void init(@NonNull Context context, @Nullable AttributeSet attrs) {
+    private void init(@NonNull Context context, @Nullable AttributeSet attrs, @AttrRes int defStyleAttr) {
         mHelper = new TextViewHelper(this);
-        mHelper.loadFromAttributes(context, attrs);
+        mHelper.loadFromAttributes(context, attrs, defStyleAttr);
     }
 
     /**
