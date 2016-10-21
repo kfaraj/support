@@ -7,7 +7,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.graphics.drawable.DrawableCompat;
 
 /**
- * Provides utility methods to use with {@link Drawable}.
+ * Provides utility methods for {@link Drawable}.
  */
 public class DrawableUtils {
 

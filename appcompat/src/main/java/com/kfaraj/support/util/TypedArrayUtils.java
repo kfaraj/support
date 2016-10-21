@@ -7,12 +7,12 @@ import android.support.annotation.Nullable;
 import android.support.annotation.StyleableRes;
 
 /**
- * Provides utility methods to use with {@link TypedArray}.
+ * Provides utility methods for {@link TypedArray}.
  */
 public class TypedArrayUtils {
 
     /**
-     * Retrieve the tint mode for the attribute at index.
+     * Retrieves the tint mode for the attribute at index.
      *
      * @param a the typed array.
      * @param index the index.
