@@ -24,5 +24,5 @@ Adds support for compound drawables tint to the following classes:
 
 This library can be included with the following dependency:
 ```groovy
-compile 'com.kfaraj.support:appcompat:1.0.0'
+compile 'com.kfaraj.support:appcompat:1.0.1'
 ```
