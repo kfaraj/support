@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- These are the attributes for the SupportRecyclerView. -->
+    <declare-styleable name="SupportRecyclerView">
+        <!-- The choice behavior for the list. -->
+        <attr name="choiceMode">
+            <!-- The list does not indicate choices. -->
+            <enum name="none" value="0" />
+            <!-- The list allows up to one choice. -->
+            <enum name="singleChoice" value="1" />
+            <!-- The list allows multiple choices. -->
+            <enum name="multipleChoice" value="2" />
+            <!-- The list allows multiple choices in a custom selection mode. -->
+            <enum name="multipleChoiceModal" value="3" />
+        </attr>
+    </declare-styleable>
+
+</resources>

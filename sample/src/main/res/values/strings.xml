@@ -4,4 +4,5 @@
     <string name="appcompat">appcompat</string>
     <string name="recyclerview">recyclerview</string>
     <string name="empty">No items</string>
+    <string name="delete">Delete</string>
 </resources>

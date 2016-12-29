@@ -32,7 +32,7 @@ recyclerview library
 
 This library adds support for [recyclerview](https://developer.android.com/topic/libraries/support-library/features.html#v7-recyclerview) and is designed to be used with Android 3.0 (API level 11) and higher.
 
-It adds support for empty view and item click to the following class:
+It adds support for empty view, item click and choice mode to the following class:
 - [SupportRecyclerView](recyclerview/src/main/java/com/kfaraj/support/widget/SupportRecyclerView.java)
 
 This library can be included with the following dependency:

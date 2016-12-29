@@ -7,7 +7,11 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
+import android.view.ActionMode;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
@@ -15,6 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.kfaraj.support.widget.SupportRecyclerView;
+import com.kfaraj.support.widget.SupportRecyclerView.MultiChoiceModeListener;
 import com.kfaraj.support.widget.SupportRecyclerView.OnItemClickListener;
 import com.kfaraj.support.widget.SupportRecyclerView.OnItemLongClickListener;
 
@@ -24,7 +29,8 @@ import java.util.UUID;
 /**
  * Demonstrates the features of the recyclerview library.
  */
-public class RecyclerViewFragment extends Fragment implements OnClickListener, OnItemClickListener, OnItemLongClickListener {
+public class RecyclerViewFragment extends Fragment implements OnClickListener, OnItemClickListener, OnItemLongClickListener,
+        MultiChoiceModeListener {
 
     /**
      * The items in the adapter.
@@ -80,6 +86,8 @@ public class RecyclerViewFragment extends Fragment implements OnClickListener, O
         mRecyclerView.setEmptyView(mEmptyView);
         mRecyclerView.setOnItemClickListener(this);
         mRecyclerView.setOnItemLongClickListener(this);
+        mRecyclerView.setMultiChoiceModeListener(this);
+        mRecyclerView.setChoiceMode(SupportRecyclerView.CHOICE_MODE_MULTIPLE_MODAL);
         ItemTouchHelper.SimpleCallback callback = new ItemTouchHelper.SimpleCallback(ItemTouchHelper.UP | ItemTouchHelper.DOWN,
                 ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
             @Override
@@ -136,6 +144,57 @@ public class RecyclerViewFragment extends Fragment implements OnClickListener, O
         String item = mAdapter.getItems().get(position);
         Toast.makeText(getActivity(), item, Toast.LENGTH_LONG).show();
         return true;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+        MenuInflater inflater = mode.getMenuInflater();
+        inflater.inflate(R.menu.recyclerview, menu);
+        return true;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
+        int itemCount = mRecyclerView.getCheckedItemCount();
+        mode.setTitle(String.valueOf(itemCount));
+        return true;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
+        if (item.getItemId() == R.id.delete) {
+            for (int i = 0; i < mAdapter.getItemCount(); i++) {
+                if (mRecyclerView.isItemChecked(i)) {
+                    mAdapter.remove(i--);
+                }
+            }
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void onDestroyActionMode(ActionMode mode) {
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void onItemCheckedStateChanged(ActionMode mode, int position, long id, boolean checked) {
+        mode.invalidate();
     }
 
     /**

@@ -4,6 +4,8 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar.NoActionBar" />
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar.NoActionBar">
+        <item name="windowActionModeOverlay">true</item>
+    </style>
     <style name="AppTheme.NavigationDrawer" />
 </resources>
