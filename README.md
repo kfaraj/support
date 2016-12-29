@@ -26,3 +26,16 @@ This library can be included with the following dependency:
 ```groovy
 compile 'com.kfaraj.support:appcompat:1.1.0'
 ```
+
+recyclerview library
+--------------------
+
+This library adds support for [recyclerview](https://developer.android.com/topic/libraries/support-library/features.html#v7-recyclerview) and is designed to be used with Android 3.0 (API level 11) and higher.
+
+It adds support for empty view and item click to the following class:
+- [SupportRecyclerView](recyclerview/src/main/java/com/kfaraj/support/widget/SupportRecyclerView.java)
+
+This library can be included with the following dependency:
+```groovy
+compile 'com.kfaraj.support:recyclerview:1.1.0'
+```
