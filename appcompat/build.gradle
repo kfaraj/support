@@ -7,11 +7,15 @@ android {
     defaultConfig {
         minSdkVersion 11
         targetSdkVersion 25
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 }
 
 dependencies {
     compile 'com.android.support:appcompat-v7:25.1.0'
+    androidTestCompile 'com.android.support:support-annotations:25.1.0'
+    androidTestCompile 'com.android.support.test:runner:0.5'
+    androidTestCompile 'com.android.support.test:rules:0.5'
 }
 
 apply from: '../bintray.gradle'
