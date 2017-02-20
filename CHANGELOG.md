@@ -1,7 +1,7 @@
 Versions
 ========
 
-The support library uses [Semantic Versioning](http://semver.org).
+This library uses [Semantic Versioning](http://semver.org).
 
 Version 1.1.0
 -------------

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Support library</string>
+    <string name="app_name">Support Library</string>
     <string name="appcompat">appcompat</string>
     <string name="recyclerview">recyclerview</string>
     <string name="empty">No items</string>

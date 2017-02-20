@@ -15,7 +15,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 
 /**
- * Demonstrates the features of the support library.
+ * Demonstrates the features of the Support Library.
  */
 public class SampleActivity extends AppCompatActivity implements OnClickListener, OnNavigationItemSelectedListener {
 
