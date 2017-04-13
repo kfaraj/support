@@ -43,6 +43,15 @@ public class RecyclerViewFragment extends Fragment implements OnClickListener, O
     private View mFab;
 
     /**
+     * Creates a new instance of this fragment class.
+     *
+     * @return a new instance of this fragment class.
+     */
+    public static RecyclerViewFragment newInstance() {
+        return new RecyclerViewFragment();
+    }
+
+    /**
      * {@inheritDoc}
      */
     @Override

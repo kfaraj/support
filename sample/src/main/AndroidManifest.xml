@@ -12,7 +12,7 @@
         tools:ignore="GoogleAppIndexingWarning">
 
         <activity
-            android:name="com.kfaraj.support.sample.SampleActivity"
+            android:name=".SampleActivity"
             android:theme="@style/AppTheme.NavigationDrawer">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -88,10 +88,10 @@ public class SampleActivity extends AppCompatActivity implements OnClickListener
         final Fragment fragment;
         switch (id) {
             case R.id.appcompat:
-                fragment = new AppCompatFragment();
+                fragment = AppCompatFragment.newInstance();
                 break;
             case R.id.recyclerview:
-                fragment = new RecyclerViewFragment();
+                fragment = RecyclerViewFragment.newInstance();
                 break;
             default:
                 fragment = null;

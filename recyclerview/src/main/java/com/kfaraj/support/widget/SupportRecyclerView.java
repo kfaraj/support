@@ -16,6 +16,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnLongClickListener;
+import android.widget.AbsListView;
 import android.widget.Checkable;
 
 import com.kfaraj.support.recyclerview.R;
@@ -102,22 +103,22 @@ public class SupportRecyclerView extends RecyclerView implements OnClickListener
     /**
      * The list does not indicate choices.
      */
-    public static final int CHOICE_MODE_NONE = 0;
+    public static final int CHOICE_MODE_NONE = AbsListView.CHOICE_MODE_NONE;
 
     /**
      * The list allows up to one choice.
      */
-    public static final int CHOICE_MODE_SINGLE = 1;
+    public static final int CHOICE_MODE_SINGLE = AbsListView.CHOICE_MODE_SINGLE;
 
     /**
      * The list allows multiple choices.
      */
-    public static final int CHOICE_MODE_MULTIPLE = 2;
+    public static final int CHOICE_MODE_MULTIPLE = AbsListView.CHOICE_MODE_MULTIPLE;
 
     /**
      * The list allows multiple choices in a modal selection mode.
      */
-    public static final int CHOICE_MODE_MULTIPLE_MODAL = 3;
+    public static final int CHOICE_MODE_MULTIPLE_MODAL = AbsListView.CHOICE_MODE_MULTIPLE_MODAL;
 
     private static final String KEY_SUPER_STATE = "super_state";
     private static final String KEY_CHOICE_MODE = "choice_mode";

@@ -13,6 +13,15 @@ import android.view.ViewGroup;
 public class AppCompatFragment extends Fragment {
 
     /**
+     * Creates a new instance of this fragment class.
+     *
+     * @return a new instance of this fragment class.
+     */
+    public static AppCompatFragment newInstance() {
+        return new AppCompatFragment();
+    }
+
+    /**
      * {@inheritDoc}
      */
     @Override
