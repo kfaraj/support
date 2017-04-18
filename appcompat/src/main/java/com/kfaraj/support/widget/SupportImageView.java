@@ -14,7 +14,7 @@ import com.kfaraj.support.appcompat.R;
 import com.kfaraj.support.view.TintableImageView;
 
 /**
- * Adds support for {@link AppCompatImageView}.
+ * Adds support for image drawable tint.
  * <ul>
  * <li>{@link #setSupportImageTintList(ColorStateList)}</li>
  * <li>{@link #getSupportImageTintList()}</li>

@@ -14,7 +14,7 @@ import com.kfaraj.support.appcompat.R;
 import com.kfaraj.support.view.TintableTextView;
 
 /**
- * Adds support for {@link AppCompatEditText}.
+ * Adds support for compound drawables tint.
  * <ul>
  * <li>{@link #setSupportCompoundDrawableTintList(ColorStateList)}</li>
  * <li>{@link #getSupportCompoundDrawableTintList()}</li>

@@ -23,7 +23,7 @@ import com.kfaraj.support.recyclerview.R;
 import com.kfaraj.support.util.SparseLongArray;
 
 /**
- * Adds support for {@link RecyclerView}.
+ * Adds support for empty view, item click and choice mode.
  * <ul>
  * <li>{@link #setEmptyView(View)}</li>
  * <li>{@link #getEmptyView()}</li>
