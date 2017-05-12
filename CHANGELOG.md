@@ -9,10 +9,12 @@ Version 1.1.1
 **2017-04-23**
 
 Changes for appcompat library:
-- Updated dependencies.
+- Updated the v7 appcompat library version to 25.3.1.
+- Updated the documentation.
 
 Changes for recyclerview library:
-- Updated dependencies.
+- Updated the v7 recyclerview library version to 25.3.1.
+- Updated the documentation.
 
 Version 1.1.0
 -------------
@@ -20,7 +22,7 @@ Version 1.1.0
 **2017-01-10**
 
 Changes for appcompat library:
-- Updated dependencies.
+- Updated the v7 appcompat library version to 25.1.0.
 
 New recyclerview library:
 - Added support for empty view.
@@ -33,8 +35,8 @@ Version 1.0.2
 **2016-11-13**
 
 Changes for appcompat library:
-- Updated `targetSdkVersion` to API level 25.
-- Updated dependencies.
+- Updated the target SDK version to API level 25.
+- Updated the v7 appcompat library version to 25.0.0.
 
 Version 1.0.1
 -------------
@@ -43,6 +45,7 @@ Version 1.0.1
 
 Changes for appcompat library:
 - Allowed subclasses to use their own base style when they are inflating.
+- Updated the documentation.
 
 Version 1.0.0
 -------------
