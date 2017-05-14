@@ -32,34 +32,34 @@ public class SupportRadioButton extends AppCompatRadioButton implements Tintable
     private TextViewHelper mHelper;
 
     /**
-     * Constructor
+     * Constructor.
      *
      * @param context the context.
      */
-    public SupportRadioButton(Context context) {
+    public SupportRadioButton(@NonNull Context context) {
         super(context);
         init(context, null, 0);
     }
 
     /**
-     * Constructor
+     * Constructor.
      *
      * @param context the context.
      * @param attrs the attributes.
      */
-    public SupportRadioButton(Context context, AttributeSet attrs) {
+    public SupportRadioButton(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         init(context, attrs, 0);
     }
 
     /**
-     * Constructor
+     * Constructor.
      *
      * @param context the context.
      * @param attrs the attributes.
-     * @param defStyleAttr the default style.
+     * @param defStyleAttr the default style attribute.
      */
-    public SupportRadioButton(Context context, AttributeSet attrs, int defStyleAttr) {
+    public SupportRadioButton(@NonNull Context context, @Nullable AttributeSet attrs, @AttrRes int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(context, attrs, defStyleAttr);
     }
@@ -69,7 +69,7 @@ public class SupportRadioButton extends AppCompatRadioButton implements Tintable
      *
      * @param context the context.
      * @param attrs the attributes.
-     * @param defStyleAttr the default style.
+     * @param defStyleAttr the default style attribute.
      */
     private void init(@NonNull Context context, @Nullable AttributeSet attrs, @AttrRes int defStyleAttr) {
         mHelper = new TextViewHelper(this);

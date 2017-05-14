@@ -138,36 +138,36 @@ public class SupportRecyclerView extends RecyclerView implements OnClickListener
     private final AdapterDataObserver mObserver = new RecyclerViewAdapterDataObserver();
 
     /**
-     * Constructor
+     * Constructor.
      *
      * @param context the context.
      */
-    public SupportRecyclerView(Context context) {
+    public SupportRecyclerView(@NonNull Context context) {
         super(context);
         init(context, null, 0);
     }
 
     /**
-     * Constructor
+     * Constructor.
      *
      * @param context the context.
      * @param attrs the attributes.
      */
-    public SupportRecyclerView(Context context, @Nullable AttributeSet attrs) {
+    public SupportRecyclerView(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         init(context, attrs, 0);
     }
 
     /**
-     * Constructor
+     * Constructor.
      *
      * @param context the context.
      * @param attrs the attributes.
-     * @param defStyle the default style.
+     * @param defStyleAttr the default style attribute.
      */
-    public SupportRecyclerView(Context context, @Nullable AttributeSet attrs, int defStyle) {
-        super(context, attrs, defStyle);
-        init(context, attrs, defStyle);
+    public SupportRecyclerView(@NonNull Context context, @Nullable AttributeSet attrs, @AttrRes int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+        init(context, attrs, defStyleAttr);
     }
 
     /**
@@ -175,7 +175,7 @@ public class SupportRecyclerView extends RecyclerView implements OnClickListener
      *
      * @param context the context.
      * @param attrs the attributes.
-     * @param defStyleAttr the default style.
+     * @param defStyleAttr the default style attribute.
      */
     private void init(@NonNull Context context, @Nullable AttributeSet attrs, @AttrRes int defStyleAttr) {
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.SupportRecyclerView, defStyleAttr, 0);

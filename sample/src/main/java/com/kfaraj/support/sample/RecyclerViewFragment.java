@@ -215,7 +215,7 @@ public class RecyclerViewFragment extends Fragment implements OnClickListener, O
         private final ArrayList<String> mItems = new ArrayList<>();
 
         /**
-         * Constructor
+         * Constructor.
          *
          * @param context the context.
          */
@@ -308,7 +308,7 @@ public class RecyclerViewFragment extends Fragment implements OnClickListener, O
         final TextView textView;
 
         /**
-         * Constructor
+         * Constructor.
          *
          * @param itemView the item view.
          */

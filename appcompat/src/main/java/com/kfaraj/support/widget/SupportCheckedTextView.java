@@ -32,34 +32,34 @@ public class SupportCheckedTextView extends AppCompatCheckedTextView implements 
     private TextViewHelper mHelper;
 
     /**
-     * Constructor
+     * Constructor.
      *
      * @param context the context.
      */
-    public SupportCheckedTextView(Context context) {
+    public SupportCheckedTextView(@NonNull Context context) {
         super(context);
         init(context, null, 0);
     }
 
     /**
-     * Constructor
+     * Constructor.
      *
      * @param context the context.
      * @param attrs the attributes.
      */
-    public SupportCheckedTextView(Context context, AttributeSet attrs) {
+    public SupportCheckedTextView(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         init(context, attrs, 0);
     }
 
     /**
-     * Constructor
+     * Constructor.
      *
      * @param context the context.
      * @param attrs the attributes.
-     * @param defStyleAttr the default style.
+     * @param defStyleAttr the default style attribute.
      */
-    public SupportCheckedTextView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public SupportCheckedTextView(@NonNull Context context, @Nullable AttributeSet attrs, @AttrRes int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(context, attrs, defStyleAttr);
     }
@@ -69,7 +69,7 @@ public class SupportCheckedTextView extends AppCompatCheckedTextView implements 
      *
      * @param context the context.
      * @param attrs the attributes.
-     * @param defStyleAttr the default style.
+     * @param defStyleAttr the default style attribute.
      */
     private void init(@NonNull Context context, @Nullable AttributeSet attrs, @AttrRes int defStyleAttr) {
         mHelper = new TextViewHelper(this);

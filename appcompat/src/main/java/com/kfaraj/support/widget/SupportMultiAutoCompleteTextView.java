@@ -32,34 +32,34 @@ public class SupportMultiAutoCompleteTextView extends AppCompatMultiAutoComplete
     private TextViewHelper mHelper;
 
     /**
-     * Constructor
+     * Constructor.
      *
      * @param context the context.
      */
-    public SupportMultiAutoCompleteTextView(Context context) {
+    public SupportMultiAutoCompleteTextView(@NonNull Context context) {
         super(context);
         init(context, null, 0);
     }
 
     /**
-     * Constructor
+     * Constructor.
      *
      * @param context the context.
      * @param attrs the attributes.
      */
-    public SupportMultiAutoCompleteTextView(Context context, AttributeSet attrs) {
+    public SupportMultiAutoCompleteTextView(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         init(context, attrs, 0);
     }
 
     /**
-     * Constructor
+     * Constructor.
      *
      * @param context the context.
      * @param attrs the attributes.
-     * @param defStyleAttr the default style.
+     * @param defStyleAttr the default style attribute.
      */
-    public SupportMultiAutoCompleteTextView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public SupportMultiAutoCompleteTextView(@NonNull Context context, @Nullable AttributeSet attrs, @AttrRes int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(context, attrs, defStyleAttr);
     }
@@ -69,7 +69,7 @@ public class SupportMultiAutoCompleteTextView extends AppCompatMultiAutoComplete
      *
      * @param context the context.
      * @param attrs the attributes.
-     * @param defStyleAttr the default style.
+     * @param defStyleAttr the default style attribute.
      */
     private void init(@NonNull Context context, @Nullable AttributeSet attrs, @AttrRes int defStyleAttr) {
         mHelper = new TextViewHelper(this);

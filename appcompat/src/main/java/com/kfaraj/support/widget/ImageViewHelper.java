@@ -41,7 +41,7 @@ class ImageViewHelper implements TintableImageView {
     private PorterDuff.Mode mTintMode = PorterDuff.Mode.SRC_IN;
 
     /**
-     * Constructor
+     * Constructor.
      *
      * @param imageView the image view.
      */
@@ -54,7 +54,7 @@ class ImageViewHelper implements TintableImageView {
      *
      * @param context the context.
      * @param attrs the attributes.
-     * @param defStyleAttr the default style.
+     * @param defStyleAttr the default style attribute.
      */
     void loadFromAttributes(@NonNull Context context, @Nullable AttributeSet attrs, @AttrRes int defStyleAttr) {
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.ImageView, defStyleAttr, 0);

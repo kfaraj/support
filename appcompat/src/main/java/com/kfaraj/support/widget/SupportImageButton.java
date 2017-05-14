@@ -32,34 +32,34 @@ public class SupportImageButton extends AppCompatImageButton implements Tintable
     private ImageViewHelper mHelper;
 
     /**
-     * Constructor
+     * Constructor.
      *
      * @param context the context.
      */
-    public SupportImageButton(Context context) {
+    public SupportImageButton(@NonNull Context context) {
         super(context);
         init(context, null, 0);
     }
 
     /**
-     * Constructor
+     * Constructor.
      *
      * @param context the context.
      * @param attrs the attributes.
      */
-    public SupportImageButton(Context context, AttributeSet attrs) {
+    public SupportImageButton(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         init(context, attrs, 0);
     }
 
     /**
-     * Constructor
+     * Constructor.
      *
      * @param context the context.
      * @param attrs the attributes.
-     * @param defStyleAttr the default style.
+     * @param defStyleAttr the default style attribute.
      */
-    public SupportImageButton(Context context, AttributeSet attrs, int defStyleAttr) {
+    public SupportImageButton(@NonNull Context context, @Nullable AttributeSet attrs, @AttrRes int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(context, attrs, defStyleAttr);
     }
@@ -69,7 +69,7 @@ public class SupportImageButton extends AppCompatImageButton implements Tintable
      *
      * @param context the context.
      * @param attrs the attributes.
-     * @param defStyleAttr the default style.
+     * @param defStyleAttr the default style attribute.
      */
     private void init(@NonNull Context context, @Nullable AttributeSet attrs, @AttrRes int defStyleAttr) {
         mHelper = new ImageViewHelper(this);

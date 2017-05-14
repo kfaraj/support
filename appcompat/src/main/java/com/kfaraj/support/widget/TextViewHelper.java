@@ -40,7 +40,7 @@ class TextViewHelper implements TintableTextView {
     private PorterDuff.Mode mTintMode = PorterDuff.Mode.SRC_IN;
 
     /**
-     * Constructor
+     * Constructor.
      *
      * @param textView the text view.
      */
@@ -53,7 +53,7 @@ class TextViewHelper implements TintableTextView {
      *
      * @param context the context.
      * @param attrs the attributes.
-     * @param defStyleAttr the default style.
+     * @param defStyleAttr the default style attribute.
      */
     void loadFromAttributes(@NonNull Context context, @Nullable AttributeSet attrs, @AttrRes int defStyleAttr) {
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.TextView, defStyleAttr, 0);

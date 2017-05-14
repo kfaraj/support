@@ -24,13 +24,13 @@ public class SparseLongArray extends SparseArray<Long> implements Parcelable {
     };
 
     /**
-     * Constructor
+     * Constructor.
      */
     public SparseLongArray() {
     }
 
     /**
-     * Constructor
+     * Constructor.
      *
      * @param source the source.
      */
