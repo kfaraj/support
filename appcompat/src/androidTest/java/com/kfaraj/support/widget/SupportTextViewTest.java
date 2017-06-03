@@ -16,7 +16,7 @@ public class SupportTextViewTest extends TintableTextViewTest<SupportTextView> {
 
     @Before
     public void setUp() {
-        Context context = InstrumentationRegistry.getContext();
+        final Context context = InstrumentationRegistry.getContext();
         mTextView = new SupportTextView(context);
     }
 

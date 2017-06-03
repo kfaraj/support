@@ -16,7 +16,7 @@ public class SupportImageButtonTest extends TintableImageViewTest<SupportImageBu
 
     @Before
     public void setUp() {
-        Context context = InstrumentationRegistry.getContext();
+        final Context context = InstrumentationRegistry.getContext();
         mImageView = new SupportImageButton(context);
     }
 

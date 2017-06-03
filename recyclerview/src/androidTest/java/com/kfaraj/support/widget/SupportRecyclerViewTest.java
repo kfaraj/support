@@ -7,10 +7,14 @@ import android.support.test.runner.AndroidJUnit4;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.SparseBooleanArray;
+import android.view.ActionMode;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.MeasureSpec;
 import android.view.ViewGroup;
 
+import com.kfaraj.support.widget.SupportRecyclerView.MultiChoiceModeListener;
 import com.kfaraj.support.widget.SupportRecyclerView.OnItemClickListener;
 import com.kfaraj.support.widget.SupportRecyclerView.OnItemLongClickListener;
 
@@ -33,29 +37,64 @@ public class SupportRecyclerViewTest {
     private MockAdapter mAdapter;
     private MockOnItemClickListener mOnItemClickListener;
     private MockOnItemLongClickListener mOnItemLongClickListener;
+    private MockMultiChoiceModeListener mMultiChoiceModeListener;
 
     @Before
     public void setUp() {
-        Context context = InstrumentationRegistry.getContext();
+        final Context context = InstrumentationRegistry.getContext();
         mRecyclerView = new SupportRecyclerView(context);
         mEmptyView = new View(context);
         mAdapter = new MockAdapter();
         mOnItemClickListener = new MockOnItemClickListener();
         mOnItemLongClickListener = new MockOnItemLongClickListener();
+        mMultiChoiceModeListener = new MockMultiChoiceModeListener();
         mRecyclerView.setLayoutManager(new LinearLayoutManager(context));
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.setEmptyView(mEmptyView);
         mRecyclerView.setOnItemClickListener(mOnItemClickListener);
         mRecyclerView.setOnItemLongClickListener(mOnItemLongClickListener);
+        mRecyclerView.setMultiChoiceModeListener(mMultiChoiceModeListener);
     }
 
     @Test
     public void testEmptyView() {
+        assertEquals(mEmptyView, mRecyclerView.getEmptyView());
+        mAdapter.clear();
         requestLayout();
         assertEquals(View.VISIBLE, mEmptyView.getVisibility());
         mAdapter.insert(0);
         requestLayout();
         assertEquals(View.GONE, mEmptyView.getVisibility());
+    }
+
+    @Test
+    public void testOnItemClickListener() {
+        assertEquals(mOnItemClickListener, mRecyclerView.getOnItemClickListener());
+        mAdapter.insert(0);
+        requestLayout();
+        mRecyclerView.getChildAt(0).performClick();
+        assertTrue(mOnItemClickListener.called);
+    }
+
+    @Test
+    public void testOnItemLongClickListener() {
+        assertEquals(mOnItemLongClickListener, mRecyclerView.getOnItemLongClickListener());
+        mAdapter.insert(0);
+        requestLayout();
+        mRecyclerView.getChildAt(0).performLongClick();
+        assertTrue(mOnItemLongClickListener.called);
+    }
+
+    @Test
+    public void testChoiceMode() {
+        mRecyclerView.setChoiceMode(SupportRecyclerView.CHOICE_MODE_NONE);
+        assertEquals(SupportRecyclerView.CHOICE_MODE_NONE, mRecyclerView.getChoiceMode());
+        mRecyclerView.setChoiceMode(SupportRecyclerView.CHOICE_MODE_SINGLE);
+        assertEquals(SupportRecyclerView.CHOICE_MODE_SINGLE, mRecyclerView.getChoiceMode());
+        mRecyclerView.setChoiceMode(SupportRecyclerView.CHOICE_MODE_MULTIPLE);
+        assertEquals(SupportRecyclerView.CHOICE_MODE_MULTIPLE, mRecyclerView.getChoiceMode());
+        mRecyclerView.setChoiceMode(SupportRecyclerView.CHOICE_MODE_MULTIPLE_MODAL);
+        assertEquals(SupportRecyclerView.CHOICE_MODE_MULTIPLE_MODAL, mRecyclerView.getChoiceMode());
     }
 
     @Test
@@ -247,6 +286,11 @@ public class SupportRecyclerViewTest {
         assertEquals(mRecyclerView.getCheckedItemCount(), ids.length);
     }
 
+    @Test
+    public void testMultiChoiceModeListener() {
+        assertEquals(mMultiChoiceModeListener, mRecyclerView.getMultiChoiceModeListener());
+    }
+
     private void requestLayout() {
         final int widthMeasureSpec = MeasureSpec.makeMeasureSpec(320, MeasureSpec.EXACTLY);
         final int heightMeasureSpec = MeasureSpec.makeMeasureSpec(320, MeasureSpec.EXACTLY);
@@ -260,6 +304,11 @@ public class SupportRecyclerViewTest {
 
         MockAdapter() {
             setHasStableIds(true);
+        }
+
+        void clear() {
+            mItems.clear();
+            notifyDataSetChanged();
         }
 
         void insert(int position) {
@@ -326,6 +375,33 @@ public class SupportRecyclerViewTest {
         public boolean onItemLongClick(SupportRecyclerView parent, View view, int position, long id) {
             this.called = true;
             return true;
+        }
+
+    }
+
+    private static class MockMultiChoiceModeListener implements MultiChoiceModeListener {
+
+        @Override
+        public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+            return true;
+        }
+
+        @Override
+        public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
+            return true;
+        }
+
+        @Override
+        public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
+            return true;
+        }
+
+        @Override
+        public void onDestroyActionMode(ActionMode mode) {
+        }
+
+        @Override
+        public void onItemCheckedStateChanged(ActionMode mode, int position, long id, boolean checked) {
         }
 
     }

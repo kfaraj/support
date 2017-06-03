@@ -13,21 +13,24 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import static com.kfaraj.support.util.TestUtils.assertAllPixelsOfColor;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
 
 @RunWith(AndroidJUnit4.class)
 @SmallTest
-public abstract class TintableTextViewTest<T extends TextView> {
+public abstract class TintableTextViewTest<T extends TextView & TintableTextView> {
 
     protected T mTextView;
 
     @Test
     public void testSupportCompoundDrawableTint() {
-        assertTrue(mTextView instanceof TintableTextView);
+        final ColorStateList tint = ColorStateList.valueOf(Color.BLACK);
+        final PorterDuff.Mode tintMode = PorterDuff.Mode.MULTIPLY;
         mTextView.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_white_24dp, 0, 0, 0);
-        ((TintableTextView) mTextView).setSupportCompoundDrawableTintList(ColorStateList.valueOf(Color.RED));
-        ((TintableTextView) mTextView).setSupportCompoundDrawableTintMode(PorterDuff.Mode.MULTIPLY);
-        assertAllPixelsOfColor(mTextView.getCompoundDrawables()[0], Color.RED);
+        mTextView.setSupportCompoundDrawableTintList(tint);
+        mTextView.setSupportCompoundDrawableTintMode(tintMode);
+        assertEquals(tint, mTextView.getSupportCompoundDrawableTintList());
+        assertEquals(tintMode, mTextView.getSupportCompoundDrawableTintMode());
+        assertAllPixelsOfColor(mTextView.getCompoundDrawables()[0], tint.getDefaultColor());
     }
 
 }

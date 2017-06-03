@@ -16,7 +16,7 @@ public class SupportEditTextTest extends TintableTextViewTest<SupportEditText> {
 
     @Before
     public void setUp() {
-        Context context = InstrumentationRegistry.getContext();
+        final Context context = InstrumentationRegistry.getContext();
         mTextView = new SupportEditText(context);
     }
 

@@ -7,7 +7,6 @@ import android.support.annotation.Nullable;
 /**
  * Adds support for compound drawables tint.
  */
-@SuppressWarnings("unused")
 public interface TintableTextView {
 
     /**

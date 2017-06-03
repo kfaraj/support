@@ -16,11 +16,11 @@ public class SupportAutoCompleteTextViewTest extends TintableTextViewTest<Suppor
 
     @Before
     public void setUp() {
-        // AutoCompleteTextView must be instantiated in the main thread.
+        // AutoCompleteTextView must be instantiated in the main thread prior to M.
         InstrumentationRegistry.getInstrumentation().runOnMainSync(new Runnable() {
             @Override
             public void run() {
-                Context context = InstrumentationRegistry.getContext();
+                final Context context = InstrumentationRegistry.getContext();
                 mTextView = new SupportAutoCompleteTextView(context);
             }
         });

@@ -16,7 +16,7 @@ public class SupportButtonTest extends TintableTextViewTest<SupportButton> {
 
     @Before
     public void setUp() {
-        Context context = InstrumentationRegistry.getContext();
+        final Context context = InstrumentationRegistry.getContext();
         mTextView = new SupportButton(context);
     }
 

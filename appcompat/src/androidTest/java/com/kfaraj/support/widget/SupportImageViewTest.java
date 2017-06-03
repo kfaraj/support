@@ -16,7 +16,7 @@ public class SupportImageViewTest extends TintableImageViewTest<SupportImageView
 
     @Before
     public void setUp() {
-        Context context = InstrumentationRegistry.getContext();
+        final Context context = InstrumentationRegistry.getContext();
         mImageView = new SupportImageView(context);
     }
 

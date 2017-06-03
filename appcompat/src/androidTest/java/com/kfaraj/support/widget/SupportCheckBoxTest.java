@@ -16,7 +16,7 @@ public class SupportCheckBoxTest extends TintableTextViewTest<SupportCheckBox> {
 
     @Before
     public void setUp() {
-        Context context = InstrumentationRegistry.getContext();
+        final Context context = InstrumentationRegistry.getContext();
         mTextView = new SupportCheckBox(context);
     }
 

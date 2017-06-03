@@ -16,7 +16,7 @@ public class SupportRadioButtonTest extends TintableTextViewTest<SupportRadioBut
 
     @Before
     public void setUp() {
-        Context context = InstrumentationRegistry.getContext();
+        final Context context = InstrumentationRegistry.getContext();
         mTextView = new SupportRadioButton(context);
     }
 

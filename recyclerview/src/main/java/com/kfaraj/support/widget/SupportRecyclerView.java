@@ -45,7 +45,6 @@ import com.kfaraj.support.util.SparseLongArray;
  * <li>{@link R.attr#choiceMode}</li>
  * </ul>
  */
-@SuppressWarnings("unused")
 public class SupportRecyclerView extends RecyclerView implements OnClickListener, OnLongClickListener, ActionMode.Callback {
 
     /**

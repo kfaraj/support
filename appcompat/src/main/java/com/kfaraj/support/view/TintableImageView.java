@@ -7,7 +7,6 @@ import android.support.annotation.Nullable;
 /**
  * Adds support for image drawable tint.
  */
-@SuppressWarnings("unused")
 public interface TintableImageView {
 
     /**
