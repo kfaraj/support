@@ -3,6 +3,19 @@ Versions
 
 This library uses [Semantic Versioning](http://semver.org).
 
+Version 1.1.2
+-------------
+
+**2017-06-11**
+
+Changes for appcompat library:
+- Updated the annotations.
+- Updated the documentation.
+
+Changes for recyclerview library:
+- Updated the annotations.
+- Updated the documentation.
+
 Version 1.1.1
 -------------
 
