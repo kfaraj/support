@@ -326,8 +326,8 @@ public class SupportRecyclerView extends RecyclerView implements OnClickListener
         } else if (mChoiceMode == CHOICE_MODE_MULTIPLE_MODAL) {
             if (getCheckedItemCount() == 0) {
                 setItemChecked(position, true);
-                return true;
             }
+            return true;
         }
         return false;
     }
@@ -608,9 +608,62 @@ public class SupportRecyclerView extends RecyclerView implements OnClickListener
     }
 
     /**
+     * Returns the adapter position of the item represented by this id.
+     *
+     * @param id the item id.
+     * @return the adapter position of the item represented by this id.
+     */
+    private int getAdapterPosition(long id) {
+        if (mAdapter != null && mAdapter.hasStableIds()) {
+            final int count = mAdapter.getItemCount();
+            for (int i = 0; i < count; i++) {
+                if (mAdapter.getItemId(i) == id) {
+                    return i;
+                }
+            }
+        }
+        return NO_POSITION;
+    }
+
+    /**
      * Observer class for watching changes to the adapter.
      */
     private class RecyclerViewAdapterDataObserver extends AdapterDataObserver {
+
+        /**
+         * {@inheritDoc}
+         */
+        @Override
+        public void onChanged() {
+            super.onChanged();
+            if (mAdapter != null && mAdapter.hasStableIds()) {
+                for (int i = 0; i < mCheckedItems.size(); i++) {
+                    final int position = mCheckedItems.keyAt(i);
+                    final Long id = mCheckedItems.valueAt(i);
+                    final int newPosition = getAdapterPosition(id);
+                    final Long newId = mCheckedItems.get(newPosition);
+                    if (newPosition != position) {
+                        if (newPosition != NO_POSITION) {
+                            mCheckedItems.put(newPosition, id);
+                            i = mCheckedItems.indexOfKey(position);
+                            if (newId != null) {
+                                mCheckedItems.setValueAt(i--, newId);
+                            } else {
+                                mCheckedItems.removeAt(i--);
+                            }
+                        } else {
+                            mCheckedItems.removeAt(i--);
+                            if (mActionMode != null && mMultiChoiceModeListener != null) {
+                                mMultiChoiceModeListener.onItemCheckedStateChanged(mActionMode, position, id, false);
+                                if (mCheckedItems.size() == 0) {
+                                    mActionMode.finish();
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
 
         /**
          * {@inheritDoc}

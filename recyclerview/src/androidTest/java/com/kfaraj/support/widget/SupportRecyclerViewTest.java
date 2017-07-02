@@ -23,6 +23,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -227,6 +228,21 @@ public class SupportRecyclerViewTest {
     }
 
     @Test
+    public void testItemChecked_adapterChange() {
+        mRecyclerView.setChoiceMode(SupportRecyclerView.CHOICE_MODE_MULTIPLE);
+        mAdapter.insert(0);
+        mAdapter.insert(1);
+        mRecyclerView.setItemChecked(0, false);
+        mRecyclerView.setItemChecked(1, true);
+        mAdapter.getItems().remove(0);
+        mAdapter.getItems().add(0, new Object());
+        Collections.swap(mAdapter.getItems(), 0, 1);
+        mAdapter.notifyDataSetChanged();
+        assertEquals(1, mRecyclerView.getCheckedItemCount());
+        assertTrue(mRecyclerView.isItemChecked(0));
+    }
+
+    @Test
     public void testItemChecked_adapterInsert() {
         mRecyclerView.setChoiceMode(SupportRecyclerView.CHOICE_MODE_MULTIPLE);
         mAdapter.insert(0);
@@ -324,6 +340,10 @@ public class SupportRecyclerViewTest {
         void move(int fromPosition, int toPosition) {
             mItems.add(toPosition, mItems.remove(fromPosition));
             notifyItemMoved(fromPosition, toPosition);
+        }
+
+        ArrayList<Object> getItems() {
+            return mItems;
         }
 
         @Override

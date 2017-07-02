@@ -220,6 +220,7 @@ public class RecyclerViewFragment extends Fragment implements OnClickListener, O
          * @param context the context.
          */
         Adapter(Context context) {
+            setHasStableIds(true);
             mInflater = LayoutInflater.from(context);
         }
 
@@ -288,6 +289,14 @@ public class RecyclerViewFragment extends Fragment implements OnClickListener, O
         @Override
         public void onBindViewHolder(ViewHolder holder, int position) {
             holder.textView.setText(mItems.get(position));
+        }
+
+        /**
+         * {@inheritDoc}
+         */
+        @Override
+        public long getItemId(int position) {
+            return mItems.get(position).hashCode();
         }
 
         /**
