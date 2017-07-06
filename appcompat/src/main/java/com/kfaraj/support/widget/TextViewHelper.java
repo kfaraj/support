@@ -32,11 +32,13 @@ class TextViewHelper implements TintableTextView {
     /**
      * The tint.
      */
+    @Nullable
     private ColorStateList mTint = null;
 
     /**
      * The tint mode.
      */
+    @Nullable
     private PorterDuff.Mode mTintMode = PorterDuff.Mode.SRC_IN;
 
     /**

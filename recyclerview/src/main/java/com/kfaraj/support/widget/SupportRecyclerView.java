@@ -530,8 +530,9 @@ public class SupportRecyclerView extends RecyclerView implements OnClickListener
      * @return the set of checked items in the list.
      */
     public SparseBooleanArray getCheckedItemPositions() {
-        SparseBooleanArray positions = new SparseBooleanArray(mCheckedItems.size());
-        for (int i = 0; i < mCheckedItems.size(); i++) {
+        final int count = mCheckedItems.size();
+        SparseBooleanArray positions = new SparseBooleanArray(count);
+        for (int i = 0; i < count; i++) {
             positions.put(mCheckedItems.keyAt(i), true);
         }
         return positions;
@@ -543,8 +544,9 @@ public class SupportRecyclerView extends RecyclerView implements OnClickListener
      * @return the set of checked items ids.
      */
     public long[] getCheckedItemIds() {
-        long[] ids = new long[mCheckedItems.size()];
-        for (int i = 0; i < mCheckedItems.size(); i++) {
+        final int count = mCheckedItems.size();
+        long[] ids = new long[count];
+        for (int i = 0; i < count; i++) {
             ids[i] = mCheckedItems.valueAt(i);
         }
         return ids;

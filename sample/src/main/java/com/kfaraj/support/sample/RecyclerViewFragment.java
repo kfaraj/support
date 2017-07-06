@@ -24,6 +24,7 @@ import com.kfaraj.support.widget.SupportRecyclerView.OnItemClickListener;
 import com.kfaraj.support.widget.SupportRecyclerView.OnItemLongClickListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.UUID;
 
 /**
@@ -60,7 +61,10 @@ public class RecyclerViewFragment extends Fragment implements OnClickListener, O
         mAdapter = new Adapter(getActivity());
         if (savedInstanceState != null) {
             ArrayList<String> items = savedInstanceState.getStringArrayList(KEY_ITEMS);
-            mAdapter.addAll(items);
+            if (items != null) {
+                mAdapter.getItems().addAll(items);
+                mAdapter.notifyDataSetChanged();
+            }
         }
     }
 
@@ -101,15 +105,17 @@ public class RecyclerViewFragment extends Fragment implements OnClickListener, O
                 ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
             @Override
             public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
-                int fromPosition = viewHolder.getAdapterPosition();
-                int toPosition = target.getAdapterPosition();
-                mAdapter.move(fromPosition, toPosition);
+                final int fromPosition = viewHolder.getAdapterPosition();
+                final int toPosition = target.getAdapterPosition();
+                Collections.swap(mAdapter.getItems(), fromPosition, toPosition);
+                mAdapter.notifyItemMoved(fromPosition, toPosition);
                 return true;
             }
             @Override
             public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
-                int position = viewHolder.getAdapterPosition();
-                mAdapter.remove(position);
+                final int position = viewHolder.getAdapterPosition();
+                mAdapter.getItems().remove(position);
+                mAdapter.notifyItemRemoved(position);
             }
         };
         ItemTouchHelper helper = new ItemTouchHelper(callback);
@@ -132,7 +138,8 @@ public class RecyclerViewFragment extends Fragment implements OnClickListener, O
     @Override
     public void onClick(View v) {
         if (v == mFab) {
-            mAdapter.add(UUID.randomUUID().toString());
+            mAdapter.getItems().add(0, UUID.randomUUID().toString());
+            mAdapter.notifyItemInserted(0);
         }
     }
 
@@ -170,8 +177,8 @@ public class RecyclerViewFragment extends Fragment implements OnClickListener, O
      */
     @Override
     public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
-        int itemCount = mRecyclerView.getCheckedItemCount();
-        mode.setTitle(String.valueOf(itemCount));
+        final int count = mRecyclerView.getCheckedItemCount();
+        mode.setTitle(String.valueOf(count));
         return true;
     }
 
@@ -180,10 +187,12 @@ public class RecyclerViewFragment extends Fragment implements OnClickListener, O
      */
     @Override
     public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
-        if (item.getItemId() == R.id.delete) {
-            for (int i = 0; i < mAdapter.getItemCount(); i++) {
+        final int id = item.getItemId();
+        if (id == R.id.delete) {
+            for (int i = mAdapter.getItemCount() - 1; i >= 0; i--) {
                 if (mRecyclerView.isItemChecked(i)) {
-                    mAdapter.remove(i--);
+                    mAdapter.getItems().remove(i);
+                    mAdapter.notifyItemRemoved(i);
                 }
             }
             return true;
@@ -222,47 +231,6 @@ public class RecyclerViewFragment extends Fragment implements OnClickListener, O
         Adapter(Context context) {
             setHasStableIds(true);
             mInflater = LayoutInflater.from(context);
-        }
-
-        /**
-         * Adds an item.
-         *
-         * @param item the item.
-         */
-        void add(String item) {
-            mItems.add(0, item);
-            notifyItemInserted(0);
-        }
-
-        /**
-         * Adds all items.
-         *
-         * @param items the items.
-         */
-        void addAll(ArrayList<String> items) {
-            mItems.addAll(0, items);
-            notifyItemRangeInserted(0, items.size());
-        }
-
-        /**
-         * Moves an item.
-         *
-         * @param fromPosition the old position.
-         * @param toPosition the new position.
-         */
-        void move(int fromPosition, int toPosition) {
-            mItems.add(toPosition, mItems.remove(fromPosition));
-            notifyItemMoved(fromPosition, toPosition);
-        }
-
-        /**
-         * Removes an item.
-         *
-         * @param position the item position.
-         */
-        void remove(int position) {
-            mItems.remove(position);
-            notifyItemRemoved(position);
         }
 
         /**

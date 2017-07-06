@@ -60,19 +60,16 @@ public class SupportRecyclerViewTest {
     @Test
     public void testEmptyView() {
         assertEquals(mEmptyView, mRecyclerView.getEmptyView());
-        mAdapter.clear();
-        requestLayout();
+        populateAdapter(0);
         assertEquals(View.VISIBLE, mEmptyView.getVisibility());
-        mAdapter.insert(0);
-        requestLayout();
+        populateAdapter(1);
         assertEquals(View.GONE, mEmptyView.getVisibility());
     }
 
     @Test
     public void testOnItemClickListener() {
         assertEquals(mOnItemClickListener, mRecyclerView.getOnItemClickListener());
-        mAdapter.insert(0);
-        requestLayout();
+        populateAdapter(1);
         mRecyclerView.getChildAt(0).performClick();
         assertTrue(mOnItemClickListener.called);
     }
@@ -80,8 +77,7 @@ public class SupportRecyclerViewTest {
     @Test
     public void testOnItemLongClickListener() {
         assertEquals(mOnItemLongClickListener, mRecyclerView.getOnItemLongClickListener());
-        mAdapter.insert(0);
-        requestLayout();
+        populateAdapter(1);
         mRecyclerView.getChildAt(0).performLongClick();
         assertTrue(mOnItemLongClickListener.called);
     }
@@ -101,8 +97,7 @@ public class SupportRecyclerViewTest {
     @Test
     public void testItemClick_choiceModeNone() {
         mRecyclerView.setChoiceMode(SupportRecyclerView.CHOICE_MODE_NONE);
-        mAdapter.insert(0);
-        requestLayout();
+        populateAdapter(1);
         mRecyclerView.getChildAt(0).performClick();
         assertFalse(mRecyclerView.isItemChecked(0));
         assertTrue(mOnItemClickListener.called);
@@ -111,8 +106,7 @@ public class SupportRecyclerViewTest {
     @Test
     public void testItemClick_choiceModeSingle() {
         mRecyclerView.setChoiceMode(SupportRecyclerView.CHOICE_MODE_SINGLE);
-        mAdapter.insert(0);
-        requestLayout();
+        populateAdapter(1);
         mRecyclerView.getChildAt(0).performClick();
         assertTrue(mRecyclerView.isItemChecked(0));
         assertTrue(mOnItemClickListener.called);
@@ -121,8 +115,7 @@ public class SupportRecyclerViewTest {
     @Test
     public void testItemClick_choiceModeMultiple() {
         mRecyclerView.setChoiceMode(SupportRecyclerView.CHOICE_MODE_MULTIPLE);
-        mAdapter.insert(0);
-        requestLayout();
+        populateAdapter(1);
         mRecyclerView.getChildAt(0).performClick();
         assertTrue(mRecyclerView.isItemChecked(0));
         assertTrue(mOnItemClickListener.called);
@@ -131,8 +124,7 @@ public class SupportRecyclerViewTest {
     @Test
     public void testItemClick_choiceModeMultipleModal() {
         mRecyclerView.setChoiceMode(SupportRecyclerView.CHOICE_MODE_MULTIPLE_MODAL);
-        mAdapter.insert(0);
-        requestLayout();
+        populateAdapter(1);
         mRecyclerView.getChildAt(0).performClick();
         assertFalse(mRecyclerView.isItemChecked(0));
         assertTrue(mOnItemClickListener.called);
@@ -141,8 +133,7 @@ public class SupportRecyclerViewTest {
     @Test
     public void testItemLongClick_choiceModeNone() {
         mRecyclerView.setChoiceMode(SupportRecyclerView.CHOICE_MODE_NONE);
-        mAdapter.insert(0);
-        requestLayout();
+        populateAdapter(1);
         mRecyclerView.getChildAt(0).performLongClick();
         assertFalse(mRecyclerView.isItemChecked(0));
         assertTrue(mOnItemLongClickListener.called);
@@ -151,8 +142,7 @@ public class SupportRecyclerViewTest {
     @Test
     public void testItemLongClick_choiceModeSingle() {
         mRecyclerView.setChoiceMode(SupportRecyclerView.CHOICE_MODE_SINGLE);
-        mAdapter.insert(0);
-        requestLayout();
+        populateAdapter(1);
         mRecyclerView.getChildAt(0).performLongClick();
         assertFalse(mRecyclerView.isItemChecked(0));
         assertTrue(mOnItemLongClickListener.called);
@@ -161,8 +151,7 @@ public class SupportRecyclerViewTest {
     @Test
     public void testItemLongClick_choiceModeMultiple() {
         mRecyclerView.setChoiceMode(SupportRecyclerView.CHOICE_MODE_MULTIPLE);
-        mAdapter.insert(0);
-        requestLayout();
+        populateAdapter(1);
         mRecyclerView.getChildAt(0).performLongClick();
         assertFalse(mRecyclerView.isItemChecked(0));
         assertTrue(mOnItemLongClickListener.called);
@@ -171,8 +160,7 @@ public class SupportRecyclerViewTest {
     @Test
     public void testItemLongClick_choiceModeMultipleModal() {
         mRecyclerView.setChoiceMode(SupportRecyclerView.CHOICE_MODE_MULTIPLE_MODAL);
-        mAdapter.insert(0);
-        requestLayout();
+        populateAdapter(1);
         mRecyclerView.getChildAt(0).performLongClick();
         assertTrue(mRecyclerView.isItemChecked(0));
         assertFalse(mOnItemLongClickListener.called);
@@ -181,7 +169,7 @@ public class SupportRecyclerViewTest {
     @Test
     public void testItemChecked_choiceModeNone() {
         mRecyclerView.setChoiceMode(SupportRecyclerView.CHOICE_MODE_NONE);
-        mAdapter.insert(0);
+        populateAdapter(1);
         mRecyclerView.setItemChecked(0, true);
         assertEquals(0, mRecyclerView.getCheckedItemCount());
     }
@@ -189,8 +177,7 @@ public class SupportRecyclerViewTest {
     @Test
     public void testItemChecked_choiceModeSingle() {
         mRecyclerView.setChoiceMode(SupportRecyclerView.CHOICE_MODE_SINGLE);
-        mAdapter.insert(0);
-        mAdapter.insert(1);
+        populateAdapter(2);
         mRecyclerView.setItemChecked(0, true);
         mRecyclerView.setItemChecked(1, true);
         assertEquals(1, mRecyclerView.getCheckedItemCount());
@@ -202,8 +189,7 @@ public class SupportRecyclerViewTest {
     @Test
     public void testItemChecked_choiceModeMultiple() {
         mRecyclerView.setChoiceMode(SupportRecyclerView.CHOICE_MODE_MULTIPLE);
-        mAdapter.insert(0);
-        mAdapter.insert(1);
+        populateAdapter(2);
         mRecyclerView.setItemChecked(0, true);
         mRecyclerView.setItemChecked(1, true);
         assertEquals(2, mRecyclerView.getCheckedItemCount());
@@ -216,8 +202,7 @@ public class SupportRecyclerViewTest {
     @Test
     public void testItemChecked_choiceModeMultipleModal() {
         mRecyclerView.setChoiceMode(SupportRecyclerView.CHOICE_MODE_MULTIPLE_MODAL);
-        mAdapter.insert(0);
-        mAdapter.insert(1);
+        populateAdapter(2);
         mRecyclerView.setItemChecked(0, true);
         mRecyclerView.setItemChecked(1, true);
         assertEquals(2, mRecyclerView.getCheckedItemCount());
@@ -230,8 +215,7 @@ public class SupportRecyclerViewTest {
     @Test
     public void testItemChecked_adapterChange() {
         mRecyclerView.setChoiceMode(SupportRecyclerView.CHOICE_MODE_MULTIPLE);
-        mAdapter.insert(0);
-        mAdapter.insert(1);
+        populateAdapter(2);
         mRecyclerView.setItemChecked(0, false);
         mRecyclerView.setItemChecked(1, true);
         mAdapter.getItems().remove(0);
@@ -245,9 +229,10 @@ public class SupportRecyclerViewTest {
     @Test
     public void testItemChecked_adapterInsert() {
         mRecyclerView.setChoiceMode(SupportRecyclerView.CHOICE_MODE_MULTIPLE);
-        mAdapter.insert(0);
+        populateAdapter(1);
         mRecyclerView.setItemChecked(0, true);
-        mAdapter.insert(0);
+        mAdapter.getItems().add(0, new Object());
+        mAdapter.notifyItemInserted(0);
         assertEquals(1, mRecyclerView.getCheckedItemCount());
         assertTrue(mRecyclerView.isItemChecked(1));
     }
@@ -255,11 +240,11 @@ public class SupportRecyclerViewTest {
     @Test
     public void testItemChecked_adapterRemove() {
         mRecyclerView.setChoiceMode(SupportRecyclerView.CHOICE_MODE_MULTIPLE);
-        mAdapter.insert(0);
-        mAdapter.insert(1);
+        populateAdapter(2);
         mRecyclerView.setItemChecked(0, false);
         mRecyclerView.setItemChecked(1, true);
-        mAdapter.remove(0);
+        mAdapter.getItems().remove(0);
+        mAdapter.notifyItemRemoved(0);
         assertEquals(1, mRecyclerView.getCheckedItemCount());
         assertTrue(mRecyclerView.isItemChecked(0));
     }
@@ -267,11 +252,11 @@ public class SupportRecyclerViewTest {
     @Test
     public void testItemChecked_adapterMove() {
         mRecyclerView.setChoiceMode(SupportRecyclerView.CHOICE_MODE_MULTIPLE);
-        mAdapter.insert(0);
-        mAdapter.insert(1);
+        populateAdapter(2);
         mRecyclerView.setItemChecked(0, false);
         mRecyclerView.setItemChecked(1, true);
-        mAdapter.move(0, 1);
+        Collections.swap(mAdapter.getItems(), 0, 1);
+        mAdapter.notifyItemMoved(0, 1);
         assertEquals(1, mRecyclerView.getCheckedItemCount());
         assertTrue(mRecyclerView.isItemChecked(0));
     }
@@ -279,8 +264,8 @@ public class SupportRecyclerViewTest {
     @Test
     public void testCheckedItemPositions() {
         mRecyclerView.setChoiceMode(SupportRecyclerView.CHOICE_MODE_MULTIPLE);
+        populateAdapter(10);
         for (int i = 0; i < 10; i++) {
-            mAdapter.insert(i);
             mRecyclerView.setItemChecked(i, i % 2 == 0);
         }
         SparseBooleanArray positions = mRecyclerView.getCheckedItemPositions();
@@ -294,8 +279,8 @@ public class SupportRecyclerViewTest {
     @Test
     public void testCheckedItemIds() {
         mRecyclerView.setChoiceMode(SupportRecyclerView.CHOICE_MODE_MULTIPLE);
+        populateAdapter(10);
         for (int i = 0; i < 10; i++) {
-            mAdapter.insert(i);
             mRecyclerView.setItemChecked(i, i % 2 == 0);
         }
         long[] ids = mRecyclerView.getCheckedItemIds();
@@ -305,6 +290,15 @@ public class SupportRecyclerViewTest {
     @Test
     public void testMultiChoiceModeListener() {
         assertEquals(mMultiChoiceModeListener, mRecyclerView.getMultiChoiceModeListener());
+    }
+
+    private void populateAdapter(int count) {
+        mAdapter.getItems().clear();
+        for (int i = 0; i < count; i++) {
+            mAdapter.getItems().add(new Object());
+        }
+        mAdapter.notifyDataSetChanged();
+        requestLayout();
     }
 
     private void requestLayout() {
@@ -320,26 +314,6 @@ public class SupportRecyclerViewTest {
 
         MockAdapter() {
             setHasStableIds(true);
-        }
-
-        void clear() {
-            mItems.clear();
-            notifyDataSetChanged();
-        }
-
-        void insert(int position) {
-            mItems.add(position, new Object());
-            notifyItemInserted(position);
-        }
-
-        void remove(int position) {
-            mItems.remove(position);
-            notifyItemRemoved(position);
-        }
-
-        void move(int fromPosition, int toPosition) {
-            mItems.add(toPosition, mItems.remove(fromPosition));
-            notifyItemMoved(fromPosition, toPosition);
         }
 
         ArrayList<Object> getItems() {

@@ -20,7 +20,8 @@ public class TypedArrayUtils {
      * @return the tint mode for the attribute at index.
      */
     public static PorterDuff.Mode getTintMode(@NonNull TypedArray a, @StyleableRes int index, @Nullable PorterDuff.Mode defValue) {
-        switch (a.getInt(index, 0)) {
+        final int value = a.getInt(index, 0);
+        switch (value) {
             case 3:
                 return PorterDuff.Mode.SRC_OVER;
             case 5:

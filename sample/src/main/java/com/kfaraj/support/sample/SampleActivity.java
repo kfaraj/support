@@ -56,7 +56,8 @@ public class SampleActivity extends AppCompatActivity implements OnClickListener
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putCharSequence(KEY_TITLE, getTitle());
+        CharSequence title = getTitle();
+        outState.putCharSequence(KEY_TITLE, title);
     }
 
     /**
