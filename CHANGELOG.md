@@ -3,6 +3,14 @@ Versions
 
 This library uses [Semantic Versioning](http://semver.org).
 
+Version 1.1.3
+-------------
+
+**2017-07-07**
+
+Changes for recyclerview library:
+- Improved support for choice mode.
+
 Version 1.1.2
 -------------
 
