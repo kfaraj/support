@@ -33,9 +33,9 @@ public class SampleActivity extends AppCompatActivity implements OnClickListener
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sample);
-        final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        final NavigationView navigationView = (NavigationView) findViewById(R.id.navigation_view);
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        final Toolbar toolbar = findViewById(R.id.toolbar);
+        final NavigationView navigationView = findViewById(R.id.navigation_view);
+        mDrawerLayout = findViewById(R.id.drawer_layout);
         setSupportActionBar(toolbar);
         toolbar.setNavigationIcon(R.drawable.ic_menu_white_24dp);
         toolbar.setNavigationOnClickListener(this);

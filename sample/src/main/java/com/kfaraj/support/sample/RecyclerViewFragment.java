@@ -82,7 +82,7 @@ public class RecyclerViewFragment extends Fragment implements OnClickListener, O
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        mRecyclerView = (SupportRecyclerView) view.findViewById(android.R.id.list);
+        mRecyclerView = view.findViewById(android.R.id.list);
         mEmptyView = view.findViewById(android.R.id.empty);
         mFab = view.findViewById(R.id.fab);
     }
@@ -291,7 +291,7 @@ public class RecyclerViewFragment extends Fragment implements OnClickListener, O
          */
         ViewHolder(View itemView) {
             super(itemView);
-            this.textView = (TextView) itemView.findViewById(R.id.text_view);
+            this.textView = itemView.findViewById(R.id.text_view);
         }
 
     }

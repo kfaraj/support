@@ -6,7 +6,7 @@ This library is built on top of the [Android Support Library](https://developer.
 appcompat library
 -----------------
 
-This library is built on top of the [v7 appcompat library](https://developer.android.com/topic/libraries/support-library/packages.html#v7-appcompat) and is designed to be used with Android 3.0 (API level 11) and higher.
+This library is built on top of the [v7 appcompat library](https://developer.android.com/topic/libraries/support-library/packages.html#v7-appcompat) and is designed to be used with Android 4.0 (API level 14) and higher.
 
 It adds support for image drawable tint to the following classes:
 - [SupportImageButton](appcompat/src/main/java/com/kfaraj/support/widget/SupportImageButton.java)
@@ -58,7 +58,7 @@ compile 'com.kfaraj.support:appcompat:2.0.0'
 recyclerview library
 --------------------
 
-This library is built on top of the [v7 recyclerview library](https://developer.android.com/topic/libraries/support-library/packages.html#v7-recyclerview) and is designed to be used with Android 3.0 (API level 11) and higher.
+This library is built on top of the [v7 recyclerview library](https://developer.android.com/topic/libraries/support-library/packages.html#v7-recyclerview) and is designed to be used with Android 4.0 (API level 14) and higher.
 
 It adds support for empty view, item click and choice mode to the following class:
 - [SupportRecyclerView](recyclerview/src/main/java/com/kfaraj/support/widget/SupportRecyclerView.java)
