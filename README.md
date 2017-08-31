@@ -8,24 +8,6 @@ appcompat library
 
 This library is built on top of the [v7 appcompat library](https://developer.android.com/topic/libraries/support-library/packages.html#v7-appcompat) and is designed to be used with Android 4.0 (API level 14) and higher.
 
-It adds support for image drawable tint to the following classes:
-- [SupportImageButton](appcompat/src/main/java/com/kfaraj/support/widget/SupportImageButton.java)
-- [SupportImageView](appcompat/src/main/java/com/kfaraj/support/widget/SupportImageView.java)
-
-```java
-SupportImageView imageView = new SupportImageView(context);
-imageView.setSupportImageTintList(tint);
-imageView.setSupportImageTintMode(tintMode);
-```
-
-```xml
-<com.kfaraj.support.widget.SupportImageView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    app:tint="@color/tint"
-    app:tintMode="multiply" />
-```
-
 It adds support for compound drawables tint to the following classes:
 - [SupportAutoCompleteTextView](appcompat/src/main/java/com/kfaraj/support/widget/SupportAutoCompleteTextView.java)
 - [SupportButton](appcompat/src/main/java/com/kfaraj/support/widget/SupportButton.java)

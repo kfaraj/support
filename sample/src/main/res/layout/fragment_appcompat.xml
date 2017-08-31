@@ -6,84 +6,34 @@
     android:layout_height="match_parent"
     android:gravity="center">
 
-    <LinearLayout
-        android:orientation="vertical"
+    <com.kfaraj.support.widget.SupportTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center">
+        android:padding="12dp"
+        android:clickable="true"
+        android:text="@string/app_name"
+        android:textColor="@color/selector_red"
+        android:drawableTop="@drawable/ic_android_black_24dp"
+        app:drawableTint="@color/selector_red" />
 
-        <com.kfaraj.support.widget.SupportImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="12dp"
-            android:clickable="true"
-            android:src="@drawable/ic_android_black_24dp"
-            app:tint="@color/selector_red" />
-
-        <com.kfaraj.support.widget.SupportTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="12dp"
-            android:clickable="true"
-            android:text="@string/app_name"
-            android:textColor="@color/selector_red"
-            android:drawableTop="@drawable/ic_android_black_24dp"
-            app:drawableTint="@color/selector_red" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="vertical"
+    <com.kfaraj.support.widget.SupportTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center">
+        android:padding="12dp"
+        android:clickable="true"
+        android:text="@string/app_name"
+        android:textColor="@color/selector_green"
+        android:drawableTop="@drawable/ic_android_black_24dp"
+        app:drawableTint="@color/selector_green" />
 
-        <com.kfaraj.support.widget.SupportImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="12dp"
-            android:clickable="true"
-            android:src="@drawable/ic_android_black_24dp"
-            android:contentDescription="@string/app_name"
-            app:tint="@color/selector_green" />
-
-        <com.kfaraj.support.widget.SupportTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="12dp"
-            android:clickable="true"
-            android:text="@string/app_name"
-            android:textColor="@color/selector_green"
-            android:drawableTop="@drawable/ic_android_black_24dp"
-            app:drawableTint="@color/selector_green" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="vertical"
+    <com.kfaraj.support.widget.SupportTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center">
-
-        <com.kfaraj.support.widget.SupportImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="12dp"
-            android:clickable="true"
-            android:src="@drawable/ic_android_black_24dp"
-            android:contentDescription="@string/app_name"
-            app:tint="@color/selector_blue" />
-
-        <com.kfaraj.support.widget.SupportTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="12dp"
-            android:clickable="true"
-            android:text="@string/app_name"
-            android:textColor="@color/selector_blue"
-            android:drawableTop="@drawable/ic_android_black_24dp"
-            app:drawableTint="@color/selector_blue" />
-
-    </LinearLayout>
+        android:padding="12dp"
+        android:clickable="true"
+        android:text="@string/app_name"
+        android:textColor="@color/selector_blue"
+        android:drawableTop="@drawable/ic_android_black_24dp"
+        app:drawableTint="@color/selector_blue" />
 
 </LinearLayout>
