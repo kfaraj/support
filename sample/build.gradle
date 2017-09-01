@@ -21,8 +21,8 @@ android {
 dependencies {
     compile project(':appcompat')
     compile project(':recyclerview')
-    compile 'com.android.support:appcompat-v7:26.0.1'
-    compile 'com.android.support:cardview-v7:26.0.1'
-    compile 'com.android.support:design:26.0.1'
-    compile 'com.android.support:recyclerview-v7:26.0.1'
+    compile 'com.android.support:appcompat-v7:26.0.2'
+    compile 'com.android.support:cardview-v7:26.0.2'
+    compile 'com.android.support:design:26.0.2'
+    compile 'com.android.support:recyclerview-v7:26.0.2'
 }
