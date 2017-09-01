@@ -3,6 +3,22 @@ Versions
 
 This library uses [Semantic Versioning](http://semver.org).
 
+Version 2.0.0
+-------------
+
+**2017-09-01**
+
+Changes for appcompat library:
+- Updated the minimum SDK version to API level 14.
+- Updated the target SDK version to API level 26.
+- Updated the v7 appcompat library version to 26.0.2.
+- Moved support for image drawable tint to the v7 appcompat library.
+
+Changes for recyclerview library:
+- Updated the minimum SDK version to API level 14.
+- Updated the target SDK version to API level 26.
+- Updated the v7 recyclerview library version to 26.0.2.
+
 Version 1.1.3
 -------------
 
