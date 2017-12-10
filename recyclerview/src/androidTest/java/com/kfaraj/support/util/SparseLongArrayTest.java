@@ -27,9 +27,9 @@ public class SparseLongArrayTest {
         mSparseArray.put(1, Long.MIN_VALUE);
         mSparseArray.put(2, Long.MAX_VALUE);
         Parcel parcel = Parcel.obtain();
-        mSparseArray.writeToParcel(parcel, mSparseArray.describeContents());
+        parcel.writeParcelable(mSparseArray, 0);
         parcel.setDataPosition(0);
-        SparseLongArray sparseArray = SparseLongArray.CREATOR.createFromParcel(parcel);
+        SparseLongArray sparseArray = parcel.readParcelable(SparseLongArray.class.getClassLoader());
         assertEquals(mSparseArray.size(), sparseArray.size());
         for (int i = 0; i < mSparseArray.size(); i++) {
             assertEquals(mSparseArray.keyAt(i), sparseArray.keyAt(i));

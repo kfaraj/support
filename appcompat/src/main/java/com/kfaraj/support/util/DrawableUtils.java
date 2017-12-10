@@ -12,6 +12,11 @@ import android.support.v4.graphics.drawable.DrawableCompat;
 public class DrawableUtils {
 
     /**
+     * The default tint mode.
+     */
+    private static final PorterDuff.Mode DEFAULT_TINT_MODE = PorterDuff.Mode.SRC_IN;
+
+    /**
      * Applies a tint to the drawable.
      *
      * @param drawable the drawable.
@@ -24,7 +29,11 @@ public class DrawableUtils {
             drawable = drawable.mutate();
             drawable = DrawableCompat.wrap(drawable);
             DrawableCompat.setTintList(drawable, tint);
-            DrawableCompat.setTintMode(drawable, tintMode);
+            if (tintMode != null) {
+                DrawableCompat.setTintMode(drawable, tintMode);
+            } else {
+                DrawableCompat.setTintMode(drawable, DEFAULT_TINT_MODE);
+            }
         }
         return drawable;
     }
