@@ -3,6 +3,19 @@ Versions
 
 This library uses [Semantic Versioning](http://semver.org).
 
+Version 2.0.1
+-------------
+
+**2017-12-11**
+
+Changes for appcompat library:
+- Updated the target SDK version to API level 27.
+- Updated the v7 appcompat library version to 27.0.2.
+
+Changes for recyclerview library:
+- Updated the target SDK version to API level 27.
+- Updated the v7 recyclerview library version to 27.0.2.
+
 Version 2.0.0
 -------------
 
