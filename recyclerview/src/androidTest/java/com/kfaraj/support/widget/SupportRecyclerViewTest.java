@@ -1,6 +1,7 @@
 package com.kfaraj.support.widget;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.support.test.InstrumentationRegistry;
 import android.support.test.filters.SmallTest;
 import android.support.test.runner.AndroidJUnit4;
@@ -320,14 +321,15 @@ public class SupportRecyclerViewTest {
             return mItems;
         }
 
+        @NonNull
         @Override
-        public MockViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        public MockViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
             View itemView = new View(parent.getContext());
             return new MockViewHolder(itemView);
         }
 
         @Override
-        public void onBindViewHolder(MockViewHolder holder, int position) {
+        public void onBindViewHolder(@NonNull MockViewHolder holder, int position) {
         }
 
         @Override

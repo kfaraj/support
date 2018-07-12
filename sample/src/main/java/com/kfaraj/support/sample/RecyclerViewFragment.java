@@ -72,8 +72,10 @@ public class RecyclerViewFragment extends Fragment implements OnClickListener, O
     /**
      * {@inheritDoc}
      */
+    @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
+            @Nullable Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_recyclerview, container, false);
     }
 
@@ -246,8 +248,9 @@ public class RecyclerViewFragment extends Fragment implements OnClickListener, O
         /**
          * {@inheritDoc}
          */
+        @NonNull
         @Override
-        public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
             View itemView = mInflater.inflate(R.layout.item_recyclerview, parent, false);
             return new ViewHolder(itemView);
         }
@@ -256,7 +259,7 @@ public class RecyclerViewFragment extends Fragment implements OnClickListener, O
          * {@inheritDoc}
          */
         @Override
-        public void onBindViewHolder(ViewHolder holder, int position) {
+        public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
             holder.textView.setText(mItems.get(position));
         }
 

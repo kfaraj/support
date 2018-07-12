@@ -114,7 +114,8 @@ public class SupportButton extends AppCompatButton implements TintableTextView {
      * {@inheritDoc}
      */
     @Override
-    public void setCompoundDrawables(Drawable left, Drawable top, Drawable right, Drawable bottom) {
+    public void setCompoundDrawables(@Nullable Drawable left, @Nullable Drawable top,
+            @Nullable Drawable right, @Nullable Drawable bottom) {
         if (mHelper != null) {
             left = mHelper.applyTint(left);
             top = mHelper.applyTint(top);
@@ -128,7 +129,8 @@ public class SupportButton extends AppCompatButton implements TintableTextView {
      * {@inheritDoc}
      */
     @Override
-    public void setCompoundDrawablesRelative(Drawable start, Drawable top, Drawable end, Drawable bottom) {
+    public void setCompoundDrawablesRelative(@Nullable Drawable start, @Nullable Drawable top,
+            @Nullable Drawable end, @Nullable Drawable bottom) {
         if (mHelper != null) {
             start = mHelper.applyTint(start);
             top = mHelper.applyTint(top);
