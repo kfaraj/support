@@ -12,7 +12,8 @@ import org.junit.runner.RunWith;
 
 @RunWith(AndroidJUnit4.class)
 @SmallTest
-public class SupportAutoCompleteTextViewTest extends TintableTextViewTest<SupportAutoCompleteTextView> {
+public class SupportAutoCompleteTextViewTest
+        extends TintableTextViewTest<SupportAutoCompleteTextView> {
 
     @Before
     public void setUp() {

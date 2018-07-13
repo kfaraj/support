@@ -19,7 +19,8 @@ public class TypedArrayUtils {
      * @param defValue the default value.
      * @return the tint mode for the attribute at index.
      */
-    public static PorterDuff.Mode getTintMode(@NonNull TypedArray a, @StyleableRes int index, @Nullable PorterDuff.Mode defValue) {
+    public static PorterDuff.Mode getTintMode(@NonNull TypedArray a,
+            @StyleableRes int index, @Nullable PorterDuff.Mode defValue) {
         final int value = a.getInt(index, 0);
         switch (value) {
             case 3:

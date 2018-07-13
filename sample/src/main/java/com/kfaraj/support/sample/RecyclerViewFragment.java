@@ -31,8 +31,8 @@ import java.util.UUID;
 /**
  * Demonstrates the features of the recyclerview library.
  */
-public class RecyclerViewFragment extends Fragment implements OnClickListener, OnItemClickListener, OnItemLongClickListener,
-        MultiChoiceModeListener {
+public class RecyclerViewFragment extends Fragment implements OnClickListener,
+        OnItemClickListener, OnItemLongClickListener, MultiChoiceModeListener {
 
     /**
      * The items in the adapter.
@@ -104,10 +104,12 @@ public class RecyclerViewFragment extends Fragment implements OnClickListener, O
         mRecyclerView.setOnItemLongClickListener(this);
         mRecyclerView.setMultiChoiceModeListener(this);
         mRecyclerView.setChoiceMode(SupportRecyclerView.CHOICE_MODE_MULTIPLE_MODAL);
-        ItemTouchHelper.SimpleCallback callback = new ItemTouchHelper.SimpleCallback(ItemTouchHelper.UP | ItemTouchHelper.DOWN,
+        ItemTouchHelper.SimpleCallback callback = new ItemTouchHelper.SimpleCallback(
+                ItemTouchHelper.UP | ItemTouchHelper.DOWN,
                 ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
             @Override
-            public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
+            public boolean onMove(RecyclerView recyclerView,
+                    RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
                 final int fromPosition = viewHolder.getAdapterPosition();
                 final int toPosition = target.getAdapterPosition();
                 Collections.swap(mAdapter.getItems(), fromPosition, toPosition);

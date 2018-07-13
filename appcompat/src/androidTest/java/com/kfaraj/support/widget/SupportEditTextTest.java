@@ -12,7 +12,8 @@ import org.junit.runner.RunWith;
 
 @RunWith(AndroidJUnit4.class)
 @SmallTest
-public class SupportEditTextTest extends TintableTextViewTest<SupportEditText> {
+public class SupportEditTextTest
+        extends TintableTextViewTest<SupportEditText> {
 
     @Before
     public void setUp() {

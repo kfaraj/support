@@ -12,7 +12,8 @@ import org.junit.runner.RunWith;
 
 @RunWith(AndroidJUnit4.class)
 @SmallTest
-public class SupportCheckBoxTest extends TintableTextViewTest<SupportCheckBox> {
+public class SupportCheckBoxTest
+        extends TintableTextViewTest<SupportCheckBox> {
 
     @Before
     public void setUp() {

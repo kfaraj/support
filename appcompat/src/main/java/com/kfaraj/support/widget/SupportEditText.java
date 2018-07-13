@@ -24,7 +24,8 @@ import com.kfaraj.support.view.TintableTextView;
  * <li>{@link R.attr#drawableTintMode}</li>
  * </ul>
  */
-public class SupportEditText extends AppCompatEditText implements TintableTextView {
+public class SupportEditText extends AppCompatEditText
+        implements TintableTextView {
 
     /**
      * The helper.
@@ -47,7 +48,8 @@ public class SupportEditText extends AppCompatEditText implements TintableTextVi
      * @param context the context.
      * @param attrs the attributes.
      */
-    public SupportEditText(@NonNull Context context, @Nullable AttributeSet attrs) {
+    public SupportEditText(@NonNull Context context,
+            @Nullable AttributeSet attrs) {
         super(context, attrs);
         init(context, attrs, 0);
     }
@@ -59,7 +61,8 @@ public class SupportEditText extends AppCompatEditText implements TintableTextVi
      * @param attrs the attributes.
      * @param defStyleAttr the default style attribute.
      */
-    public SupportEditText(@NonNull Context context, @Nullable AttributeSet attrs, @AttrRes int defStyleAttr) {
+    public SupportEditText(@NonNull Context context,
+            @Nullable AttributeSet attrs, @AttrRes int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(context, attrs, defStyleAttr);
     }
@@ -71,7 +74,8 @@ public class SupportEditText extends AppCompatEditText implements TintableTextVi
      * @param attrs the attributes.
      * @param defStyleAttr the default style attribute.
      */
-    private void init(@NonNull Context context, @Nullable AttributeSet attrs, @AttrRes int defStyleAttr) {
+    private void init(@NonNull Context context,
+            @Nullable AttributeSet attrs, @AttrRes int defStyleAttr) {
         mHelper = new TextViewHelper(this);
         mHelper.loadFromAttributes(context, attrs, defStyleAttr);
     }

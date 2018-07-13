@@ -57,14 +57,18 @@ class TextViewHelper implements TintableTextView {
      * @param attrs the attributes.
      * @param defStyleAttr the default style attribute.
      */
-    void loadFromAttributes(@NonNull Context context, @Nullable AttributeSet attrs, @AttrRes int defStyleAttr) {
-        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.TextView, defStyleAttr, 0);
+    void loadFromAttributes(@NonNull Context context,
+            @Nullable AttributeSet attrs, @AttrRes int defStyleAttr) {
+        TypedArray a = context.obtainStyledAttributes(attrs,
+                R.styleable.TextView, defStyleAttr, 0);
         if (a.hasValue(R.styleable.TextView_drawableTint)) {
-            ColorStateList tint = a.getColorStateList(R.styleable.TextView_drawableTint);
+            ColorStateList tint = a.getColorStateList(
+                    R.styleable.TextView_drawableTint);
             setSupportCompoundDrawableTintList(tint);
         }
         if (a.hasValue(R.styleable.TextView_drawableTintMode)) {
-            PorterDuff.Mode tintMode = TypedArrayUtils.getTintMode(a, R.styleable.TextView_drawableTintMode, mTintMode);
+            PorterDuff.Mode tintMode = TypedArrayUtils.getTintMode(a,
+                    R.styleable.TextView_drawableTintMode, mTintMode);
             setSupportCompoundDrawableTintMode(tintMode);
         }
         a.recycle();
@@ -124,13 +128,15 @@ class TextViewHelper implements TintableTextView {
         try {
             Drawable[] drawables = mTextView.getCompoundDrawablesRelative();
             if (drawables[0] != null || drawables[2] != null) {
-                mTextView.setCompoundDrawablesRelative(drawables[0], drawables[1], drawables[2], drawables[3]);
+                mTextView.setCompoundDrawablesRelative(drawables[0], drawables[1],
+                        drawables[2], drawables[3]);
                 return;
             }
         } catch (NoSuchMethodError ignored) {
         }
         Drawable[] drawables = mTextView.getCompoundDrawables();
-        mTextView.setCompoundDrawables(drawables[0], drawables[1], drawables[2], drawables[3]);
+        mTextView.setCompoundDrawables(drawables[0], drawables[1],
+                drawables[2], drawables[3]);
     }
 
 }

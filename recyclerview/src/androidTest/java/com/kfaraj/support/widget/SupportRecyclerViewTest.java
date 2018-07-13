@@ -357,7 +357,8 @@ public class SupportRecyclerViewTest {
         boolean called = false;
 
         @Override
-        public void onItemClick(SupportRecyclerView parent, View view, int position, long id) {
+        public void onItemClick(SupportRecyclerView parent,
+                View view, int position, long id) {
             this.called = true;
         }
 
@@ -368,7 +369,8 @@ public class SupportRecyclerViewTest {
         boolean called = false;
 
         @Override
-        public boolean onItemLongClick(SupportRecyclerView parent, View view, int position, long id) {
+        public boolean onItemLongClick(SupportRecyclerView parent,
+                View view, int position, long id) {
             this.called = true;
             return true;
         }
@@ -397,7 +399,8 @@ public class SupportRecyclerViewTest {
         }
 
         @Override
-        public void onItemCheckedStateChanged(ActionMode mode, int position, long id, boolean checked) {
+        public void onItemCheckedStateChanged(ActionMode mode,
+                int position, long id, boolean checked) {
         }
 
     }

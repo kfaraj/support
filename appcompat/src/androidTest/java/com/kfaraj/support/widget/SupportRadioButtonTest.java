@@ -12,7 +12,8 @@ import org.junit.runner.RunWith;
 
 @RunWith(AndroidJUnit4.class)
 @SmallTest
-public class SupportRadioButtonTest extends TintableTextViewTest<SupportRadioButton> {
+public class SupportRadioButtonTest
+        extends TintableTextViewTest<SupportRadioButton> {
 
     @Before
     public void setUp() {

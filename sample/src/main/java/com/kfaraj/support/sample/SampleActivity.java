@@ -17,7 +17,8 @@ import android.view.View.OnClickListener;
 /**
  * Demonstrates the features of the Support Library.
  */
-public class SampleActivity extends AppCompatActivity implements OnClickListener, OnNavigationItemSelectedListener {
+public class SampleActivity extends AppCompatActivity implements OnClickListener,
+        OnNavigationItemSelectedListener {
 
     /**
      * Argument containing the title.
@@ -101,7 +102,10 @@ public class SampleActivity extends AppCompatActivity implements OnClickListener
         if (fragment != null) {
             item.setChecked(true);
             setTitle(item.getTitle());
-            getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment).commit();
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.container, fragment)
+                    .commit();
             mDrawerLayout.closeDrawer(GravityCompat.START);
             return true;
         } else {

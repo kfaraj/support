@@ -24,7 +24,8 @@ public class DrawableUtils {
      * @param tintMode the tint mode.
      * @return the tinted drawable.
      */
-    public static Drawable applyTint(@Nullable Drawable drawable, @Nullable ColorStateList tint, @Nullable PorterDuff.Mode tintMode) {
+    public static Drawable applyTint(@Nullable Drawable drawable,
+            @Nullable ColorStateList tint, @Nullable PorterDuff.Mode tintMode) {
         if (drawable != null) {
             drawable = drawable.mutate();
             drawable = DrawableCompat.wrap(drawable);

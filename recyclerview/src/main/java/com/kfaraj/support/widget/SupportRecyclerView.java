@@ -45,7 +45,8 @@ import com.kfaraj.support.util.SparseLongArray;
  * <li>{@link R.attr#choiceMode}</li>
  * </ul>
  */
-public class SupportRecyclerView extends RecyclerView implements OnClickListener, OnLongClickListener, ActionMode.Callback {
+public class SupportRecyclerView extends RecyclerView
+        implements OnClickListener, OnLongClickListener, ActionMode.Callback {
 
     /**
      * Callback to be invoked when an item has been clicked.
@@ -152,7 +153,8 @@ public class SupportRecyclerView extends RecyclerView implements OnClickListener
      * @param context the context.
      * @param attrs the attributes.
      */
-    public SupportRecyclerView(@NonNull Context context, @Nullable AttributeSet attrs) {
+    public SupportRecyclerView(@NonNull Context context,
+            @Nullable AttributeSet attrs) {
         super(context, attrs);
         init(context, attrs, 0);
     }
@@ -164,7 +166,8 @@ public class SupportRecyclerView extends RecyclerView implements OnClickListener
      * @param attrs the attributes.
      * @param defStyleAttr the default style attribute.
      */
-    public SupportRecyclerView(@NonNull Context context, @Nullable AttributeSet attrs, @AttrRes int defStyleAttr) {
+    public SupportRecyclerView(@NonNull Context context,
+            @Nullable AttributeSet attrs, @AttrRes int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(context, attrs, defStyleAttr);
     }
@@ -176,10 +179,13 @@ public class SupportRecyclerView extends RecyclerView implements OnClickListener
      * @param attrs the attributes.
      * @param defStyleAttr the default style attribute.
      */
-    private void init(@NonNull Context context, @Nullable AttributeSet attrs, @AttrRes int defStyleAttr) {
-        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.SupportRecyclerView, defStyleAttr, 0);
+    private void init(@NonNull Context context,
+            @Nullable AttributeSet attrs, @AttrRes int defStyleAttr) {
+        TypedArray a = context.obtainStyledAttributes(attrs,
+                R.styleable.SupportRecyclerView, defStyleAttr, 0);
         if (a.hasValue(R.styleable.SupportRecyclerView_choiceMode)) {
-            int choiceMode = a.getInt(R.styleable.SupportRecyclerView_choiceMode, CHOICE_MODE_NONE);
+            int choiceMode = a.getInt(
+                    R.styleable.SupportRecyclerView_choiceMode, CHOICE_MODE_NONE);
             setChoiceMode(choiceMode);
         }
         a.recycle();
@@ -207,7 +213,8 @@ public class SupportRecyclerView extends RecyclerView implements OnClickListener
         super.onRestoreInstanceState(savedState.getParcelable(KEY_SUPER_STATE));
         mChoiceMode = savedState.getInt(KEY_CHOICE_MODE);
         mCheckedItems = savedState.getParcelable(KEY_CHECKED_ITEMS);
-        mActionMode = savedState.getBoolean(KEY_ACTION_MODE) && mMultiChoiceModeListener != null ? startActionMode(this) : null;
+        mActionMode = savedState.getBoolean(KEY_ACTION_MODE)
+                && mMultiChoiceModeListener != null ? startActionMode(this) : null;
     }
 
     /**
@@ -483,7 +490,8 @@ public class SupportRecyclerView extends RecyclerView implements OnClickListener
                     mActionMode = startActionMode(this);
                 }
                 if (mActionMode != null) {
-                    mMultiChoiceModeListener.onItemCheckedStateChanged(mActionMode, position, id, value);
+                    mMultiChoiceModeListener.onItemCheckedStateChanged(mActionMode,
+                            position, id, value);
                 }
                 if (mActionMode != null && mCheckedItems.size() == 0) {
                     mActionMode.finish();
@@ -656,7 +664,8 @@ public class SupportRecyclerView extends RecyclerView implements OnClickListener
                         } else {
                             mCheckedItems.removeAt(i--);
                             if (mActionMode != null && mMultiChoiceModeListener != null) {
-                                mMultiChoiceModeListener.onItemCheckedStateChanged(mActionMode, position, id, false);
+                                mMultiChoiceModeListener.onItemCheckedStateChanged(mActionMode,
+                                        position, id, false);
                                 if (mCheckedItems.size() == 0) {
                                     mActionMode.finish();
                                 }
@@ -698,7 +707,8 @@ public class SupportRecyclerView extends RecyclerView implements OnClickListener
                 } else if (position >= positionStart) {
                     mCheckedItems.removeAt(i--);
                     if (mActionMode != null && mMultiChoiceModeListener != null) {
-                        mMultiChoiceModeListener.onItemCheckedStateChanged(mActionMode, position, id, false);
+                        mMultiChoiceModeListener.onItemCheckedStateChanged(mActionMode,
+                                position, id, false);
                         if (mCheckedItems.size() == 0) {
                             mActionMode.finish();
                         }

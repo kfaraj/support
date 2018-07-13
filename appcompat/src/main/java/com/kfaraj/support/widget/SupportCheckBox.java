@@ -24,7 +24,8 @@ import com.kfaraj.support.view.TintableTextView;
  * <li>{@link R.attr#drawableTintMode}</li>
  * </ul>
  */
-public class SupportCheckBox extends AppCompatCheckBox implements TintableTextView {
+public class SupportCheckBox extends AppCompatCheckBox
+        implements TintableTextView {
 
     /**
      * The helper.
@@ -47,7 +48,8 @@ public class SupportCheckBox extends AppCompatCheckBox implements TintableTextVi
      * @param context the context.
      * @param attrs the attributes.
      */
-    public SupportCheckBox(@NonNull Context context, @Nullable AttributeSet attrs) {
+    public SupportCheckBox(@NonNull Context context,
+            @Nullable AttributeSet attrs) {
         super(context, attrs);
         init(context, attrs, 0);
     }
@@ -59,7 +61,8 @@ public class SupportCheckBox extends AppCompatCheckBox implements TintableTextVi
      * @param attrs the attributes.
      * @param defStyleAttr the default style attribute.
      */
-    public SupportCheckBox(@NonNull Context context, @Nullable AttributeSet attrs, @AttrRes int defStyleAttr) {
+    public SupportCheckBox(@NonNull Context context,
+            @Nullable AttributeSet attrs, @AttrRes int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(context, attrs, defStyleAttr);
     }
@@ -71,7 +74,8 @@ public class SupportCheckBox extends AppCompatCheckBox implements TintableTextVi
      * @param attrs the attributes.
      * @param defStyleAttr the default style attribute.
      */
-    private void init(@NonNull Context context, @Nullable AttributeSet attrs, @AttrRes int defStyleAttr) {
+    private void init(@NonNull Context context,
+            @Nullable AttributeSet attrs, @AttrRes int defStyleAttr) {
         mHelper = new TextViewHelper(this);
         mHelper.loadFromAttributes(context, attrs, defStyleAttr);
     }
