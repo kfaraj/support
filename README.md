@@ -34,7 +34,7 @@ textView.setSupportCompoundDrawableTintMode(tintMode);
 
 This library can be included with the following dependency:
 ```groovy
-compile 'com.kfaraj.support:appcompat:2.0.2'
+implementation 'com.kfaraj.support:appcompat:2.0.2'
 ```
 
 recyclerview library
@@ -63,7 +63,7 @@ recyclerView.setMultiChoiceModeListener(multiChoiceModeListener);
 
 This library can be included with the following dependency:
 ```groovy
-compile 'com.kfaraj.support:recyclerview:2.0.2'
+implementation 'com.kfaraj.support:recyclerview:2.0.2'
 ```
 
 sample application
