@@ -1,5 +1,8 @@
 apply plugin: 'com.android.library'
 
+group = 'com.kfaraj.support'
+version = '3.0.0'
+
 android {
     compileSdkVersion 27
     defaultConfig {
