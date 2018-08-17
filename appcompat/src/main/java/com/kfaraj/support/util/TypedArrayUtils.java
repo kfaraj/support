@@ -2,9 +2,10 @@ package com.kfaraj.support.util;
 
 import android.content.res.TypedArray;
 import android.graphics.PorterDuff;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.StyleableRes;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.StyleableRes;
 
 /**
  * Provides utility methods for {@link TypedArray}.

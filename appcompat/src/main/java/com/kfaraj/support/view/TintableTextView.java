@@ -2,7 +2,8 @@ package com.kfaraj.support.view;
 
 import android.content.res.ColorStateList;
 import android.graphics.PorterDuff;
-import android.support.annotation.Nullable;
+
+import androidx.annotation.Nullable;
 
 /**
  * Adds support for compound drawables tint.
