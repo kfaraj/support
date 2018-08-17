@@ -108,8 +108,9 @@ public class RecyclerViewFragment extends Fragment implements OnClickListener,
                 ItemTouchHelper.UP | ItemTouchHelper.DOWN,
                 ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
             @Override
-            public boolean onMove(RecyclerView recyclerView,
-                    RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
+            public boolean onMove(@NonNull RecyclerView recyclerView,
+                    @NonNull RecyclerView.ViewHolder viewHolder,
+                    @NonNull RecyclerView.ViewHolder target) {
                 final int fromPosition = viewHolder.getAdapterPosition();
                 final int toPosition = target.getAdapterPosition();
                 Collections.swap(mAdapter.getItems(), fromPosition, toPosition);
@@ -117,7 +118,8 @@ public class RecyclerViewFragment extends Fragment implements OnClickListener,
                 return true;
             }
             @Override
-            public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder,
+                    int direction) {
                 final int position = viewHolder.getAdapterPosition();
                 mAdapter.getItems().remove(position);
                 mAdapter.notifyItemRemoved(position);

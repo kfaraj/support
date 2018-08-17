@@ -221,7 +221,7 @@ public class SupportRecyclerView extends RecyclerView
      * {@inheritDoc}
      */
     @Override
-    public void swapAdapter(Adapter adapter, boolean removeAndRecycleExistingViews) {
+    public void swapAdapter(@Nullable Adapter adapter, boolean removeAndRecycleExistingViews) {
         if (mAdapter != null) {
             mAdapter.unregisterAdapterDataObserver(mObserver);
         }
@@ -236,7 +236,7 @@ public class SupportRecyclerView extends RecyclerView
      * {@inheritDoc}
      */
     @Override
-    public void setAdapter(Adapter adapter) {
+    public void setAdapter(@Nullable Adapter adapter) {
         if (mAdapter != null) {
             mAdapter.unregisterAdapterDataObserver(mObserver);
         }
@@ -251,7 +251,7 @@ public class SupportRecyclerView extends RecyclerView
      * {@inheritDoc}
      */
     @Override
-    public void onChildAttachedToWindow(View child) {
+    public void onChildAttachedToWindow(@NonNull View child) {
         super.onChildAttachedToWindow(child);
         mChildrenCount++;
         updateEmptyStatus();
@@ -264,7 +264,7 @@ public class SupportRecyclerView extends RecyclerView
      * {@inheritDoc}
      */
     @Override
-    public void onChildDetachedFromWindow(View child) {
+    public void onChildDetachedFromWindow(@NonNull View child) {
         super.onChildDetachedFromWindow(child);
         mChildrenCount--;
         updateEmptyStatus();
