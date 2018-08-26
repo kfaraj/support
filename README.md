@@ -19,7 +19,7 @@ It adds support for compound drawables tint to the following classes:
 - [SupportTextView](appcompat/src/main/java/com/kfaraj/support/widget/SupportTextView.java)
 
 ```java
-SupportTextView textView = new SupportTextView(context);
+final SupportTextView textView = new SupportTextView(context);
 textView.setSupportCompoundDrawableTintList(tint);
 textView.setSupportCompoundDrawableTintMode(tintMode);
 ```
@@ -46,7 +46,7 @@ It adds support for empty view, item click and choice mode to the following clas
 - [SupportRecyclerView](recyclerview/src/main/java/com/kfaraj/support/widget/SupportRecyclerView.java)
 
 ```java
-SupportRecyclerView recyclerView = new SupportRecyclerView(context);
+final SupportRecyclerView recyclerView = new SupportRecyclerView(context);
 recyclerView.setEmptyView(emptyView);
 recyclerView.setOnItemClickListener(onItemClickListener);
 recyclerView.setOnItemLongClickListener(onItemLongClickListener);

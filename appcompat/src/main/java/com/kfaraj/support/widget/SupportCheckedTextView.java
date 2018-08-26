@@ -28,9 +28,6 @@ import com.kfaraj.support.view.TintableTextView;
 public class SupportCheckedTextView extends AppCompatCheckedTextView
         implements TintableTextView {
 
-    /**
-     * The helper.
-     */
     private TextViewHelper mHelper;
 
     /**
@@ -122,10 +119,10 @@ public class SupportCheckedTextView extends AppCompatCheckedTextView
     public void setCompoundDrawables(@Nullable Drawable left, @Nullable Drawable top,
             @Nullable Drawable right, @Nullable Drawable bottom) {
         if (mHelper != null) {
-            left = mHelper.applyTint(left);
-            top = mHelper.applyTint(top);
-            right = mHelper.applyTint(right);
-            bottom = mHelper.applyTint(bottom);
+            left = mHelper.applySupportCompoundDrawableTint(left);
+            top = mHelper.applySupportCompoundDrawableTint(top);
+            right = mHelper.applySupportCompoundDrawableTint(right);
+            bottom = mHelper.applySupportCompoundDrawableTint(bottom);
         }
         super.setCompoundDrawables(left, top, right, bottom);
     }
@@ -137,10 +134,10 @@ public class SupportCheckedTextView extends AppCompatCheckedTextView
     public void setCompoundDrawablesRelative(@Nullable Drawable start, @Nullable Drawable top,
             @Nullable Drawable end, @Nullable Drawable bottom) {
         if (mHelper != null) {
-            start = mHelper.applyTint(start);
-            top = mHelper.applyTint(top);
-            end = mHelper.applyTint(end);
-            bottom = mHelper.applyTint(bottom);
+            start = mHelper.applySupportCompoundDrawableTint(start);
+            top = mHelper.applySupportCompoundDrawableTint(top);
+            end = mHelper.applySupportCompoundDrawableTint(end);
+            bottom = mHelper.applySupportCompoundDrawableTint(bottom);
         }
         super.setCompoundDrawablesRelative(start, top, end, bottom);
     }

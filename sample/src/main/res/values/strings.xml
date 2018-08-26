@@ -3,6 +3,7 @@
     <string name="app_name">Support Library</string>
     <string name="appcompat">appcompat</string>
     <string name="recyclerview">recyclerview</string>
+    <string name="open_drawer">Open drawer</string>
     <string name="empty">No items</string>
     <string name="delete">Delete</string>
 </resources>

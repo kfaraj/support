@@ -5,24 +5,31 @@ import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 
 import androidx.annotation.Nullable;
+import androidx.annotation.RestrictTo;
 import androidx.core.graphics.drawable.DrawableCompat;
+
+import static androidx.annotation.RestrictTo.Scope.LIBRARY_GROUP;
 
 /**
  * Provides utility methods for {@link Drawable}.
  */
-public class DrawableUtils {
+@RestrictTo(LIBRARY_GROUP)
+public final class DrawableUtils {
 
-    /**
-     * The default tint mode.
-     */
     private static final PorterDuff.Mode DEFAULT_TINT_MODE = PorterDuff.Mode.SRC_IN;
 
     /**
-     * Applies a tint to the drawable.
+     * Constructor.
+     */
+    private DrawableUtils() {
+    }
+
+    /**
+     * Applies the tint to the drawable.
      *
      * @param drawable the drawable.
-     * @param tint the tint.
-     * @param tintMode the tint mode.
+     * @param tint the tint to apply to the drawable.
+     * @param tintMode the blending mode used to apply the tint to the drawable.
      * @return the tinted drawable.
      */
     public static Drawable applyTint(@Nullable Drawable drawable,
@@ -31,11 +38,7 @@ public class DrawableUtils {
             drawable = drawable.mutate();
             drawable = DrawableCompat.wrap(drawable);
             DrawableCompat.setTintList(drawable, tint);
-            if (tintMode != null) {
-                DrawableCompat.setTintMode(drawable, tintMode);
-            } else {
-                DrawableCompat.setTintMode(drawable, DEFAULT_TINT_MODE);
-            }
+            DrawableCompat.setTintMode(drawable, tintMode != null ? tintMode : DEFAULT_TINT_MODE);
         }
         return drawable;
     }

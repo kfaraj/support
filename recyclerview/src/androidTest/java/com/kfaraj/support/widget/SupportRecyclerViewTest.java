@@ -47,7 +47,7 @@ public class SupportRecyclerViewTest {
         final Context context = InstrumentationRegistry.getContext();
         mRecyclerView = new SupportRecyclerView(context);
         mEmptyView = new View(context);
-        mAdapter = new MockAdapter();
+        mAdapter = new MockAdapter(context);
         mOnItemClickListener = new MockOnItemClickListener();
         mOnItemLongClickListener = new MockOnItemLongClickListener();
         mMultiChoiceModeListener = new MockMultiChoiceModeListener();
@@ -94,6 +94,11 @@ public class SupportRecyclerViewTest {
         assertEquals(SupportRecyclerView.CHOICE_MODE_MULTIPLE, mRecyclerView.getChoiceMode());
         mRecyclerView.setChoiceMode(SupportRecyclerView.CHOICE_MODE_MULTIPLE_MODAL);
         assertEquals(SupportRecyclerView.CHOICE_MODE_MULTIPLE_MODAL, mRecyclerView.getChoiceMode());
+    }
+
+    @Test
+    public void testMultiChoiceModeListener() {
+        assertEquals(mMultiChoiceModeListener, mRecyclerView.getMultiChoiceModeListener());
     }
 
     @Test
@@ -270,12 +275,8 @@ public class SupportRecyclerViewTest {
         for (int i = 0; i < 10; i++) {
             mRecyclerView.setItemChecked(i, i % 2 == 0);
         }
-        SparseBooleanArray positions = mRecyclerView.getCheckedItemPositions();
-        for (int i = 0; i < positions.size(); i++) {
-            int position = positions.keyAt(i);
-            boolean checked = positions.valueAt(i);
-            assertEquals(mRecyclerView.isItemChecked(position), checked);
-        }
+        final SparseBooleanArray positions = mRecyclerView.getCheckedItemPositions();
+        assertEquals(mRecyclerView.getCheckedItemCount(), positions.size());
     }
 
     @Test
@@ -285,13 +286,8 @@ public class SupportRecyclerViewTest {
         for (int i = 0; i < 10; i++) {
             mRecyclerView.setItemChecked(i, i % 2 == 0);
         }
-        long[] ids = mRecyclerView.getCheckedItemIds();
+        final long[] ids = mRecyclerView.getCheckedItemIds();
         assertEquals(mRecyclerView.getCheckedItemCount(), ids.length);
-    }
-
-    @Test
-    public void testMultiChoiceModeListener() {
-        assertEquals(mMultiChoiceModeListener, mRecyclerView.getMultiChoiceModeListener());
     }
 
     private void populateAdapter(int count) {
@@ -313,9 +309,11 @@ public class SupportRecyclerViewTest {
     private static class MockAdapter extends RecyclerView.Adapter<MockViewHolder> {
 
         private final ArrayList<Object> mItems = new ArrayList<>();
+        private final Context mContext;
 
-        MockAdapter() {
+        MockAdapter(@NonNull Context context) {
             setHasStableIds(true);
+            mContext = context;
         }
 
         ArrayList<Object> getItems() {
@@ -325,7 +323,7 @@ public class SupportRecyclerViewTest {
         @NonNull
         @Override
         public MockViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            View itemView = new View(parent.getContext());
+            final View itemView = new View(mContext);
             return new MockViewHolder(itemView);
         }
 
@@ -347,7 +345,7 @@ public class SupportRecyclerViewTest {
 
     private static class MockViewHolder extends RecyclerView.ViewHolder {
 
-        MockViewHolder(View itemView) {
+        MockViewHolder(@NonNull View itemView) {
             super(itemView);
         }
 
@@ -356,6 +354,9 @@ public class SupportRecyclerViewTest {
     private static class MockOnItemClickListener implements OnItemClickListener {
 
         boolean called = false;
+
+        MockOnItemClickListener() {
+        }
 
         @Override
         public void onItemClick(SupportRecyclerView parent,
@@ -369,6 +370,9 @@ public class SupportRecyclerViewTest {
 
         boolean called = false;
 
+        MockOnItemLongClickListener() {
+        }
+
         @Override
         public boolean onItemLongClick(SupportRecyclerView parent,
                 View view, int position, long id) {
@@ -379,6 +383,9 @@ public class SupportRecyclerViewTest {
     }
 
     private static class MockMultiChoiceModeListener implements MultiChoiceModeListener {
+
+        MockMultiChoiceModeListener() {
+        }
 
         @Override
         public boolean onCreateActionMode(ActionMode mode, Menu menu) {

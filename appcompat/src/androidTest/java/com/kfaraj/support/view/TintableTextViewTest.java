@@ -13,7 +13,7 @@ import com.kfaraj.support.appcompat.test.R;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import static com.kfaraj.support.util.TestUtils.assertAllPixelsOfColor;
+import static com.kfaraj.support.testutils.TestUtils.assertAllPixelsOfColor;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(AndroidJUnit4.class)

@@ -32,12 +32,10 @@ import java.util.UUID;
 /**
  * Demonstrates the features of the recyclerview library.
  */
-public class RecyclerViewFragment extends Fragment implements OnClickListener,
-        OnItemClickListener, OnItemLongClickListener, MultiChoiceModeListener {
+public class RecyclerViewFragment extends Fragment
+        implements OnClickListener, OnItemClickListener,
+        OnItemLongClickListener, MultiChoiceModeListener {
 
-    /**
-     * The items in the adapter.
-     */
     private static final String KEY_ITEMS = "items";
 
     private Adapter mAdapter;
@@ -50,6 +48,7 @@ public class RecyclerViewFragment extends Fragment implements OnClickListener,
      *
      * @return a new instance of this fragment class.
      */
+    @SuppressWarnings("WeakerAccess")
     public static RecyclerViewFragment newInstance() {
         return new RecyclerViewFragment();
     }
@@ -60,9 +59,9 @@ public class RecyclerViewFragment extends Fragment implements OnClickListener,
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mAdapter = new Adapter(getActivity());
+        mAdapter = new Adapter(requireContext());
         if (savedInstanceState != null) {
-            ArrayList<String> items = savedInstanceState.getStringArrayList(KEY_ITEMS);
+            final ArrayList<String> items = savedInstanceState.getStringArrayList(KEY_ITEMS);
             if (items != null) {
                 mAdapter.getItems().addAll(items);
                 mAdapter.notifyDataSetChanged();
@@ -103,9 +102,9 @@ public class RecyclerViewFragment extends Fragment implements OnClickListener,
         mRecyclerView.setEmptyView(mEmptyView);
         mRecyclerView.setOnItemClickListener(this);
         mRecyclerView.setOnItemLongClickListener(this);
-        mRecyclerView.setMultiChoiceModeListener(this);
         mRecyclerView.setChoiceMode(SupportRecyclerView.CHOICE_MODE_MULTIPLE_MODAL);
-        ItemTouchHelper.SimpleCallback callback = new ItemTouchHelper.SimpleCallback(
+        mRecyclerView.setMultiChoiceModeListener(this);
+        final ItemTouchHelper.SimpleCallback callback = new ItemTouchHelper.SimpleCallback(
                 ItemTouchHelper.UP | ItemTouchHelper.DOWN,
                 ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
             @Override
@@ -126,7 +125,7 @@ public class RecyclerViewFragment extends Fragment implements OnClickListener,
                 mAdapter.notifyItemRemoved(position);
             }
         };
-        ItemTouchHelper helper = new ItemTouchHelper(callback);
+        final ItemTouchHelper helper = new ItemTouchHelper(callback);
         helper.attachToRecyclerView(mRecyclerView);
     }
 
@@ -136,7 +135,7 @@ public class RecyclerViewFragment extends Fragment implements OnClickListener,
     @Override
     public void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
-        ArrayList<String> items = mAdapter.getItems();
+        final ArrayList<String> items = mAdapter.getItems();
         outState.putStringArrayList(KEY_ITEMS, items);
     }
 
@@ -146,7 +145,8 @@ public class RecyclerViewFragment extends Fragment implements OnClickListener,
     @Override
     public void onClick(View v) {
         if (v == mFab) {
-            mAdapter.getItems().add(0, UUID.randomUUID().toString());
+            final String item = UUID.randomUUID().toString();
+            mAdapter.getItems().add(0, item);
             mAdapter.notifyItemInserted(0);
         }
     }
@@ -156,8 +156,8 @@ public class RecyclerViewFragment extends Fragment implements OnClickListener,
      */
     @Override
     public void onItemClick(SupportRecyclerView parent, View view, int position, long id) {
-        String item = mAdapter.getItems().get(position);
-        Toast.makeText(getActivity(), item, Toast.LENGTH_SHORT).show();
+        final String item = mAdapter.getItems().get(position);
+        Toast.makeText(requireContext(), item, Toast.LENGTH_SHORT).show();
     }
 
     /**
@@ -165,8 +165,8 @@ public class RecyclerViewFragment extends Fragment implements OnClickListener,
      */
     @Override
     public boolean onItemLongClick(SupportRecyclerView parent, View view, int position, long id) {
-        String item = mAdapter.getItems().get(position);
-        Toast.makeText(getActivity(), item, Toast.LENGTH_LONG).show();
+        final String item = mAdapter.getItems().get(position);
+        Toast.makeText(requireContext(), item, Toast.LENGTH_LONG).show();
         return true;
     }
 
@@ -175,7 +175,7 @@ public class RecyclerViewFragment extends Fragment implements OnClickListener,
      */
     @Override
     public boolean onCreateActionMode(ActionMode mode, Menu menu) {
-        MenuInflater inflater = mode.getMenuInflater();
+        final MenuInflater inflater = mode.getMenuInflater();
         inflater.inflate(R.menu.recyclerview, menu);
         return true;
     }
@@ -186,7 +186,7 @@ public class RecyclerViewFragment extends Fragment implements OnClickListener,
     @Override
     public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
         final int count = mRecyclerView.getCheckedItemCount();
-        mode.setTitle(String.valueOf(count));
+        mode.setTitle(Integer.toString(count));
         return true;
     }
 
@@ -228,15 +228,15 @@ public class RecyclerViewFragment extends Fragment implements OnClickListener,
      */
     private static class Adapter extends RecyclerView.Adapter<ViewHolder> {
 
-        private final LayoutInflater mInflater;
         private final ArrayList<String> mItems = new ArrayList<>();
+        private final LayoutInflater mInflater;
 
         /**
          * Constructor.
          *
          * @param context the context.
          */
-        Adapter(Context context) {
+        Adapter(@NonNull Context context) {
             setHasStableIds(true);
             mInflater = LayoutInflater.from(context);
         }
@@ -256,7 +256,7 @@ public class RecyclerViewFragment extends Fragment implements OnClickListener,
         @NonNull
         @Override
         public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            View itemView = mInflater.inflate(R.layout.item_recyclerview, parent, false);
+            final View itemView = mInflater.inflate(R.layout.item_recyclerview, parent, false);
             return new ViewHolder(itemView);
         }
 
@@ -298,7 +298,7 @@ public class RecyclerViewFragment extends Fragment implements OnClickListener,
          *
          * @param itemView the item view.
          */
-        ViewHolder(View itemView) {
+        ViewHolder(@NonNull View itemView) {
             super(itemView);
             this.textView = itemView.findViewById(R.id.text_view);
         }

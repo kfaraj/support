@@ -4,10 +4,17 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.SparseArray;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.RestrictTo;
+
+import static androidx.annotation.RestrictTo.Scope.LIBRARY_GROUP;
+
 /**
  * Maps integers to longs.
  */
-public class SparseLongArray extends SparseArray<Long> implements Parcelable {
+@RestrictTo(LIBRARY_GROUP)
+public class SparseLongArray extends SparseArray<Long>
+        implements Parcelable {
 
     /**
      * The creator.
@@ -34,7 +41,7 @@ public class SparseLongArray extends SparseArray<Long> implements Parcelable {
      *
      * @param source the source.
      */
-    private SparseLongArray(Parcel source) {
+    private SparseLongArray(@NonNull Parcel source) {
         final int size = source.readInt();
         for (int i = 0; i < size; i++) {
             final int key = source.readInt();

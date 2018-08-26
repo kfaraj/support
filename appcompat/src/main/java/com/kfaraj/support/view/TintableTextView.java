@@ -26,16 +26,16 @@ public interface TintableTextView {
     ColorStateList getSupportCompoundDrawableTintList();
 
     /**
-     * Sets the tint mode to apply to the compound drawables.
+     * Sets the blending mode used to apply the tint to the compound drawables.
      *
-     * @param tintMode the tint mode to apply to the compound drawables.
+     * @param tintMode the blending mode used to apply the tint to the compound drawables.
      */
     void setSupportCompoundDrawableTintMode(@Nullable PorterDuff.Mode tintMode);
 
     /**
-     * Returns the tint mode to apply to the compound drawables.
+     * Returns the blending mode used to apply the tint to the compound drawables.
      *
-     * @return the tint mode to apply to the compound drawables.
+     * @return the blending mode used to apply the tint to the compound drawables.
      */
     @Nullable
     PorterDuff.Mode getSupportCompoundDrawableTintMode();

@@ -24,23 +24,10 @@ import com.kfaraj.support.view.TintableTextView;
  */
 class TextViewHelper implements TintableTextView {
 
-    /**
-     * The text view.
-     */
-    @NonNull
     private final TextView mTextView;
 
-    /**
-     * The tint.
-     */
-    @Nullable
-    private ColorStateList mTint = null;
-
-    /**
-     * The tint mode.
-     */
-    @Nullable
-    private PorterDuff.Mode mTintMode = PorterDuff.Mode.SRC_IN;
+    private ColorStateList mTint;
+    private PorterDuff.Mode mTintMode;
 
     /**
      * Constructor.
@@ -60,16 +47,16 @@ class TextViewHelper implements TintableTextView {
      */
     void loadFromAttributes(@NonNull Context context,
             @Nullable AttributeSet attrs, @AttrRes int defStyleAttr) {
-        TypedArray a = context.obtainStyledAttributes(attrs,
+        final TypedArray a = context.obtainStyledAttributes(attrs,
                 R.styleable.TextView, defStyleAttr, 0);
         if (a.hasValue(R.styleable.TextView_drawableTint)) {
-            ColorStateList tint = a.getColorStateList(
+            final ColorStateList tint = a.getColorStateList(
                     R.styleable.TextView_drawableTint);
             setSupportCompoundDrawableTintList(tint);
         }
         if (a.hasValue(R.styleable.TextView_drawableTintMode)) {
-            PorterDuff.Mode tintMode = TypedArrayUtils.getTintMode(a,
-                    R.styleable.TextView_drawableTintMode, mTintMode);
+            final PorterDuff.Mode tintMode = TypedArrayUtils.getTintMode(a,
+                    R.styleable.TextView_drawableTintMode, null);
             setSupportCompoundDrawableTintMode(tintMode);
         }
         a.recycle();
@@ -81,7 +68,7 @@ class TextViewHelper implements TintableTextView {
     @Override
     public void setSupportCompoundDrawableTintList(@Nullable ColorStateList tint) {
         mTint = tint;
-        applyTint();
+        applySupportCompoundDrawableTint();
     }
 
     /**
@@ -99,7 +86,7 @@ class TextViewHelper implements TintableTextView {
     @Override
     public void setSupportCompoundDrawableTintMode(@Nullable PorterDuff.Mode tintMode) {
         mTintMode = tintMode;
-        applyTint();
+        applySupportCompoundDrawableTint();
     }
 
     /**
@@ -112,12 +99,12 @@ class TextViewHelper implements TintableTextView {
     }
 
     /**
-     * Applies the tint to the drawable.
+     * Applies the tint to the compound drawable.
      *
-     * @param drawable the drawable.
-     * @return the tinted drawable.
+     * @param drawable the compound drawable.
+     * @return the tinted compound drawable.
      */
-    Drawable applyTint(@Nullable Drawable drawable) {
+    Drawable applySupportCompoundDrawableTint(@Nullable Drawable drawable) {
         return DrawableUtils.applyTint(drawable, mTint, mTintMode);
     }
 
@@ -125,9 +112,9 @@ class TextViewHelper implements TintableTextView {
      * Applies the tint to the compound drawables.
      */
     @TargetApi(VERSION_CODES.JELLY_BEAN_MR1)
-    private void applyTint() {
+    private void applySupportCompoundDrawableTint() {
         try {
-            Drawable[] drawables = mTextView.getCompoundDrawablesRelative();
+            final Drawable[] drawables = mTextView.getCompoundDrawablesRelative();
             if (drawables[0] != null || drawables[2] != null) {
                 mTextView.setCompoundDrawablesRelative(drawables[0], drawables[1],
                         drawables[2], drawables[3]);
@@ -135,7 +122,7 @@ class TextViewHelper implements TintableTextView {
             }
         } catch (NoSuchMethodError ignored) {
         }
-        Drawable[] drawables = mTextView.getCompoundDrawables();
+        final Drawable[] drawables = mTextView.getCompoundDrawables();
         mTextView.setCompoundDrawables(drawables[0], drawables[1],
                 drawables[2], drawables[3]);
     }

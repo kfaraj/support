@@ -34,6 +34,8 @@ import com.kfaraj.support.util.SparseLongArray;
  * <li>{@link #getOnItemLongClickListener()}</li>
  * <li>{@link #setChoiceMode(int)}</li>
  * <li>{@link #getChoiceMode()}</li>
+ * <li>{@link #setMultiChoiceModeListener(MultiChoiceModeListener)}</li>
+ * <li>{@link #getMultiChoiceModeListener()}</li>
  * <li>{@link #clearChoices()}</li>
  * <li>{@link #setItemChecked(int, boolean)}</li>
  * <li>{@link #isItemChecked(int)}</li>
@@ -41,8 +43,6 @@ import com.kfaraj.support.util.SparseLongArray;
  * <li>{@link #getCheckedItemPosition()}</li>
  * <li>{@link #getCheckedItemPositions()}</li>
  * <li>{@link #getCheckedItemIds()}</li>
- * <li>{@link #setMultiChoiceModeListener(MultiChoiceModeListener)}</li>
- * <li>{@link #getMultiChoiceModeListener()}</li>
  * <li>{@link R.attr#choiceMode}</li>
  * </ul>
  */
@@ -126,17 +126,17 @@ public class SupportRecyclerView extends RecyclerView
     private static final String KEY_CHECKED_ITEMS = "checked_items";
     private static final String KEY_ACTION_MODE = "action_mode";
 
+    private final AdapterDataObserver mObserver = new RecyclerViewAdapterDataObserver();
+
     private Adapter mAdapter;
-    private View mEmptyView;
     private int mChildrenCount;
+    private View mEmptyView;
     private OnItemClickListener mOnItemClickListener;
     private OnItemLongClickListener mOnItemLongClickListener;
     private int mChoiceMode = CHOICE_MODE_NONE;
     private SparseLongArray mCheckedItems = new SparseLongArray();
     private MultiChoiceModeListener mMultiChoiceModeListener;
     private ActionMode mActionMode;
-
-    private final AdapterDataObserver mObserver = new RecyclerViewAdapterDataObserver();
 
     /**
      * Constructor.
@@ -182,11 +182,11 @@ public class SupportRecyclerView extends RecyclerView
      */
     private void init(@NonNull Context context,
             @Nullable AttributeSet attrs, @AttrRes int defStyleAttr) {
-        TypedArray a = context.obtainStyledAttributes(attrs,
+        final TypedArray a = context.obtainStyledAttributes(attrs,
                 R.styleable.SupportRecyclerView, defStyleAttr, 0);
         if (a.hasValue(R.styleable.SupportRecyclerView_choiceMode)) {
-            int choiceMode = a.getInt(
-                    R.styleable.SupportRecyclerView_choiceMode, CHOICE_MODE_NONE);
+            final int choiceMode = a.getInt(
+                    R.styleable.SupportRecyclerView_choiceMode, 0);
             setChoiceMode(choiceMode);
         }
         a.recycle();
@@ -197,7 +197,7 @@ public class SupportRecyclerView extends RecyclerView
      */
     @Override
     protected Parcelable onSaveInstanceState() {
-        Bundle savedState = new Bundle();
+        final Bundle savedState = new Bundle();
         savedState.putParcelable(KEY_SUPER_STATE, super.onSaveInstanceState());
         savedState.putInt(KEY_CHOICE_MODE, mChoiceMode);
         savedState.putParcelable(KEY_CHECKED_ITEMS, mCheckedItems);
@@ -210,7 +210,7 @@ public class SupportRecyclerView extends RecyclerView
      */
     @Override
     protected void onRestoreInstanceState(Parcelable state) {
-        Bundle savedState = (Bundle) state;
+        final Bundle savedState = (Bundle) state;
         super.onRestoreInstanceState(savedState.getParcelable(KEY_SUPER_STATE));
         mChoiceMode = savedState.getInt(KEY_CHOICE_MODE);
         mCheckedItems = savedState.getParcelable(KEY_CHECKED_ITEMS);
@@ -449,6 +449,24 @@ public class SupportRecyclerView extends RecyclerView
     }
 
     /**
+     * Sets the callback to be invoked when an item has been checked or unchecked.
+     *
+     * @param listener the callback to be invoked when an item has been checked or unchecked.
+     */
+    public void setMultiChoiceModeListener(MultiChoiceModeListener listener) {
+        mMultiChoiceModeListener = listener;
+    }
+
+    /**
+     * Returns the callback to be invoked when an item has been checked or unchecked.
+     *
+     * @return the callback to be invoked when an item has been checked or unchecked.
+     */
+    public MultiChoiceModeListener getMultiChoiceModeListener() {
+        return mMultiChoiceModeListener;
+    }
+
+    /**
      * Clears any choices previously set.
      */
     public void clearChoices() {
@@ -540,7 +558,7 @@ public class SupportRecyclerView extends RecyclerView
      */
     public SparseBooleanArray getCheckedItemPositions() {
         final int count = mCheckedItems.size();
-        SparseBooleanArray positions = new SparseBooleanArray(count);
+        final SparseBooleanArray positions = new SparseBooleanArray(count);
         for (int i = 0; i < count; i++) {
             positions.put(mCheckedItems.keyAt(i), true);
         }
@@ -554,29 +572,11 @@ public class SupportRecyclerView extends RecyclerView
      */
     public long[] getCheckedItemIds() {
         final int count = mCheckedItems.size();
-        long[] ids = new long[count];
+        final long[] ids = new long[count];
         for (int i = 0; i < count; i++) {
             ids[i] = mCheckedItems.valueAt(i);
         }
         return ids;
-    }
-
-    /**
-     * Sets the callback to be invoked when an item has been checked or unchecked.
-     *
-     * @param listener the callback to be invoked when an item has been checked or unchecked.
-     */
-    public void setMultiChoiceModeListener(MultiChoiceModeListener listener) {
-        mMultiChoiceModeListener = listener;
-    }
-
-    /**
-     * Returns the callback to be invoked when an item has been checked or unchecked.
-     *
-     * @return the callback to be invoked when an item has been checked or unchecked.
-     */
-    public MultiChoiceModeListener getMultiChoiceModeListener() {
-        return mMultiChoiceModeListener;
     }
 
     /**
@@ -598,7 +598,7 @@ public class SupportRecyclerView extends RecyclerView
     private void updateChildrenStatus() {
         final int count = getChildCount();
         for (int i = 0; i < count; i++) {
-            View child = getChildAt(i);
+            final View child = getChildAt(i);
             updateChildStatus(child);
         }
     }
@@ -608,7 +608,7 @@ public class SupportRecyclerView extends RecyclerView
      *
      * @param child the child.
      */
-    private void updateChildStatus(View child) {
+    private void updateChildStatus(@NonNull View child) {
         final int position = getChildAdapterPosition(child);
         final boolean checked = isItemChecked(position);
         if (child instanceof Checkable) {
@@ -640,6 +640,12 @@ public class SupportRecyclerView extends RecyclerView
      * Observer class for watching changes to the adapter.
      */
     private class RecyclerViewAdapterDataObserver extends AdapterDataObserver {
+
+        /**
+         * Constructor.
+         */
+        RecyclerViewAdapterDataObserver() {
+        }
 
         /**
          * {@inheritDoc}

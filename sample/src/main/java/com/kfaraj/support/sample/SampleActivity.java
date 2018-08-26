@@ -8,6 +8,7 @@ import android.view.View.OnClickListener;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.view.ActionMode;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -19,12 +20,9 @@ import com.google.android.material.navigation.NavigationView.OnNavigationItemSel
 /**
  * Demonstrates the features of the Support Library.
  */
-public class SampleActivity extends AppCompatActivity implements OnClickListener,
-        OnNavigationItemSelectedListener {
+public class SampleActivity extends AppCompatActivity
+        implements OnClickListener, OnNavigationItemSelectedListener {
 
-    /**
-     * Argument containing the title.
-     */
     private static final String KEY_TITLE = "title";
 
     private DrawerLayout mDrawerLayout;
@@ -41,14 +39,15 @@ public class SampleActivity extends AppCompatActivity implements OnClickListener
         mDrawerLayout = findViewById(R.id.drawer_layout);
         setSupportActionBar(toolbar);
         toolbar.setNavigationIcon(R.drawable.ic_menu_white_24dp);
+        toolbar.setNavigationContentDescription(R.string.open_drawer);
         toolbar.setNavigationOnClickListener(this);
         navigationView.setNavigationItemSelectedListener(this);
         mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
         if (savedInstanceState == null) {
-            MenuItem item = navigationView.getMenu().getItem(0);
+            final MenuItem item = navigationView.getMenu().getItem(0);
             onNavigationItemSelected(item);
         } else {
-            CharSequence title = savedInstanceState.getCharSequence(KEY_TITLE);
+            final CharSequence title = savedInstanceState.getCharSequence(KEY_TITLE);
             setTitle(title);
         }
     }
@@ -59,8 +58,26 @@ public class SampleActivity extends AppCompatActivity implements OnClickListener
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        CharSequence title = getTitle();
+        final CharSequence title = getTitle();
         outState.putCharSequence(KEY_TITLE, title);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void onSupportActionModeStarted(@NonNull ActionMode mode) {
+        super.onSupportActionModeStarted(mode);
+        mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void onSupportActionModeFinished(@NonNull ActionMode mode) {
+        super.onSupportActionModeFinished(mode);
+        mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
     }
 
     /**
