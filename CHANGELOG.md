@@ -3,6 +3,25 @@ Versions
 
 This library uses [Semantic Versioning](http://semver.org).
 
+Version 3.0.0-appcompat
+-----------------------
+
+**2018-10-02**
+
+- Updated the target SDK version to API level 28.
+- Migrated to the AndroidX appcompat library.
+- Restricted usage of utility classes.
+- Updated the documentation.
+
+Version 3.0.0-recyclerview
+--------------------------
+
+**2018-10-02**
+
+- Updated the target SDK version to API level 28.
+- Migrated to the AndroidX recyclerview library.
+- Restricted usage of utility classes.
+
 Version 2.0.2
 -------------
 
