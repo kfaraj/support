@@ -8,12 +8,12 @@ task generateJavadoc(type: Javadoc) {
 }
 
 task generateJavadocJar(type: Jar, dependsOn: generateJavadoc) {
-    classifier = 'javadoc'
+    archiveClassifier = 'javadoc'
     from generateJavadoc.destinationDir
 }
 
 task generateSourcesJar(type: Jar) {
-    classifier = 'sources'
+    archiveClassifier = 'sources'
     from android.sourceSets.main.java.srcDirs
 }
 
