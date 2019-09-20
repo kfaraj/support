@@ -1,12 +1,12 @@
 Support Library
 ===============
 
-This library is built on top of the [AndroidX library](https://developer.android.com/topic/libraries/support-library/androidx-overview).
+This library is built on top of the [AndroidX library](https://developer.android.com/jetpack/androidx).
 
 appcompat library
 -----------------
 
-This library is built on top of the [AndroidX appcompat library](https://developer.android.com/topic/libraries/support-library/refactor) and is designed to be used with Android 4.0 (API level 14) and higher.
+This library is built on top of the [AndroidX appcompat library](https://developer.android.com/jetpack/androidx/releases/appcompat) and is designed to be used with Android 4.0 (API level 14) and higher.
 
 It adds support for compound drawables tint to the following classes:
 - [SupportAutoCompleteTextView](appcompat/src/main/java/com/kfaraj/support/widget/SupportAutoCompleteTextView.java)
@@ -34,13 +34,13 @@ textView.setSupportCompoundDrawableTintMode(tintMode);
 
 This library can be included with the following dependency:
 ```groovy
-implementation 'com.kfaraj.support:appcompat:3.0.0'
+implementation 'com.kfaraj.support:appcompat:3.1.0'
 ```
 
 recyclerview library
 --------------------
 
-This library is built on top of the [AndroidX recyclerview library](https://developer.android.com/topic/libraries/support-library/refactor) and is designed to be used with Android 4.0 (API level 14) and higher.
+This library is built on top of the [AndroidX recyclerview library](https://developer.android.com/jetpack/androidx/releases/recyclerview) and is designed to be used with Android 4.0 (API level 14) and higher.
 
 It adds support for empty view, item click and choice mode to the following class:
 - [SupportRecyclerView](recyclerview/src/main/java/com/kfaraj/support/widget/SupportRecyclerView.java)
@@ -63,7 +63,7 @@ recyclerView.setMultiChoiceModeListener(multiChoiceModeListener);
 
 This library can be included with the following dependency:
 ```groovy
-implementation 'com.kfaraj.support:recyclerview:3.0.0'
+implementation 'com.kfaraj.support:recyclerview:3.0.1'
 ```
 
 sample application
