@@ -49,6 +49,7 @@ public class RecyclerViewFragment extends Fragment
      * @return a new instance of this fragment class.
      */
     @SuppressWarnings("WeakerAccess")
+    @NonNull
     public static RecyclerViewFragment newInstance() {
         return new RecyclerViewFragment();
     }
@@ -155,7 +156,8 @@ public class RecyclerViewFragment extends Fragment
      * {@inheritDoc}
      */
     @Override
-    public void onItemClick(SupportRecyclerView parent, View view, int position, long id) {
+    public void onItemClick(@NonNull SupportRecyclerView parent,
+            @NonNull View view, int position, long id) {
         final String item = mAdapter.getItems().get(position);
         Toast.makeText(requireContext(), item, Toast.LENGTH_SHORT).show();
     }
@@ -164,7 +166,8 @@ public class RecyclerViewFragment extends Fragment
      * {@inheritDoc}
      */
     @Override
-    public boolean onItemLongClick(SupportRecyclerView parent, View view, int position, long id) {
+    public boolean onItemLongClick(@NonNull SupportRecyclerView parent,
+            @NonNull View view, int position, long id) {
         final String item = mAdapter.getItems().get(position);
         Toast.makeText(requireContext(), item, Toast.LENGTH_LONG).show();
         return true;
@@ -219,7 +222,8 @@ public class RecyclerViewFragment extends Fragment
      * {@inheritDoc}
      */
     @Override
-    public void onItemCheckedStateChanged(ActionMode mode, int position, long id, boolean checked) {
+    public void onItemCheckedStateChanged(@NonNull ActionMode mode,
+            int position, long id, boolean checked) {
         mode.invalidate();
     }
 
@@ -246,6 +250,7 @@ public class RecyclerViewFragment extends Fragment
          *
          * @return the items.
          */
+        @NonNull
         ArrayList<String> getItems() {
             return mItems;
         }

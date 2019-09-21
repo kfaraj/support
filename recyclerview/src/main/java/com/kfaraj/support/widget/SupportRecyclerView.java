@@ -62,7 +62,8 @@ public class SupportRecyclerView extends RecyclerView
          * @param position the item position.
          * @param id the item id.
          */
-        void onItemClick(SupportRecyclerView parent, View view, int position, long id);
+        void onItemClick(@NonNull SupportRecyclerView parent,
+                @NonNull View view, int position, long id);
 
     }
 
@@ -80,7 +81,8 @@ public class SupportRecyclerView extends RecyclerView
          * @param id the item id.
          * @return true if the event was consumed, false otherwise.
          */
-        boolean onItemLongClick(SupportRecyclerView parent, View view, int position, long id);
+        boolean onItemLongClick(@NonNull SupportRecyclerView parent,
+                @NonNull View view, int position, long id);
 
     }
 
@@ -97,7 +99,8 @@ public class SupportRecyclerView extends RecyclerView
          * @param id the item id.
          * @param checked whether the item is now checked.
          */
-        void onItemCheckedStateChanged(ActionMode mode, int position, long id, boolean checked);
+        void onItemCheckedStateChanged(@NonNull ActionMode mode,
+                int position, long id, boolean checked);
 
     }
 
@@ -379,7 +382,7 @@ public class SupportRecyclerView extends RecyclerView
      *
      * @param emptyView the view to show when the adapter is empty.
      */
-    public void setEmptyView(View emptyView) {
+    public void setEmptyView(@Nullable View emptyView) {
         mEmptyView = emptyView;
         updateEmptyStatus();
     }
@@ -389,6 +392,7 @@ public class SupportRecyclerView extends RecyclerView
      *
      * @return the view to show when the adapter is empty.
      */
+    @Nullable
     public View getEmptyView() {
         return mEmptyView;
     }
@@ -398,7 +402,7 @@ public class SupportRecyclerView extends RecyclerView
      *
      * @param listener the callback to be invoked when an item has been clicked.
      */
-    public void setOnItemClickListener(OnItemClickListener listener) {
+    public void setOnItemClickListener(@Nullable OnItemClickListener listener) {
         mOnItemClickListener = listener;
     }
 
@@ -407,6 +411,7 @@ public class SupportRecyclerView extends RecyclerView
      *
      * @return the callback to be invoked when an item has been clicked.
      */
+    @Nullable
     public OnItemClickListener getOnItemClickListener() {
         return mOnItemClickListener;
     }
@@ -416,7 +421,7 @@ public class SupportRecyclerView extends RecyclerView
      *
      * @param listener the callback to be invoked when an item has been clicked and held.
      */
-    public void setOnItemLongClickListener(OnItemLongClickListener listener) {
+    public void setOnItemLongClickListener(@Nullable OnItemLongClickListener listener) {
         mOnItemLongClickListener = listener;
     }
 
@@ -425,6 +430,7 @@ public class SupportRecyclerView extends RecyclerView
      *
      * @return the callback to be invoked when an item has been clicked and held.
      */
+    @Nullable
     public OnItemLongClickListener getOnItemLongClickListener() {
         return mOnItemLongClickListener;
     }
@@ -453,7 +459,7 @@ public class SupportRecyclerView extends RecyclerView
      *
      * @param listener the callback to be invoked when an item has been checked or unchecked.
      */
-    public void setMultiChoiceModeListener(MultiChoiceModeListener listener) {
+    public void setMultiChoiceModeListener(@Nullable MultiChoiceModeListener listener) {
         mMultiChoiceModeListener = listener;
     }
 
@@ -462,6 +468,7 @@ public class SupportRecyclerView extends RecyclerView
      *
      * @return the callback to be invoked when an item has been checked or unchecked.
      */
+    @Nullable
     public MultiChoiceModeListener getMultiChoiceModeListener() {
         return mMultiChoiceModeListener;
     }
@@ -556,6 +563,7 @@ public class SupportRecyclerView extends RecyclerView
      *
      * @return the set of checked items in the list.
      */
+    @NonNull
     public SparseBooleanArray getCheckedItemPositions() {
         final int count = mCheckedItems.size();
         final SparseBooleanArray positions = new SparseBooleanArray(count);
@@ -570,6 +578,7 @@ public class SupportRecyclerView extends RecyclerView
      *
      * @return the set of checked items ids.
      */
+    @NonNull
     public long[] getCheckedItemIds() {
         final int count = mCheckedItems.size();
         final long[] ids = new long[count];

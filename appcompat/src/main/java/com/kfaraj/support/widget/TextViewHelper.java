@@ -104,6 +104,7 @@ class TextViewHelper implements TintableTextView {
      * @param drawable the compound drawable.
      * @return the tinted compound drawable.
      */
+    @Nullable
     Drawable applySupportCompoundDrawableTint(@Nullable Drawable drawable) {
         return DrawableUtils.applyTint(drawable, mTint, mTintMode);
     }

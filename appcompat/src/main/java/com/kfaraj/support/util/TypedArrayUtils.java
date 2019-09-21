@@ -30,6 +30,7 @@ public final class TypedArrayUtils {
      * @param defValue the value to return if the attribute is not defined.
      * @return the tint mode for the attribute at index.
      */
+    @Nullable
     public static PorterDuff.Mode getTintMode(@NonNull TypedArray a,
             @StyleableRes int index, @Nullable PorterDuff.Mode defValue) {
         final int value = a.getInt(index, 0);

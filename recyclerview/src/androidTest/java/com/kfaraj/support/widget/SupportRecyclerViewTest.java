@@ -316,6 +316,7 @@ public class SupportRecyclerViewTest {
             mContext = context;
         }
 
+        @NonNull
         ArrayList<Object> getItems() {
             return mItems;
         }
@@ -359,8 +360,8 @@ public class SupportRecyclerViewTest {
         }
 
         @Override
-        public void onItemClick(SupportRecyclerView parent,
-                View view, int position, long id) {
+        public void onItemClick(@NonNull SupportRecyclerView parent,
+                @NonNull View view, int position, long id) {
             this.called = true;
         }
 
@@ -374,8 +375,8 @@ public class SupportRecyclerViewTest {
         }
 
         @Override
-        public boolean onItemLongClick(SupportRecyclerView parent,
-                View view, int position, long id) {
+        public boolean onItemLongClick(@NonNull SupportRecyclerView parent,
+                @NonNull View view, int position, long id) {
             this.called = true;
             return true;
         }
@@ -407,7 +408,7 @@ public class SupportRecyclerViewTest {
         }
 
         @Override
-        public void onItemCheckedStateChanged(ActionMode mode,
+        public void onItemCheckedStateChanged(@NonNull ActionMode mode,
                 int position, long id, boolean checked) {
         }
 

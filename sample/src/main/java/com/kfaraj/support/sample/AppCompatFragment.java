@@ -20,6 +20,7 @@ public class AppCompatFragment extends Fragment {
      * @return a new instance of this fragment class.
      */
     @SuppressWarnings("WeakerAccess")
+    @NonNull
     public static AppCompatFragment newInstance() {
         return new AppCompatFragment();
     }

@@ -32,6 +32,7 @@ public final class DrawableUtils {
      * @param tintMode the blending mode used to apply the tint to the drawable.
      * @return the tinted drawable.
      */
+    @Nullable
     public static Drawable applyTint(@Nullable Drawable drawable,
             @Nullable ColorStateList tint, @Nullable PorterDuff.Mode tintMode) {
         if (drawable != null) {
