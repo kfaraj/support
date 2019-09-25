@@ -17,6 +17,7 @@ It adds support for compound drawables tint to the following classes:
 - [SupportMultiAutoCompleteTextView](appcompat/src/main/java/com/kfaraj/support/widget/SupportMultiAutoCompleteTextView.java)
 - [SupportRadioButton](appcompat/src/main/java/com/kfaraj/support/widget/SupportRadioButton.java)
 - [SupportTextView](appcompat/src/main/java/com/kfaraj/support/widget/SupportTextView.java)
+- [SupportToggleButton](appcompat/src/main/java/com/kfaraj/support/widget/SupportToggleButton.java)
 
 ```java
 final SupportTextView textView = new SupportTextView(context);

@@ -33,4 +33,7 @@
     <!-- These are the attributes for the SupportTextView. -->
     <declare-styleable name="SupportTextView" parent="TextView" />
 
+    <!-- These are the attributes for the SupportToggleButton. -->
+    <declare-styleable name="SupportToggleButton" parent="TextView" />
+
 </resources>
