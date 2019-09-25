@@ -12,9 +12,9 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.test.InstrumentationRegistry;
+import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.filters.SmallTest;
-import androidx.test.runner.AndroidJUnit4;
+import androidx.test.platform.app.InstrumentationRegistry;
 
 import com.kfaraj.support.widget.SupportRecyclerView.MultiChoiceModeListener;
 import com.kfaraj.support.widget.SupportRecyclerView.OnItemClickListener;
@@ -44,7 +44,7 @@ public class SupportRecyclerViewTest {
 
     @Before
     public void setUp() {
-        final Context context = InstrumentationRegistry.getContext();
+        final Context context = InstrumentationRegistry.getInstrumentation().getContext();
         mRecyclerView = new SupportRecyclerView(context);
         mEmptyView = new View(context);
         mAdapter = new MockAdapter(context);

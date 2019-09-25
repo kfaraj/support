@@ -4,22 +4,9 @@
     <!-- These are the attributes for the TextView. -->
     <declare-styleable name="TextView">
         <!-- The tint to apply to the compound drawables. -->
-        <attr name="drawableTint" format="color" />
+        <attr name="drawableTint" />
         <!-- The tint mode to apply to the compound drawables. -->
-        <attr name="drawableTintMode">
-            <!-- [Sa + (1 - Sa)*Da, Rc = Sc + (1 - Sa)*Dc] -->
-            <enum name="src_over" value="3" />
-            <!-- [Sa * Da, Sc * Da] -->
-            <enum name="src_in" value="5" />
-            <!-- [Da, Sc * Da + (1 - Sa) * Dc] -->
-            <enum name="src_atop" value="9" />
-            <!-- [Sa * Da, Sc * Dc] -->
-            <enum name="multiply" value="14" />
-            <!-- [Sa + Da - Sa * Da, Sc + Dc - Sc * Dc] -->
-            <enum name="screen" value="15" />
-            <!-- Saturate(S + D) -->
-            <enum name="add" value="16" />
-        </attr>
+        <attr name="drawableTintMode" />
     </declare-styleable>
 
     <!-- These are the attributes for the SupportAutoCompleteTextView. -->

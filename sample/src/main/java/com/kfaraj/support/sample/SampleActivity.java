@@ -56,7 +56,7 @@ public class SampleActivity extends AppCompatActivity
      * {@inheritDoc}
      */
     @Override
-    protected void onSaveInstanceState(Bundle outState) {
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
         final CharSequence title = getTitle();
         outState.putCharSequence(KEY_TITLE, title);

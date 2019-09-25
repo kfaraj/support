@@ -2,9 +2,9 @@ package com.kfaraj.support.widget;
 
 import android.content.Context;
 
-import androidx.test.InstrumentationRegistry;
+import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.filters.SmallTest;
-import androidx.test.runner.AndroidJUnit4;
+import androidx.test.platform.app.InstrumentationRegistry;
 
 import com.kfaraj.support.view.TintableTextViewTest;
 
@@ -22,7 +22,7 @@ public class SupportMultiAutoCompleteTextViewTest
         InstrumentationRegistry.getInstrumentation().runOnMainSync(new Runnable() {
             @Override
             public void run() {
-                final Context context = InstrumentationRegistry.getContext();
+                final Context context = InstrumentationRegistry.getInstrumentation().getContext();
                 mTextView = new SupportMultiAutoCompleteTextView(context);
             }
         });
