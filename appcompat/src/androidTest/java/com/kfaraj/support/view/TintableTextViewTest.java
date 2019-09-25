@@ -26,7 +26,7 @@ public abstract class TintableTextViewTest<T extends TextView & TintableTextView
     public void testSupportCompoundDrawableTint() {
         final ColorStateList tint = ColorStateList.valueOf(Color.BLACK);
         final PorterDuff.Mode tintMode = PorterDuff.Mode.MULTIPLY;
-        mTextView.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_white_24dp, 0, 0, 0);
+        mTextView.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_white_1px, 0, 0, 0);
         mTextView.setSupportCompoundDrawableTintList(tint);
         mTextView.setSupportCompoundDrawableTintMode(tintMode);
         assertEquals(tint, mTextView.getSupportCompoundDrawableTintList());
