@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="Theme.MaterialComponents.Light.DarkActionBar.Bridge.NoActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-    </style>
-    <style name="AppTheme" parent="Theme.MaterialComponents.Light.DarkActionBar.Bridge.NoActionBar">
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar.Bridge">
         <item name="windowActionModeOverlay">true</item>
     </style>
     <style name="AppTheme.NavigationDrawer" />

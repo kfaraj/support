@@ -3,9 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="@dimen/card_margin_half"
     android:foreground="?attr/selectableItemBackground"
-    app:cardBackgroundColor="@color/selector_white">
+    app:cardBackgroundColor="@color/background_card">
 
     <TextView
         android:id="@+id/text_view"

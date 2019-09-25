@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.kfaraj.support.sample.widget.SpaceItemDecoration;
 import com.kfaraj.support.widget.SupportRecyclerView;
 import com.kfaraj.support.widget.SupportRecyclerView.MultiChoiceModeListener;
 import com.kfaraj.support.widget.SupportRecyclerView.OnItemClickListener;
@@ -105,9 +106,12 @@ public class RecyclerViewFragment extends Fragment
         mRecyclerView.setOnItemLongClickListener(this);
         mRecyclerView.setChoiceMode(SupportRecyclerView.CHOICE_MODE_MULTIPLE_MODAL);
         mRecyclerView.setMultiChoiceModeListener(this);
+        final int space = Math.round(getResources().getDimension(R.dimen.card_margin) / 2.0f);
+        mRecyclerView.setPadding(space, space, space, space);
+        mRecyclerView.addItemDecoration(new SpaceItemDecoration(space));
         final ItemTouchHelper.SimpleCallback callback = new ItemTouchHelper.SimpleCallback(
                 ItemTouchHelper.UP | ItemTouchHelper.DOWN,
-                ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+                ItemTouchHelper.START | ItemTouchHelper.END) {
             @Override
             public boolean onMove(@NonNull RecyclerView recyclerView,
                     @NonNull RecyclerView.ViewHolder viewHolder,

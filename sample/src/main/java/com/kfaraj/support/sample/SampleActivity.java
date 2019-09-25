@@ -38,7 +38,7 @@ public class SampleActivity extends AppCompatActivity
         final NavigationView navigationView = findViewById(R.id.navigation_view);
         mDrawerLayout = findViewById(R.id.drawer_layout);
         setSupportActionBar(toolbar);
-        toolbar.setNavigationIcon(R.drawable.ic_menu_white_24dp);
+        toolbar.setNavigationIcon(R.drawable.ic_menu_black_24dp);
         toolbar.setNavigationContentDescription(R.string.open_drawer);
         toolbar.setNavigationOnClickListener(this);
         navigationView.setNavigationItemSelectedListener(this);
