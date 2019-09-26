@@ -3,6 +3,23 @@ Versions
 
 This library uses [Semantic Versioning](http://semver.org).
 
+Version 3.1.0-appcompat
+-----------------------
+
+**2019-09-26**
+
+- Updated the target SDK version to API level 29.
+- Updated the AndroidX appcompat library version to 1.1.0.
+- Added SupportToggleButton.
+
+Version 3.0.1-recyclerview
+--------------------------
+
+**2019-09-26**
+
+- Updated the target SDK version to API level 29.
+- Updated the annotations.
+
 Version 3.0.0-appcompat
 -----------------------
 
