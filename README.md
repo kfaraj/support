@@ -33,8 +33,9 @@ textView.setSupportCompoundDrawableTintMode(tintMode);
     app:drawableTintMode="multiply" />
 ```
 
-This library can be included with the following dependency:
+This library can be included with the following dependencies:
 ```groovy
+implementation 'androidx.appcompat:appcompat:1.1.0'
 implementation 'com.kfaraj.support:appcompat:3.1.0'
 ```
 
@@ -62,8 +63,9 @@ recyclerView.setMultiChoiceModeListener(multiChoiceModeListener);
     app:choiceMode="singleChoice" />
 ```
 
-This library can be included with the following dependency:
+This library can be included with the following dependencies:
 ```groovy
+implementation 'androidx.recyclerview:recyclerview:1.1.0'
 implementation 'com.kfaraj.support:recyclerview:3.0.2'
 ```
 
