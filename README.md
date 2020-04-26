@@ -64,7 +64,7 @@ recyclerView.setMultiChoiceModeListener(multiChoiceModeListener);
 
 This library can be included with the following dependency:
 ```groovy
-implementation 'com.kfaraj.support:recyclerview:3.0.1'
+implementation 'com.kfaraj.support:recyclerview:3.0.2'
 ```
 
 sample application
