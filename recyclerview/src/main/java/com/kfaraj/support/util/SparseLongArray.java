@@ -24,6 +24,7 @@ public class SparseLongArray extends SparseArray<Long>
         public SparseLongArray createFromParcel(Parcel source) {
             return new SparseLongArray(source);
         }
+
         @Override
         public SparseLongArray[] newArray(int size) {
             return new SparseLongArray[size];

@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.ViewCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -87,9 +88,9 @@ public class RecyclerViewFragment extends Fragment
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        mRecyclerView = view.findViewById(android.R.id.list);
-        mEmptyView = view.findViewById(android.R.id.empty);
-        mFab = view.findViewById(R.id.fab);
+        mRecyclerView = ViewCompat.requireViewById(view, android.R.id.list);
+        mEmptyView = ViewCompat.requireViewById(view, android.R.id.empty);
+        mFab = ViewCompat.requireViewById(view, R.id.fab);
     }
 
     /**
@@ -122,6 +123,7 @@ public class RecyclerViewFragment extends Fragment
                 mAdapter.notifyItemMoved(fromPosition, toPosition);
                 return true;
             }
+
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder,
                     int direction) {
@@ -265,7 +267,7 @@ public class RecyclerViewFragment extends Fragment
         @NonNull
         @Override
         public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            final View itemView = mInflater.inflate(R.layout.item_recyclerview, parent, false);
+            final View itemView = mInflater.inflate(R.layout.item_card, parent, false);
             return new ViewHolder(itemView);
         }
 
@@ -309,7 +311,7 @@ public class RecyclerViewFragment extends Fragment
          */
         ViewHolder(@NonNull View itemView) {
             super(itemView);
-            this.textView = itemView.findViewById(R.id.text_view);
+            this.textView = ViewCompat.requireViewById(itemView, android.R.id.text1);
         }
 
     }

@@ -10,6 +10,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.view.ActionMode;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
@@ -34,9 +35,9 @@ public class SampleActivity extends AppCompatActivity
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sample);
-        final Toolbar toolbar = findViewById(R.id.toolbar);
-        final NavigationView navigationView = findViewById(R.id.navigation_view);
-        mDrawerLayout = findViewById(R.id.drawer_layout);
+        final Toolbar toolbar = ActivityCompat.requireViewById(this, R.id.toolbar);
+        final NavigationView navigationView = ActivityCompat.requireViewById(this, R.id.navigation);
+        mDrawerLayout = ActivityCompat.requireViewById(this, R.id.drawer_layout);
         setSupportActionBar(toolbar);
         toolbar.setNavigationIcon(R.drawable.ic_menu_black_24dp);
         toolbar.setNavigationContentDescription(R.string.open_drawer);
