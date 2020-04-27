@@ -3,6 +3,13 @@ Versions
 
 This library uses [Semantic Versioning](http://semver.org).
 
+Version 3.0.2-recyclerview
+--------------------------
+
+**2020-04-27**
+
+- Updated the AndroidX recyclerview library version to 1.1.0.
+
 Version 3.1.0-appcompat
 -----------------------
 
