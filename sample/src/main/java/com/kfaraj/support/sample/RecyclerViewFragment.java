@@ -11,7 +11,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -21,6 +20,7 @@ import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.kfaraj.support.sample.widget.SpaceItemDecoration;
 import com.kfaraj.support.widget.SupportRecyclerView;
 import com.kfaraj.support.widget.SupportRecyclerView.MultiChoiceModeListener;
@@ -165,7 +165,7 @@ public class RecyclerViewFragment extends Fragment
     public void onItemClick(@NonNull SupportRecyclerView parent,
             @NonNull View view, int position, long id) {
         final String item = mAdapter.getItems().get(position);
-        Toast.makeText(requireContext(), item, Toast.LENGTH_SHORT).show();
+        Snackbar.make(mRecyclerView, item, Snackbar.LENGTH_SHORT).show();
     }
 
     /**
@@ -175,7 +175,7 @@ public class RecyclerViewFragment extends Fragment
     public boolean onItemLongClick(@NonNull SupportRecyclerView parent,
             @NonNull View view, int position, long id) {
         final String item = mAdapter.getItems().get(position);
-        Toast.makeText(requireContext(), item, Toast.LENGTH_LONG).show();
+        Snackbar.make(mRecyclerView, item, Snackbar.LENGTH_LONG).show();
         return true;
     }
 

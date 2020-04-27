@@ -9,12 +9,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.view.ActionMode;
-import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
+import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.navigation.NavigationView.OnNavigationItemSelectedListener;
 
@@ -35,15 +35,12 @@ public class SampleActivity extends AppCompatActivity
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sample);
-        final Toolbar toolbar = ActivityCompat.requireViewById(this, R.id.toolbar);
+        final MaterialToolbar toolbar = ActivityCompat.requireViewById(this, R.id.toolbar);
         final NavigationView navigationView = ActivityCompat.requireViewById(this, R.id.navigation);
         mDrawerLayout = ActivityCompat.requireViewById(this, R.id.drawer_layout);
         setSupportActionBar(toolbar);
-        toolbar.setNavigationIcon(R.drawable.ic_menu_black_24dp);
-        toolbar.setNavigationContentDescription(R.string.open_drawer);
         toolbar.setNavigationOnClickListener(this);
         navigationView.setNavigationItemSelectedListener(this);
-        mDrawerLayout.setDrawerShadow(R.drawable.drawer_shadow, GravityCompat.START);
         if (savedInstanceState == null) {
             final MenuItem item = navigationView.getMenu().getItem(0);
             onNavigationItemSelected(item);

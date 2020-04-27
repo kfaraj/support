@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -20,9 +20,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="SupportAutoCompleteTextView"
-            android:drawableLeft="@drawable/ic_android_black_24dp"
-            android:drawableStart="@drawable/ic_android_black_24dp"
             android:drawablePadding="@dimen/drawable_padding"
+            app:drawableStartCompat="@drawable/ic_android_black_24dp"
             app:drawableTint="?attr/colorAccent" />
 
         <com.kfaraj.support.widget.SupportButton
@@ -30,8 +29,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/card_padding"
             android:text="SupportButton"
-            android:drawableTop="@drawable/ic_android_black_24dp"
             android:drawablePadding="@dimen/drawable_padding"
+            app:drawableTopCompat="@drawable/ic_android_black_24dp"
             app:drawableTint="?attr/colorAccent" />
 
         <com.kfaraj.support.widget.SupportCheckBox
@@ -39,9 +38,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/card_padding"
             android:text="SupportCheckBox"
-            android:drawableRight="@drawable/ic_android_black_24dp"
-            android:drawableEnd="@drawable/ic_android_black_24dp"
             android:drawablePadding="@dimen/drawable_padding"
+            app:drawableEndCompat="@drawable/ic_android_black_24dp"
             app:drawableTint="?attr/colorAccent" />
 
         <com.kfaraj.support.widget.SupportCheckedTextView
@@ -49,9 +47,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/card_padding"
             android:text="SupportCheckedTextView"
-            android:drawableLeft="@drawable/ic_android_black_24dp"
-            android:drawableStart="@drawable/ic_android_black_24dp"
             android:drawablePadding="@dimen/drawable_padding"
+            app:drawableStartCompat="@drawable/ic_android_black_24dp"
             app:drawableTint="?attr/colorAccent" />
 
         <com.kfaraj.support.widget.SupportEditText
@@ -59,9 +56,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/card_padding"
             android:text="SupportEditText"
-            android:drawableLeft="@drawable/ic_android_black_24dp"
-            android:drawableStart="@drawable/ic_android_black_24dp"
             android:drawablePadding="@dimen/drawable_padding"
+            app:drawableStartCompat="@drawable/ic_android_black_24dp"
             app:drawableTint="?attr/colorAccent" />
 
         <com.kfaraj.support.widget.SupportMultiAutoCompleteTextView
@@ -69,9 +65,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/card_padding"
             android:text="SupportMultiAutoCompleteTextView"
-            android:drawableLeft="@drawable/ic_android_black_24dp"
-            android:drawableStart="@drawable/ic_android_black_24dp"
             android:drawablePadding="@dimen/drawable_padding"
+            app:drawableStartCompat="@drawable/ic_android_black_24dp"
             app:drawableTint="?attr/colorAccent" />
 
         <com.kfaraj.support.widget.SupportRadioButton
@@ -79,9 +74,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/card_padding"
             android:text="SupportRadioButton"
-            android:drawableRight="@drawable/ic_android_black_24dp"
-            android:drawableEnd="@drawable/ic_android_black_24dp"
             android:drawablePadding="@dimen/drawable_padding"
+            app:drawableEndCompat="@drawable/ic_android_black_24dp"
             app:drawableTint="?attr/colorAccent" />
 
         <com.kfaraj.support.widget.SupportTextView
@@ -89,9 +83,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/card_padding"
             android:text="SupportTextView"
-            android:drawableLeft="@drawable/ic_android_black_24dp"
-            android:drawableStart="@drawable/ic_android_black_24dp"
             android:drawablePadding="@dimen/drawable_padding"
+            app:drawableStartCompat="@drawable/ic_android_black_24dp"
             app:drawableTint="?attr/colorAccent" />
 
         <com.kfaraj.support.widget.SupportToggleButton
@@ -99,10 +92,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/card_padding"
             android:text="SupportToggleButton"
-            android:drawableTop="@drawable/ic_android_black_24dp"
             android:drawablePadding="@dimen/drawable_padding"
+            app:drawableTopCompat="@drawable/ic_android_black_24dp"
             app:drawableTint="?attr/colorAccent" />
 
     </LinearLayout>
 
-</ScrollView>
+</androidx.core.widget.NestedScrollView>
