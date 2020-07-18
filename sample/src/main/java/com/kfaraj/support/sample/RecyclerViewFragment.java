@@ -50,7 +50,6 @@ public class RecyclerViewFragment extends Fragment
      *
      * @return a new instance of this fragment class.
      */
-    @SuppressWarnings("WeakerAccess")
     @NonNull
     public static RecyclerViewFragment newInstance() {
         return new RecyclerViewFragment();

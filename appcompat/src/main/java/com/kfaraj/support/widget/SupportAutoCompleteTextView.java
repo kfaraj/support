@@ -4,11 +4,13 @@ import android.content.Context;
 import android.content.res.ColorStateList;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.util.AttributeSet;
 
 import androidx.annotation.AttrRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.widget.AppCompatAutoCompleteTextView;
 
 import com.kfaraj.support.appcompat.R;
@@ -130,6 +132,7 @@ public class SupportAutoCompleteTextView extends AppCompatAutoCompleteTextView
     /**
      * {@inheritDoc}
      */
+    @RequiresApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
     @Override
     public void setCompoundDrawablesRelative(@Nullable Drawable start, @Nullable Drawable top,
             @Nullable Drawable end, @Nullable Drawable bottom) {

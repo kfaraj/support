@@ -131,7 +131,7 @@ public class SupportRecyclerView extends RecyclerView
 
     private final AdapterDataObserver mObserver = new RecyclerViewAdapterDataObserver();
 
-    private Adapter mAdapter;
+    private Adapter<?> mAdapter;
     private int mChildrenCount;
     private View mEmptyView;
     private OnItemClickListener mOnItemClickListener;

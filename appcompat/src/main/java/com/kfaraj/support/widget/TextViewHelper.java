@@ -6,7 +6,7 @@ import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
-import android.os.Build.VERSION_CODES;
+import android.os.Build;
 import android.util.AttributeSet;
 import android.widget.TextView;
 
@@ -112,7 +112,7 @@ class TextViewHelper implements TintableTextView {
     /**
      * Applies the tint to the compound drawables.
      */
-    @TargetApi(VERSION_CODES.JELLY_BEAN_MR1)
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
     private void applySupportCompoundDrawableTint() {
         try {
             final Drawable[] drawables = mTextView.getCompoundDrawablesRelative();
