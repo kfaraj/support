@@ -3,6 +3,21 @@ Versions
 
 This library uses [Semantic Versioning](http://semver.org).
 
+Version 3.1.1-appcompat
+-----------------------
+
+**2020-07-18**
+
+- Updated the target SDK version to API level 30.
+- Updated the annotations.
+
+Version 3.0.3-recyclerview
+--------------------------
+
+**2020-07-18**
+
+- Updated the target SDK version to API level 30.
+
 Version 3.0.2-recyclerview
 --------------------------
 
