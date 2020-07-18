@@ -10,6 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clipToPadding="false"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:padding="@dimen/card_margin" />
 
     <TextView
@@ -19,7 +20,7 @@
         android:layout_gravity="center"
         android:text="@string/empty"
         android:textAppearance="?attr/textAppearanceHeadline6"
-        android:alpha="?android:attr/disabledAlpha" />
+        android:textColor="@color/material_on_background_disabled" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"

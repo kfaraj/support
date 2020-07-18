@@ -17,7 +17,6 @@ import androidx.annotation.Nullable;
 import androidx.core.view.ViewCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.ItemTouchHelper;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -98,17 +97,6 @@ public class RecyclerViewFragment extends Fragment
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mFab.setOnClickListener(this);
-        mRecyclerView.setAdapter(mAdapter);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(null));
-        mRecyclerView.setEmptyView(mEmptyView);
-        mRecyclerView.setOnItemClickListener(this);
-        mRecyclerView.setOnItemLongClickListener(this);
-        mRecyclerView.setChoiceMode(SupportRecyclerView.CHOICE_MODE_MULTIPLE_MODAL);
-        mRecyclerView.setMultiChoiceModeListener(this);
-        final int space = Math.round(getResources().getDimension(R.dimen.card_margin) / 2.0f);
-        mRecyclerView.setPadding(space, space, space, space);
-        mRecyclerView.addItemDecoration(new SpaceItemDecoration(space));
         final ItemTouchHelper.SimpleCallback callback = new ItemTouchHelper.SimpleCallback(
                 ItemTouchHelper.UP | ItemTouchHelper.DOWN,
                 ItemTouchHelper.START | ItemTouchHelper.END) {
@@ -133,6 +121,17 @@ public class RecyclerViewFragment extends Fragment
         };
         final ItemTouchHelper helper = new ItemTouchHelper(callback);
         helper.attachToRecyclerView(mRecyclerView);
+        final int space = Math.round(getResources().getDimension(R.dimen.card_margin) / 2.0f);
+        mRecyclerView.setPadding(space, space, space, space);
+        mRecyclerView.setHasFixedSize(true);
+        mRecyclerView.setAdapter(mAdapter);
+        mRecyclerView.addItemDecoration(new SpaceItemDecoration(space));
+        mRecyclerView.setEmptyView(mEmptyView);
+        mRecyclerView.setOnItemClickListener(this);
+        mRecyclerView.setOnItemLongClickListener(this);
+        mRecyclerView.setChoiceMode(SupportRecyclerView.CHOICE_MODE_MULTIPLE_MODAL);
+        mRecyclerView.setMultiChoiceModeListener(this);
+        mFab.setOnClickListener(this);
     }
 
     /**

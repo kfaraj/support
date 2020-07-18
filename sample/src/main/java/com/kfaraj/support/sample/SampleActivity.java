@@ -117,12 +117,12 @@ public class SampleActivity extends AppCompatActivity
                 break;
         }
         if (fragment != null) {
-            item.setChecked(true);
-            setTitle(item.getTitle());
             getSupportFragmentManager()
                     .beginTransaction()
                     .replace(R.id.container, fragment)
                     .commit();
+            setTitle(item.getTitle());
+            item.setChecked(true);
             mDrawerLayout.closeDrawer(GravityCompat.START);
             return true;
         } else {
