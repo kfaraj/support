@@ -36,7 +36,7 @@ textView.setSupportCompoundDrawableTintMode(tintMode);
 This library can be included with the following dependencies:
 ```groovy
 implementation 'androidx.appcompat:appcompat:1.1.0'
-implementation 'com.kfaraj.support:appcompat:3.1.1'
+implementation 'com.kfaraj.support:appcompat:3.1.2'
 ```
 
 recyclerview library
