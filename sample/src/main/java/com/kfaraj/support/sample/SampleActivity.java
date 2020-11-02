@@ -105,16 +105,12 @@ public class SampleActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         final int id = item.getItemId();
         final Fragment fragment;
-        switch (id) {
-            case R.id.appcompat:
-                fragment = AppCompatFragment.newInstance();
-                break;
-            case R.id.recyclerview:
-                fragment = RecyclerViewFragment.newInstance();
-                break;
-            default:
-                fragment = null;
-                break;
+        if (id == R.id.appcompat) {
+            fragment = AppCompatFragment.newInstance();
+        } else if (id == R.id.recyclerview) {
+            fragment = RecyclerViewFragment.newInstance();
+        } else {
+            fragment = null;
         }
         if (fragment != null) {
             getSupportFragmentManager()
