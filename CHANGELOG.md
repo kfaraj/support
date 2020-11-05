@@ -3,6 +3,13 @@ Versions
 
 This library uses [Semantic Versioning](http://semver.org).
 
+Version 3.1.2-appcompat
+-----------------------
+
+**2020-11-05**
+
+- Updated the AndroidX appcompat library version to 1.2.0.
+
 Version 3.1.1-appcompat
 -----------------------
 
