@@ -1,39 +1,33 @@
-Versions
-========
+# Versions
 
-This library uses [Semantic Versioning](http://semver.org).
+These libraries use [Semantic Versioning](https://semver.org/).
 
-Version 3.1.2-appcompat
------------------------
+## Version 3.1.2-appcompat
 
 **2020-11-05**
 
 - Updated the AndroidX appcompat library version to 1.2.0.
 
-Version 3.1.1-appcompat
------------------------
+## Version 3.1.1-appcompat
 
 **2020-07-18**
 
 - Updated the target SDK version to API level 30.
 - Updated the annotations.
 
-Version 3.0.3-recyclerview
---------------------------
+## Version 3.0.3-recyclerview
 
 **2020-07-18**
 
 - Updated the target SDK version to API level 30.
 
-Version 3.0.2-recyclerview
---------------------------
+## Version 3.0.2-recyclerview
 
 **2020-04-27**
 
 - Updated the AndroidX recyclerview library version to 1.1.0.
 
-Version 3.1.0-appcompat
------------------------
+## Version 3.1.0-appcompat
 
 **2019-09-26**
 
@@ -41,16 +35,14 @@ Version 3.1.0-appcompat
 - Updated the AndroidX appcompat library version to 1.1.0.
 - Added SupportToggleButton.
 
-Version 3.0.1-recyclerview
---------------------------
+## Version 3.0.1-recyclerview
 
 **2019-09-26**
 
 - Updated the target SDK version to API level 29.
 - Updated the annotations.
 
-Version 3.0.0-appcompat
------------------------
+## Version 3.0.0-appcompat
 
 **2018-10-02**
 
@@ -59,8 +51,7 @@ Version 3.0.0-appcompat
 - Restricted usage of utility classes.
 - Updated the documentation.
 
-Version 3.0.0-recyclerview
---------------------------
+## Version 3.0.0-recyclerview
 
 **2018-10-02**
 
@@ -68,8 +59,7 @@ Version 3.0.0-recyclerview
 - Migrated to the AndroidX recyclerview library.
 - Restricted usage of utility classes.
 
-Version 2.0.2
--------------
+## Version 2.0.2
 
 **2018-07-14**
 
@@ -80,8 +70,7 @@ Changes for appcompat library:
 Changes for recyclerview library:
 - Updated the v7 recyclerview library version to 27.1.1.
 
-Version 2.0.1
--------------
+## Version 2.0.1
 
 **2017-12-11**
 
@@ -93,8 +82,7 @@ Changes for recyclerview library:
 - Updated the target SDK version to API level 27.
 - Updated the v7 recyclerview library version to 27.0.2.
 
-Version 2.0.0
--------------
+## Version 2.0.0
 
 **2017-09-01**
 
@@ -109,16 +97,14 @@ Changes for recyclerview library:
 - Updated the target SDK version to API level 26.
 - Updated the v7 recyclerview library version to 26.0.2.
 
-Version 1.1.3
--------------
+## Version 1.1.3
 
 **2017-07-07**
 
 Changes for recyclerview library:
 - Improved support for choice mode.
 
-Version 1.1.2
--------------
+## Version 1.1.2
 
 **2017-06-11**
 
@@ -130,8 +116,7 @@ Changes for recyclerview library:
 - Updated the annotations.
 - Updated the documentation.
 
-Version 1.1.1
--------------
+## Version 1.1.1
 
 **2017-04-23**
 
@@ -143,8 +128,7 @@ Changes for recyclerview library:
 - Updated the v7 recyclerview library version to 25.3.1.
 - Updated the documentation.
 
-Version 1.1.0
--------------
+## Version 1.1.0
 
 **2017-01-10**
 
@@ -156,8 +140,7 @@ New recyclerview library:
 - Added support for item click.
 - Added support for choice mode.
 
-Version 1.0.2
--------------
+## Version 1.0.2
 
 **2016-11-13**
 
@@ -165,8 +148,7 @@ Changes for appcompat library:
 - Updated the target SDK version to API level 25.
 - Updated the v7 appcompat library version to 25.0.0.
 
-Version 1.0.1
--------------
+## Version 1.0.1
 
 **2016-10-23**
 
@@ -174,8 +156,7 @@ Changes for appcompat library:
 - Allowed subclasses to use their own base style when they are inflating.
 - Updated the documentation.
 
-Version 1.0.0
--------------
+## Version 1.0.0
 
 **2016-10-03**
 
