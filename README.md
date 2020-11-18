@@ -1,10 +1,8 @@
-Support Library
-===============
+# Support Library
 
-This library is built on top of the [AndroidX library](https://developer.android.com/jetpack/androidx).
+This project is a suite of libraries built on top of [AndroidX](https://developer.android.com/jetpack/androidx).
 
-appcompat library
------------------
+## appcompat
 
 This library is built on top of the [AndroidX appcompat library](https://developer.android.com/jetpack/androidx/releases/appcompat) and is designed to be used with Android 4.0 (API level 14) and higher.
 
@@ -39,8 +37,7 @@ implementation 'androidx.appcompat:appcompat:1.2.0'
 implementation 'com.kfaraj.support:appcompat:3.1.2'
 ```
 
-recyclerview library
---------------------
+## recyclerview
 
 This library is built on top of the [AndroidX recyclerview library](https://developer.android.com/jetpack/androidx/releases/recyclerview) and is designed to be used with Android 4.0 (API level 14) and higher.
 
@@ -69,7 +66,6 @@ implementation 'androidx.recyclerview:recyclerview:1.1.0'
 implementation 'com.kfaraj.support:recyclerview:3.0.3'
 ```
 
-sample application
-------------------
+## sample
 
-This application demonstrates the features of the Support Library.
+This sample app demonstrates the features of the Support Library.
