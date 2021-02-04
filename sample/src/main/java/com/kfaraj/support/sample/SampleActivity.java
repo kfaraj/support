@@ -29,12 +29,18 @@ public class SampleActivity extends AppCompatActivity
     private DrawerLayout mDrawerLayout;
 
     /**
+     * Constructor.
+     */
+    public SampleActivity() {
+        super(R.layout.activity_sample);
+    }
+
+    /**
      * {@inheritDoc}
      */
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sample);
         final MaterialToolbar toolbar = ActivityCompat.requireViewById(this, R.id.toolbar);
         final NavigationView navigationView = ActivityCompat.requireViewById(this, R.id.navigation);
         mDrawerLayout = ActivityCompat.requireViewById(this, R.id.drawer_layout);
@@ -104,18 +110,19 @@ public class SampleActivity extends AppCompatActivity
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         final int id = item.getItemId();
-        final Fragment fragment;
+        final Class<? extends Fragment> fragmentClass;
         if (id == R.id.appcompat) {
-            fragment = AppCompatFragment.newInstance();
+            fragmentClass = AppCompatFragment.class;
         } else if (id == R.id.recyclerview) {
-            fragment = RecyclerViewFragment.newInstance();
+            fragmentClass = RecyclerViewFragment.class;
         } else {
-            fragment = null;
+            fragmentClass = null;
         }
-        if (fragment != null) {
+        if (fragmentClass != null) {
             getSupportFragmentManager()
                     .beginTransaction()
-                    .replace(R.id.container, fragment)
+                    .replace(R.id.container, fragmentClass, null)
+                    .setReorderingAllowed(true)
                     .commit();
             setTitle(item.getTitle());
             item.setChecked(true);

@@ -45,13 +45,10 @@ public class RecyclerViewFragment extends Fragment
     private View mFab;
 
     /**
-     * Creates a new instance of this fragment class.
-     *
-     * @return a new instance of this fragment class.
+     * Constructor.
      */
-    @NonNull
-    public static RecyclerViewFragment newInstance() {
-        return new RecyclerViewFragment();
+    public RecyclerViewFragment() {
+        super(R.layout.fragment_recyclerview);
     }
 
     /**
@@ -68,16 +65,6 @@ public class RecyclerViewFragment extends Fragment
                 mAdapter.notifyDataSetChanged();
             }
         }
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Nullable
-    @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
-            @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_recyclerview, container, false);
     }
 
     /**
