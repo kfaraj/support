@@ -36,6 +36,10 @@ This library can be included with the following dependency:
 implementation 'com.kfaraj.support:appcompat:3.1.3'
 ```
 
+## appcompat-sample
+
+This sample app demonstrates how to use the [AppCompat library](#appcompat).
+
 ## recyclerview
 
 This library is built on top of the [AndroidX recyclerview library](https://developer.android.com/jetpack/androidx/releases/recyclerview) and is designed to be used with Android 4.0 (API level 14) and higher.
@@ -64,6 +68,6 @@ This library can be included with the following dependency:
 implementation 'com.kfaraj.support:recyclerview:3.0.4'
 ```
 
-## sample
+## recyclerview-sample
 
-This sample app demonstrates the features of the Support Library.
+This sample app demonstrates how to use the [RecyclerView library](#recyclerview).

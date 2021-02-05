@@ -1,0 +1,25 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 30
+    defaultConfig {
+        applicationId "com.kfaraj.support.recyclerview.sample"
+        minSdkVersion 14
+        targetSdkVersion 30
+        vectorDrawables.useSupportLibrary = true
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation project(':recyclerview')
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.fragment:fragment:1.2.5'
+    implementation 'com.google.android.material:material:1.2.1'
+}

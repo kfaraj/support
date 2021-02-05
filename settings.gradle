@@ -1,1 +1,1 @@
-include ':appcompat', ':recyclerview', ':sample'
+include ':appcompat', ':appcompat-sample', ':recyclerview', ':recyclerview-sample'

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:ignore="HardcodedText">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/margin"
+        android:clipToPadding="false"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
+
+        <requestFocus />
+
+        <com.kfaraj.support.widget.SupportAutoCompleteTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="SupportAutoCompleteTextView"
+            android:drawablePadding="@dimen/drawable_padding"
+            app:drawableStartCompat="@drawable/ic_android_black_24dp"
+            app:drawableTint="?attr/colorAccent" />
+
+        <com.kfaraj.support.widget.SupportButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin"
+            android:text="SupportButton"
+            android:drawablePadding="@dimen/drawable_padding"
+            app:drawableTopCompat="@drawable/ic_android_black_24dp"
+            app:drawableTint="?attr/colorAccent" />
+
+        <com.kfaraj.support.widget.SupportCheckBox
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin"
+            android:text="SupportCheckBox"
+            android:drawablePadding="@dimen/drawable_padding"
+            app:drawableEndCompat="@drawable/ic_android_black_24dp"
+            app:drawableTint="?attr/colorAccent" />
+
+        <com.kfaraj.support.widget.SupportCheckedTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin"
+            android:text="SupportCheckedTextView"
+            android:drawablePadding="@dimen/drawable_padding"
+            app:drawableStartCompat="@drawable/ic_android_black_24dp"
+            app:drawableTint="?attr/colorAccent" />
+
+        <com.kfaraj.support.widget.SupportEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin"
+            android:text="SupportEditText"
+            android:drawablePadding="@dimen/drawable_padding"
+            app:drawableStartCompat="@drawable/ic_android_black_24dp"
+            app:drawableTint="?attr/colorAccent" />
+
+        <com.kfaraj.support.widget.SupportMultiAutoCompleteTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin"
+            android:text="SupportMultiAutoCompleteTextView"
+            android:drawablePadding="@dimen/drawable_padding"
+            app:drawableStartCompat="@drawable/ic_android_black_24dp"
+            app:drawableTint="?attr/colorAccent" />
+
+        <com.kfaraj.support.widget.SupportRadioButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin"
+            android:text="SupportRadioButton"
+            android:drawablePadding="@dimen/drawable_padding"
+            app:drawableEndCompat="@drawable/ic_android_black_24dp"
+            app:drawableTint="?attr/colorAccent" />
+
+        <com.kfaraj.support.widget.SupportTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin"
+            android:text="SupportTextView"
+            android:drawablePadding="@dimen/drawable_padding"
+            app:drawableStartCompat="@drawable/ic_android_black_24dp"
+            app:drawableTint="?attr/colorAccent" />
+
+        <com.kfaraj.support.widget.SupportToggleButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin"
+            android:text="SupportToggleButton"
+            android:drawablePadding="@dimen/drawable_padding"
+            app:drawableTopCompat="@drawable/ic_android_black_24dp"
+            app:drawableTint="?attr/colorAccent" />
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>
