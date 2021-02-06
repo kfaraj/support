@@ -1,10 +1,10 @@
-# Support Library
+# Support
 
-This project is a suite of libraries built on top of [AndroidX](https://developer.android.com/jetpack/androidx).
+This project is a suite of libraries for Android.
 
 ## appcompat
 
-This library is built on top of the [AndroidX appcompat library](https://developer.android.com/jetpack/androidx/releases/appcompat) and is designed to be used with Android 4.0 (API level 14) and higher.
+This library is built on top of the [AndroidX AppCompat library](https://developer.android.com/jetpack/androidx/releases/appcompat) and is designed to be used with Android 4.0 (API level 14) and higher.
 
 It adds support for compound drawables tint to the following classes:
 - [SupportAutoCompleteTextView](appcompat/src/main/java/com/kfaraj/support/widget/SupportAutoCompleteTextView.java)
@@ -40,9 +40,11 @@ implementation 'com.kfaraj.support:appcompat:3.1.3'
 
 This sample app demonstrates how to use the [AppCompat library](#appcompat).
 
+![AppCompat sample app on a Pixel 2](screenshots/appcompat.png)
+
 ## recyclerview
 
-This library is built on top of the [AndroidX recyclerview library](https://developer.android.com/jetpack/androidx/releases/recyclerview) and is designed to be used with Android 4.0 (API level 14) and higher.
+This library is built on top of the [AndroidX RecyclerView library](https://developer.android.com/jetpack/androidx/releases/recyclerview) and is designed to be used with Android 4.0 (API level 14) and higher.
 
 It adds support for empty view, item click and choice mode to the following class:
 - [SupportRecyclerView](recyclerview/src/main/java/com/kfaraj/support/widget/SupportRecyclerView.java)
@@ -71,3 +73,5 @@ implementation 'com.kfaraj.support:recyclerview:3.0.4'
 ## recyclerview-sample
 
 This sample app demonstrates how to use the [RecyclerView library](#recyclerview).
+
+![RecyclerView sample app on a Pixel 2](screenshots/recyclerview.png)
