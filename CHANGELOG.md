@@ -2,61 +2,75 @@
 
 These libraries use [Semantic Versioning](https://semver.org/).
 
-## Version 3.1.2-appcompat
+## AppCompat Version 3.1.3
+
+**2021-02-07**
+
+- Exposed the AndroidX AppCompat library.
+- Declared public resources.
+
+## RecyclerView Version 3.0.4
+
+**2021-02-07**
+
+- Exposed the AndroidX RecyclerView library.
+- Declared public resources.
+
+## AppCompat Version 3.1.2
 
 **2020-11-05**
 
-- Updated the AndroidX appcompat library version to 1.2.0.
+- Updated the AndroidX AppCompat library version to 1.2.0.
 
-## Version 3.1.1-appcompat
+## AppCompat Version 3.1.1
 
 **2020-07-18**
 
 - Updated the target SDK version to API level 30.
 - Updated the annotations.
 
-## Version 3.0.3-recyclerview
+## RecyclerView Version 3.0.3
 
 **2020-07-18**
 
 - Updated the target SDK version to API level 30.
 
-## Version 3.0.2-recyclerview
+## RecyclerView Version 3.0.2
 
 **2020-04-27**
 
-- Updated the AndroidX recyclerview library version to 1.1.0.
+- Updated the AndroidX RecyclerView library version to 1.1.0.
 
-## Version 3.1.0-appcompat
+## AppCompat Version 3.1.0
 
 **2019-09-26**
 
 - Updated the target SDK version to API level 29.
-- Updated the AndroidX appcompat library version to 1.1.0.
+- Updated the AndroidX AppCompat library version to 1.1.0.
 - Added SupportToggleButton.
 
-## Version 3.0.1-recyclerview
+## RecyclerView Version 3.0.1
 
 **2019-09-26**
 
 - Updated the target SDK version to API level 29.
 - Updated the annotations.
 
-## Version 3.0.0-appcompat
+## AppCompat Version 3.0.0
 
 **2018-10-02**
 
 - Updated the target SDK version to API level 28.
-- Migrated to the AndroidX appcompat library.
+- Migrated to the AndroidX AppCompat library.
 - Restricted usage of utility classes.
 - Updated the documentation.
 
-## Version 3.0.0-recyclerview
+## RecyclerView Version 3.0.0
 
 **2018-10-02**
 
 - Updated the target SDK version to API level 28.
-- Migrated to the AndroidX recyclerview library.
+- Migrated to the AndroidX RecyclerView library.
 - Restricted usage of utility classes.
 
 ## Version 2.0.2

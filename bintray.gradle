@@ -40,7 +40,7 @@ bintray {
         vcsUrl = 'https://gitlab.com/kfaraj/support.git'
         version {
             name = project.version
-            vcsTag = project.version
+            vcsTag = project.name + "-v" + project.version
         }
     }
 }
