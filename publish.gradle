@@ -1,0 +1,72 @@
+apply plugin: 'maven-publish'
+apply plugin: 'signing'
+
+android.libraryVariants.configureEach { variant ->
+    def variantJavadoc = tasks.register("${variant.name}Javadoc", Javadoc)
+    def variantJavadocJar = tasks.register("${variant.name}JavadocJar", Jar)
+    def variantSourcesJar = tasks.register("${variant.name}SourcesJar", Jar)
+    variantJavadoc.configure {
+        source = variant.javaCompileProvider.get().source
+        destinationDir = file("$docsDir/javadoc/$variant.name")
+        classpath = variant.javaCompileProvider.get().classpath
+        options.bootClasspath = android.bootClasspath
+    }
+    variantJavadocJar.configure {
+        dependsOn variantJavadoc
+        from variantJavadoc.get().destinationDir
+        archiveAppendix.set(variant.name)
+        archiveClassifier.set('javadoc')
+    }
+    variantSourcesJar.configure {
+        from variant.javaCompileProvider.get().source
+        archiveAppendix.set(variant.name)
+        archiveClassifier.set('sources')
+    }
+}
+
+publishing {
+    publications {
+        release(MavenPublication) {
+            afterEvaluate {
+                from components.release
+                artifact releaseJavadocJar
+                artifact releaseSourcesJar
+            }
+            pom {
+                name = 'Support'
+                description = 'This project is a suite of libraries for Android.'
+                url = 'https://gitlab.com/kfaraj/support'
+                licenses {
+                    license {
+                        name = 'Apache License, Version 2.0'
+                        url = 'https://www.apache.org/licenses/LICENSE-2.0'
+                    }
+                }
+                developers {
+                    developer {
+                        name = 'Kamal Faraj'
+                        email = 'kfaraj.dev@gmail.com'
+                    }
+                }
+                scm {
+                    connection = 'scm:git:https://gitlab.com/kfaraj/support.git'
+                    developerConnection = 'scm:git:https://gitlab.com/kfaraj/support.git'
+                    url = 'https://gitlab.com/kfaraj/support'
+                }
+            }
+        }
+    }
+    repositories {
+        maven {
+            url = 'https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/'
+            credentials {
+                username = findProperty('ossrhUsername')
+                password = findProperty('ossrhPassword')
+            }
+        }
+    }
+}
+
+signing {
+    sign publishing.publications.release
+}
