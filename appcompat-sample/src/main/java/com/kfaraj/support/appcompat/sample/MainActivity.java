@@ -29,9 +29,10 @@ public class MainActivity extends AppCompatActivity {
         final MaterialToolbar toolbar = ActivityCompat.requireViewById(this, R.id.toolbar);
         setSupportActionBar(toolbar);
         if (savedInstanceState == null) {
+            final MainFragment fragment = MainFragment.newInstance();
             getSupportFragmentManager()
                     .beginTransaction()
-                    .replace(R.id.container, MainFragment.class, null)
+                    .replace(R.id.container, fragment)
                     .setReorderingAllowed(true)
                     .commit();
         }

@@ -41,13 +41,22 @@ public class MainFragment extends Fragment
 
     private Adapter mAdapter;
     private SupportRecyclerView mRecyclerView;
-    private View mEmptyView;
 
     /**
      * Constructor.
      */
     public MainFragment() {
         super(R.layout.fragment_main);
+    }
+
+    /**
+     * Creates a new instance of this fragment class.
+     *
+     * @return a new instance of this fragment class.
+     */
+    @NonNull
+    public static MainFragment newInstance() {
+        return new MainFragment();
     }
 
     /**
@@ -71,15 +80,7 @@ public class MainFragment extends Fragment
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         mRecyclerView = ViewCompat.requireViewById(view, android.R.id.list);
-        mEmptyView = ViewCompat.requireViewById(view, android.R.id.empty);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
+        final TextView emptyView = ViewCompat.requireViewById(view, android.R.id.empty);
         final ItemTouchHelper.SimpleCallback callback = new ItemTouchHelper.SimpleCallback(
                 ItemTouchHelper.UP | ItemTouchHelper.DOWN,
                 ItemTouchHelper.START | ItemTouchHelper.END) {
@@ -87,8 +88,8 @@ public class MainFragment extends Fragment
             public boolean onMove(@NonNull RecyclerView recyclerView,
                     @NonNull RecyclerView.ViewHolder viewHolder,
                     @NonNull RecyclerView.ViewHolder target) {
-                final int fromPosition = viewHolder.getAdapterPosition();
-                final int toPosition = target.getAdapterPosition();
+                final int fromPosition = viewHolder.getAbsoluteAdapterPosition();
+                final int toPosition = target.getAbsoluteAdapterPosition();
                 Collections.swap(mAdapter.getItems(), fromPosition, toPosition);
                 mAdapter.notifyItemMoved(fromPosition, toPosition);
                 return true;
@@ -97,7 +98,7 @@ public class MainFragment extends Fragment
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder,
                     int direction) {
-                final int position = viewHolder.getAdapterPosition();
+                final int position = viewHolder.getAbsoluteAdapterPosition();
                 mAdapter.getItems().remove(position);
                 mAdapter.notifyItemRemoved(position);
             }
@@ -109,7 +110,7 @@ public class MainFragment extends Fragment
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setAdapter(mAdapter);
         mRecyclerView.addItemDecoration(new SpaceItemDecoration(space));
-        mRecyclerView.setEmptyView(mEmptyView);
+        mRecyclerView.setEmptyView(emptyView);
         mRecyclerView.setOnItemClickListener(this);
         mRecyclerView.setOnItemLongClickListener(this);
         mRecyclerView.setChoiceMode(SupportRecyclerView.CHOICE_MODE_MULTIPLE_MODAL);

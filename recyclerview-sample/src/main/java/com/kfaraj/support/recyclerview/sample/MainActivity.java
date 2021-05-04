@@ -38,9 +38,10 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
         fab.setOnClickListener(this);
         if (savedInstanceState == null) {
+            final MainFragment fragment = MainFragment.newInstance();
             getSupportFragmentManager()
                     .beginTransaction()
-                    .replace(R.id.container, MainFragment.class, null)
+                    .replace(R.id.container, fragment)
                     .setReorderingAllowed(true)
                     .commit();
         }
