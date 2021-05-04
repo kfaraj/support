@@ -9,6 +9,7 @@
         <item name="colorSecondaryVariant">@color/blue_grey_700</item>
         <item name="colorOnSecondary">@android:color/white</item>
         <item name="windowActionModeOverlay">true</item>
+        <item name="actionModeCloseDrawable">@drawable/ic_close_24dp</item>
     </style>
     <style name="Theme.App.Light" parent="Base.Theme.App.Light" />
 </resources>
