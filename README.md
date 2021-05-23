@@ -33,7 +33,7 @@ textView.setSupportCompoundDrawableTintMode(tintMode);
 
 This library can be included with the following dependencies:
 ```groovy
-implementation 'com.kfaraj.support:appcompat:3.1.3'
+implementation 'com.kfaraj.support:appcompat:3.1.4'
 ```
 
 ## appcompat-sample
