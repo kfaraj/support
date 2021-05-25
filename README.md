@@ -17,10 +17,10 @@ It adds support for compound drawables tint to the following classes:
 - [SupportTextView](appcompat/src/main/java/com/kfaraj/support/widget/SupportTextView.java)
 - [SupportToggleButton](appcompat/src/main/java/com/kfaraj/support/widget/SupportToggleButton.java)
 
-```java
-final SupportTextView textView = new SupportTextView(context);
-textView.setSupportCompoundDrawableTintList(tint);
-textView.setSupportCompoundDrawableTintMode(tintMode);
+```kotlin
+val textView = SupportTextView(context)
+textView.supportCompoundDrawableTintList = tint
+textView.supportCompoundDrawableTintMode = tintMode
 ```
 
 ```xml
@@ -49,13 +49,13 @@ This library is built on top of the [AndroidX RecyclerView library](https://deve
 It adds support for empty view, item click and choice mode to the following class:
 - [SupportRecyclerView](recyclerview/src/main/java/com/kfaraj/support/widget/SupportRecyclerView.java)
 
-```java
-final SupportRecyclerView recyclerView = new SupportRecyclerView(context);
-recyclerView.setEmptyView(emptyView);
-recyclerView.setOnItemClickListener(onItemClickListener);
-recyclerView.setOnItemLongClickListener(onItemLongClickListener);
-recyclerView.setChoiceMode(choiceMode);
-recyclerView.setMultiChoiceModeListener(multiChoiceModeListener);
+```kotlin
+val recyclerView = SupportRecyclerView(context)
+recyclerView.emptyView = emptyView
+recyclerView.onItemClickListener = onItemClickListener
+recyclerView.onItemLongClickListener = onItemLongClickListener
+recyclerView.choiceMode = choiceMode
+recyclerView.multiChoiceModeListener = multiChoiceModeListener
 ```
 
 ```xml
