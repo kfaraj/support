@@ -8,8 +8,7 @@ android.libraryVariants.configureEach { variant ->
     variantJavadoc.configure {
         source = variant.javaCompileProvider.get().source
         destinationDir = file("$docsDir/javadoc/$variant.name")
-        classpath = variant.javaCompileProvider.get().classpath
-        options.bootClasspath = android.bootClasspath
+        classpath = files(android.bootClasspath) + variant.javaCompileProvider.get().classpath
     }
     variantJavadocJar.configure {
         dependsOn variantJavadoc

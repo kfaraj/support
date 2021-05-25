@@ -19,12 +19,9 @@ public class SupportAutoCompleteTextViewTest
     @Before
     public void setUp() {
         // AutoCompleteTextView must be instantiated in the main thread prior to M.
-        InstrumentationRegistry.getInstrumentation().runOnMainSync(new Runnable() {
-            @Override
-            public void run() {
-                final Context context = InstrumentationRegistry.getInstrumentation().getContext();
-                mTextView = new SupportAutoCompleteTextView(context);
-            }
+        InstrumentationRegistry.getInstrumentation().runOnMainSync(() -> {
+            final Context context = InstrumentationRegistry.getInstrumentation().getContext();
+            mTextView = new SupportAutoCompleteTextView(context);
         });
     }
 
