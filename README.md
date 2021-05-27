@@ -4,6 +4,8 @@ This project is a suite of libraries for Android.
 
 ## appcompat
 
+[![Maven Central](https://img.shields.io/maven-central/v/com.kfaraj.support/appcompat)](https://search.maven.org/artifact/com.kfaraj.support/appcompat)
+
 This library is built on top of the [AndroidX AppCompat library](https://developer.android.com/jetpack/androidx/releases/appcompat) and is designed to be used with Android 4.0 (API level 14) and higher.
 
 It adds support for compound drawables tint to the following classes:
@@ -43,6 +45,8 @@ This sample app demonstrates how to use the [AppCompat library](#appcompat).
 ![AppCompat sample app on a Pixel 2](screenshots/appcompat.png)
 
 ## recyclerview
+
+[![Maven Central](https://img.shields.io/maven-central/v/com.kfaraj.support/recyclerview)](https://search.maven.org/artifact/com.kfaraj.support/recyclerview)
 
 This library is built on top of the [AndroidX RecyclerView library](https://developer.android.com/jetpack/androidx/releases/recyclerview) and is designed to be used with Android 4.0 (API level 14) and higher.
 
