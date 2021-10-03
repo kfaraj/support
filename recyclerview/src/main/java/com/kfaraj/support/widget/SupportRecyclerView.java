@@ -79,7 +79,7 @@ public class SupportRecyclerView extends RecyclerView
          * @param view the item view.
          * @param position the item position.
          * @param id the item id.
-         * @return true if the event was consumed, false otherwise.
+         * @return {@code true} if the event was consumed, {@code false} otherwise.
          */
         boolean onItemLongClick(@NonNull SupportRecyclerView parent,
                 @NonNull View view, int position, long id);
