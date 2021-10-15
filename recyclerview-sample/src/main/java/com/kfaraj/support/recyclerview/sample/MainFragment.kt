@@ -45,7 +45,7 @@ class MainFragment : Fragment(R.layout.fragment_main),
         if (savedInstanceState != null) {
             val items = savedInstanceState.requireStringArrayList(KEY_ITEMS)
             adapter.items.addAll(items)
-            adapter.notifyDataSetChanged()
+            adapter.notifyItemRangeInserted(0, items.size)
         }
     }
 
