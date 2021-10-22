@@ -1,26 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:ignore="HardcodedText">
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="@dimen/margin"
-        android:clipToPadding="false"
-        android:focusable="true"
-        android:focusableInTouchMode="true">
-
-        <requestFocus />
+        android:clipToPadding="false">
 
         <com.kfaraj.support.widget.SupportAutoCompleteTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="SupportAutoCompleteTextView"
+            android:text="@string/support_auto_complete_text_view"
             android:drawablePadding="@dimen/drawable_padding"
             app:drawableStartCompat="@drawable/ic_android_black_24dp"
             app:drawableTint="?attr/colorAccent" />
@@ -29,7 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin"
-            android:text="SupportButton"
+            android:text="@string/support_button"
             android:drawablePadding="@dimen/drawable_padding"
             app:drawableTopCompat="@drawable/ic_android_black_24dp"
             app:drawableTint="?attr/colorAccent" />
@@ -38,7 +32,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin"
-            android:text="SupportCheckBox"
+            android:text="@string/support_check_box"
             android:drawablePadding="@dimen/drawable_padding"
             app:drawableEndCompat="@drawable/ic_android_black_24dp"
             app:drawableTint="?attr/colorAccent" />
@@ -47,7 +41,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin"
-            android:text="SupportCheckedTextView"
+            android:text="@string/support_checked_text_view"
             android:drawablePadding="@dimen/drawable_padding"
             app:drawableStartCompat="@drawable/ic_android_black_24dp"
             app:drawableTint="?attr/colorAccent" />
@@ -56,7 +50,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin"
-            android:text="SupportEditText"
+            android:text="@string/support_edit_text"
             android:drawablePadding="@dimen/drawable_padding"
             app:drawableStartCompat="@drawable/ic_android_black_24dp"
             app:drawableTint="?attr/colorAccent" />
@@ -65,7 +59,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin"
-            android:text="SupportMultiAutoCompleteTextView"
+            android:text="@string/support_multi_auto_complete_text_view"
             android:drawablePadding="@dimen/drawable_padding"
             app:drawableStartCompat="@drawable/ic_android_black_24dp"
             app:drawableTint="?attr/colorAccent" />
@@ -74,7 +68,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin"
-            android:text="SupportRadioButton"
+            android:text="@string/support_radio_button"
             android:drawablePadding="@dimen/drawable_padding"
             app:drawableEndCompat="@drawable/ic_android_black_24dp"
             app:drawableTint="?attr/colorAccent" />
@@ -83,7 +77,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin"
-            android:text="SupportTextView"
+            android:text="@string/support_text_view"
             android:drawablePadding="@dimen/drawable_padding"
             app:drawableStartCompat="@drawable/ic_android_black_24dp"
             app:drawableTint="?attr/colorAccent" />
@@ -92,7 +86,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin"
-            android:text="SupportToggleButton"
+            android:text="@string/support_toggle_button"
             android:drawablePadding="@dimen/drawable_padding"
             app:drawableTopCompat="@drawable/ic_android_black_24dp"
             app:drawableTint="?attr/colorAccent" />

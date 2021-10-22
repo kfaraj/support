@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">AppCompat</string>
+    <string name="support_auto_complete_text_view" translatable="false">SupportAutoCompleteTextView</string>
+    <string name="support_button" translatable="false">SupportButton</string>
+    <string name="support_check_box" translatable="false">SupportCheckBox</string>
+    <string name="support_checked_text_view" translatable="false">SupportCheckedTextView</string>
+    <string name="support_edit_text" translatable="false">SupportEditText</string>
+    <string name="support_multi_auto_complete_text_view" translatable="false">SupportMultiAutoCompleteTextView</string>
+    <string name="support_radio_button" translatable="false">SupportRadioButton</string>
+    <string name="support_text_view" translatable="false">SupportTextView</string>
+    <string name="support_toggle_button" translatable="false">SupportToggleButton</string>
 </resources>
