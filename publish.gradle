@@ -8,7 +8,7 @@ android.libraryVariants.configureEach { variant ->
     variantJavadoc.configure {
         source = variant.javaCompileProvider.get().source
         destinationDir = file("$docsDir/javadoc/$variant.name")
-        classpath = files(android.bootClasspath) + variant.javaCompileProvider.get().classpath
+        classpath = files(android.bootClasspath, variant.javaCompileProvider.get().classpath)
     }
     variantJavadocJar.configure {
         dependsOn variantJavadoc
@@ -57,7 +57,9 @@ publishing {
     }
     repositories {
         maven {
-            url = 'https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/'
+            def releaseUrl = 'https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/'
+            def snapshotUrl = 'https://s01.oss.sonatype.org/content/repositories/snapshots/'
+            url = version.endsWith('-SNAPSHOT') ? snapshotUrl : releaseUrl
             credentials {
                 username = findProperty('ossrhUsername')
                 password = findProperty('ossrhPassword')
