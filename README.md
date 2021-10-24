@@ -8,6 +8,11 @@ This project is a suite of libraries for Android.
 
 This library is built on top of the [AndroidX AppCompat library](https://developer.android.com/jetpack/androidx/releases/appcompat) and is designed to be used with Android 4.0 (API level 14) and higher.
 
+It can be included with the following dependencies:
+```groovy
+implementation 'com.kfaraj.support:appcompat:3.1.5'
+```
+
 It adds support for compound drawables tint to the following classes:
 - [SupportAutoCompleteTextView](appcompat/src/main/java/com/kfaraj/support/widget/SupportAutoCompleteTextView.java)
 - [SupportButton](appcompat/src/main/java/com/kfaraj/support/widget/SupportButton.java)
@@ -33,11 +38,6 @@ textView.supportCompoundDrawableTintMode = tintMode
     app:drawableTintMode="multiply" />
 ```
 
-This library can be included with the following dependencies:
-```groovy
-implementation 'com.kfaraj.support:appcompat:3.1.5'
-```
-
 ## appcompat-sample
 
 This sample app demonstrates how to use the [AppCompat library](#appcompat).
@@ -50,7 +50,12 @@ This sample app demonstrates how to use the [AppCompat library](#appcompat).
 
 This library is built on top of the [AndroidX RecyclerView library](https://developer.android.com/jetpack/androidx/releases/recyclerview) and is designed to be used with Android 4.0 (API level 14) and higher.
 
-It adds support for empty view, item click and choice mode to the following class:
+It can be included with the following dependencies:
+```groovy
+implementation 'com.kfaraj.support:recyclerview:3.0.6'
+```
+
+It adds support for empty view, item click and choice mode to the following classes:
 - [SupportRecyclerView](recyclerview/src/main/java/com/kfaraj/support/widget/SupportRecyclerView.java)
 
 ```kotlin
@@ -67,11 +72,6 @@ recyclerView.multiChoiceModeListener = multiChoiceModeListener
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:choiceMode="singleChoice" />
-```
-
-This library can be included with the following dependencies:
-```groovy
-implementation 'com.kfaraj.support:recyclerview:3.0.6'
 ```
 
 ## recyclerview-sample
