@@ -2,7 +2,7 @@
 
 This project is a suite of libraries for Android.
 
-## appcompat
+## AppCompat
 
 [![Maven Central](https://img.shields.io/maven-central/v/com.kfaraj.support/appcompat)](https://search.maven.org/artifact/com.kfaraj.support/appcompat)
 
@@ -38,13 +38,13 @@ textView.supportCompoundDrawableTintMode = tintMode
     app:drawableTintMode="multiply" />
 ```
 
-## appcompat-sample
+## AppCompat sample
 
 This sample app demonstrates how to use the [AppCompat library](#appcompat).
 
 ![AppCompat sample app on a Pixel 2](screenshots/appcompat.png)
 
-## recyclerview
+## RecyclerView
 
 [![Maven Central](https://img.shields.io/maven-central/v/com.kfaraj.support/recyclerview)](https://search.maven.org/artifact/com.kfaraj.support/recyclerview)
 
@@ -74,7 +74,7 @@ recyclerView.multiChoiceModeListener = multiChoiceModeListener
     app:choiceMode="singleChoice" />
 ```
 
-## recyclerview-sample
+## RecyclerView sample
 
 This sample app demonstrates how to use the [RecyclerView library](#recyclerview).
 
