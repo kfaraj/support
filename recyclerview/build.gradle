@@ -24,4 +24,10 @@ dependencies {
     androidTestImplementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'
 }
 
+ext {
+    pomName = 'RecyclerView'
+    pomDescription = 'This library is built on top of the AndroidX RecyclerView library and is designed to be used with Android 4.0 (API level 14) and higher.'
+    pomUrl = 'https://gitlab.com/kfaraj/support#recyclerview'
+}
+
 apply from: '../publish.gradle'

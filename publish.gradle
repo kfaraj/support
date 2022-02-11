@@ -25,13 +25,13 @@ publishing {
                 from components.release
             }
             pom {
-                name.set('Support')
-                description.set('This project is a suite of libraries for Android.')
-                url.set('https://gitlab.com/kfaraj/support')
+                name.set(pomName)
+                description.set(pomDescription)
+                url.set(pomUrl)
                 licenses {
                     license {
-                        name.set('Apache License, Version 2.0')
-                        url.set('https://www.apache.org/licenses/LICENSE-2.0')
+                        name.set('Apache-2.0')
+                        url.set('https://www.apache.org/licenses/LICENSE-2.0.txt')
                     }
                 }
                 developers {
@@ -50,9 +50,9 @@ publishing {
     }
     repositories {
         maven {
-            def releaseUrl = 'https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/'
-            def snapshotUrl = 'https://s01.oss.sonatype.org/content/repositories/snapshots/'
-            url = version.endsWith('-SNAPSHOT') ? snapshotUrl : releaseUrl
+            def stagingUrl = 'https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/'
+            def snapshotsUrl = 'https://s01.oss.sonatype.org/content/repositories/snapshots/'
+            url = version.endsWith('-SNAPSHOT') ? snapshotsUrl : stagingUrl
             credentials {
                 username = findProperty('ossrhUsername')
                 password = findProperty('ossrhPassword')
