@@ -1,23 +1,23 @@
 plugins {
     id 'com.android.library'
-    id 'kotlin-android'
+    id 'org.jetbrains.kotlin.android'
 }
 
 group = 'com.kfaraj.support'
 version = '3.0.7'
 
 android {
-    compileSdkVersion 31
+    compileSdk 31
     defaultConfig {
-        minSdkVersion 14
-        targetSdkVersion 31
+        minSdk 14
+        targetSdk 31
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 }
 
 dependencies {
     api 'androidx.recyclerview:recyclerview:1.2.1'
-    androidTestImplementation 'androidx.core:core-ktx:1.6.0'
+    androidTestImplementation 'androidx.core:core-ktx:1.7.0'
     androidTestImplementation 'androidx.test:rules:1.4.0'
     androidTestImplementation 'androidx.test:runner:1.4.0'
     androidTestImplementation 'androidx.test.ext:junit-ktx:1.1.3'

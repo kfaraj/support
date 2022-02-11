@@ -1,5 +1,7 @@
 package com.kfaraj.support.util;
 
+import static androidx.annotation.RestrictTo.Scope.LIBRARY_GROUP;
+
 import android.content.res.TypedArray;
 import android.graphics.PorterDuff;
 
@@ -7,8 +9,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
 import androidx.annotation.StyleableRes;
-
-import static androidx.annotation.RestrictTo.Scope.LIBRARY_GROUP;
 
 /**
  * Provides utility methods for {@link TypedArray}.

@@ -1,13 +1,13 @@
 package com.kfaraj.support.util;
 
+import static androidx.annotation.RestrictTo.Scope.LIBRARY_GROUP;
+
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.SparseArray;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RestrictTo;
-
-import static androidx.annotation.RestrictTo.Scope.LIBRARY_GROUP;
 
 /**
  * Maps integers to longs.

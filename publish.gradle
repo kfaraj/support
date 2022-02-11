@@ -1,25 +1,20 @@
 apply plugin: 'maven-publish'
 apply plugin: 'signing'
 
-android.libraryVariants.configureEach { variant ->
-    def variantJavadoc = tasks.register("${variant.name}Javadoc", Javadoc)
-    def variantJavadocJar = tasks.register("${variant.name}JavadocJar", Jar)
-    def variantSourcesJar = tasks.register("${variant.name}SourcesJar", Jar)
-    variantJavadoc.configure {
-        source = variant.javaCompileProvider.get().source
-        destinationDir = file("$docsDir/javadoc/$variant.name")
-        classpath = files(android.bootClasspath, variant.javaCompileProvider.get().classpath)
+android {
+    publishing {
+        singleVariant('release') {
+            withSourcesJar()
+            withJavadocJar()
+        }
     }
-    variantJavadocJar.configure {
-        dependsOn variantJavadoc
-        from variantJavadoc.get().destinationDir
-        archiveAppendix.set(variant.name)
-        archiveClassifier.set('javadoc')
-    }
-    variantSourcesJar.configure {
-        from variant.javaCompileProvider.get().source
-        archiveAppendix.set(variant.name)
-        archiveClassifier.set('sources')
+    afterEvaluate {
+        tasks.named('sourceReleaseJar') {
+            archiveFileName.set('sources.jar')
+        }
+        tasks.named('javaDocReleaseJar') {
+            archiveFileName.set('javadoc.jar')
+        }
     }
 }
 
@@ -28,29 +23,27 @@ publishing {
         release(MavenPublication) {
             afterEvaluate {
                 from components.release
-                artifact releaseJavadocJar
-                artifact releaseSourcesJar
             }
             pom {
-                name = 'Support'
-                description = 'This project is a suite of libraries for Android.'
-                url = 'https://gitlab.com/kfaraj/support'
+                name.set('Support')
+                description.set('This project is a suite of libraries for Android.')
+                url.set('https://gitlab.com/kfaraj/support')
                 licenses {
                     license {
-                        name = 'Apache License, Version 2.0'
-                        url = 'https://www.apache.org/licenses/LICENSE-2.0'
+                        name.set('Apache License, Version 2.0')
+                        url.set('https://www.apache.org/licenses/LICENSE-2.0')
                     }
                 }
                 developers {
                     developer {
-                        name = 'Kamal Faraj'
-                        email = 'kfaraj.dev@gmail.com'
+                        name.set('Kamal Faraj')
+                        email.set('kfaraj.dev@gmail.com')
                     }
                 }
                 scm {
-                    connection = 'scm:git:https://gitlab.com/kfaraj/support.git'
-                    developerConnection = 'scm:git:https://gitlab.com/kfaraj/support.git'
-                    url = 'https://gitlab.com/kfaraj/support'
+                    connection.set('scm:git:https://gitlab.com/kfaraj/support.git')
+                    developerConnection.set('scm:git:https://gitlab.com/kfaraj/support.git')
+                    url.set('https://gitlab.com/kfaraj/support')
                 }
             }
         }
