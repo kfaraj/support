@@ -2,6 +2,19 @@
 
 These libraries use [Semantic Versioning](https://semver.org/).
 
+## AppCompat Version 3.1.6
+
+**2022-02-11**
+
+- Updated the AndroidX AppCompat library version to 1.4.1.
+- Updated the POM.
+
+## RecyclerView Version 3.0.7
+
+**2022-02-11**
+
+- Updated the POM.
+
 ## AppCompat Version 3.1.5
 
 **2021-10-24**
