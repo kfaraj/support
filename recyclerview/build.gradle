@@ -7,10 +7,10 @@ group = 'com.kfaraj.support'
 version = '3.0.8'
 
 android {
-    compileSdk 31
+    compileSdk 32
     defaultConfig {
         minSdk 14
-        targetSdk 31
+        targetSdk 32
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 }

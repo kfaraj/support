@@ -8,14 +8,6 @@ android {
             withJavadocJar()
         }
     }
-    afterEvaluate {
-        tasks.named('sourceReleaseJar') {
-            archiveFileName.set('sources.jar')
-        }
-        tasks.named('javaDocReleaseJar') {
-            archiveFileName.set('javadoc.jar')
-        }
-    }
 }
 
 publishing {
