@@ -2,6 +2,18 @@
 
 These libraries use [Semantic Versioning](https://semver.org/).
 
+## AppCompat Version 3.1.7
+
+**2022-03-27**
+
+- Updated the target SDK version to API level 32.
+
+## RecyclerView Version 3.0.8
+
+**2022-03-27**
+
+- Updated the target SDK version to API level 32.
+
 ## AppCompat Version 3.1.6
 
 **2022-02-11**
