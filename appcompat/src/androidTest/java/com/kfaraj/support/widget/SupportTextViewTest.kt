@@ -14,7 +14,7 @@ class SupportTextViewTest :
 
     @Before
     fun setUp() {
-        val context = InstrumentationRegistry.getInstrumentation().context
+        val context = InstrumentationRegistry.getInstrumentation().targetContext
         textView = SupportTextView(context)
     }
 

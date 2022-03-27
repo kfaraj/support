@@ -14,7 +14,7 @@ class SupportCheckedTextViewTest :
 
     @Before
     fun setUp() {
-        val context = InstrumentationRegistry.getInstrumentation().context
+        val context = InstrumentationRegistry.getInstrumentation().targetContext
         textView = SupportCheckedTextView(context)
     }
 

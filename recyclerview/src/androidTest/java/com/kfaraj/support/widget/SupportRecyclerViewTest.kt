@@ -37,7 +37,7 @@ class SupportRecyclerViewTest {
 
     @Before
     fun setUp() {
-        val context = InstrumentationRegistry.getInstrumentation().context
+        val context = InstrumentationRegistry.getInstrumentation().targetContext
         recyclerView = SupportRecyclerView(context)
         emptyView = View(context)
         adapter = MockAdapter(context)

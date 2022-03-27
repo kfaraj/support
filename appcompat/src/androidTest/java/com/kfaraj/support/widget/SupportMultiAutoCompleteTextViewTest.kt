@@ -16,7 +16,7 @@ class SupportMultiAutoCompleteTextViewTest :
     fun setUp() {
         // AutoCompleteTextView must be instantiated in the main thread prior to M.
         InstrumentationRegistry.getInstrumentation().runOnMainSync {
-            val context = InstrumentationRegistry.getInstrumentation().context
+            val context = InstrumentationRegistry.getInstrumentation().targetContext
             textView = SupportMultiAutoCompleteTextView(context)
         }
     }
