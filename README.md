@@ -10,7 +10,7 @@ This library is built on top of the [AndroidX AppCompat library](https://develop
 
 It can be included with the following dependencies:
 ```groovy
-implementation 'com.kfaraj.support:appcompat:3.1.6'
+implementation 'com.kfaraj.support:appcompat:3.1.7'
 ```
 
 It adds support for compound drawables tint to the following classes:
@@ -52,7 +52,7 @@ This library is built on top of the [AndroidX RecyclerView library](https://deve
 
 It can be included with the following dependencies:
 ```groovy
-implementation 'com.kfaraj.support:recyclerview:3.0.7'
+implementation 'com.kfaraj.support:recyclerview:3.0.8'
 ```
 
 It adds support for empty view, item click and choice mode to the following classes:
