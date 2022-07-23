@@ -4,7 +4,7 @@ plugins {
 }
 
 group = 'com.kfaraj.support'
-version = '3.0.8'
+version = '3.0.9'
 
 android {
     compileSdk 32
