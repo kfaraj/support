@@ -6,14 +6,18 @@ This project is a suite of libraries for Android.
 
 [![Maven Central](https://img.shields.io/maven-central/v/com.kfaraj.support/appcompat)](https://search.maven.org/artifact/com.kfaraj.support/appcompat)
 
-This library is built on top of the [AndroidX AppCompat library](https://developer.android.com/jetpack/androidx/releases/appcompat) and is designed to be used with Android 4.0 (API level 14) and higher.
+This library is built on top of the
+[AndroidX AppCompat library](https://developer.android.com/jetpack/androidx/releases/appcompat) and
+is designed to be used with Android 4.0 (API level 14) and higher.
 
 It can be included with the following dependencies:
+
 ```groovy
 implementation 'com.kfaraj.support:appcompat:3.1.8'
 ```
 
 It adds support for compound drawables tint to the following classes:
+
 - [SupportAutoCompleteTextView](appcompat/src/main/java/com/kfaraj/support/widget/SupportAutoCompleteTextView.java)
 - [SupportButton](appcompat/src/main/java/com/kfaraj/support/widget/SupportButton.java)
 - [SupportCheckBox](appcompat/src/main/java/com/kfaraj/support/widget/SupportCheckBox.java)
@@ -48,14 +52,18 @@ This sample app demonstrates how to use the [AppCompat library](#appcompat).
 
 [![Maven Central](https://img.shields.io/maven-central/v/com.kfaraj.support/recyclerview)](https://search.maven.org/artifact/com.kfaraj.support/recyclerview)
 
-This library is built on top of the [AndroidX RecyclerView library](https://developer.android.com/jetpack/androidx/releases/recyclerview) and is designed to be used with Android 4.0 (API level 14) and higher.
+This library is built on top of the
+[AndroidX RecyclerView library](https://developer.android.com/jetpack/androidx/releases/recyclerview)
+and is designed to be used with Android 4.0 (API level 14) and higher.
 
 It can be included with the following dependencies:
+
 ```groovy
 implementation 'com.kfaraj.support:recyclerview:3.0.9'
 ```
 
 It adds support for empty view, item click and choice mode to the following classes:
+
 - [SupportRecyclerView](recyclerview/src/main/java/com/kfaraj/support/widget/SupportRecyclerView.java)
 
 ```kotlin
