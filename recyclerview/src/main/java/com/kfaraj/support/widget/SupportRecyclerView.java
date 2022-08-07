@@ -2,7 +2,7 @@ package com.kfaraj.support.widget;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.os.Bundle;
+import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.AttributeSet;
 import android.util.SparseBooleanArray;
@@ -18,6 +18,8 @@ import android.widget.Checkable;
 import androidx.annotation.AttrRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.os.ParcelCompat;
+import androidx.customview.view.AbsSavedState;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.kfaraj.support.recyclerview.R;
@@ -124,11 +126,6 @@ public class SupportRecyclerView extends RecyclerView
      */
     public static final int CHOICE_MODE_MULTIPLE_MODAL = AbsListView.CHOICE_MODE_MULTIPLE_MODAL;
 
-    private static final String KEY_SUPER_STATE = "super_state";
-    private static final String KEY_CHOICE_MODE = "choice_mode";
-    private static final String KEY_CHECKED_ITEMS = "checked_items";
-    private static final String KEY_ACTION_MODE = "action_mode";
-
     private final AdapterDataObserver mObserver = new RecyclerViewAdapterDataObserver();
 
     private Adapter<?> mAdapter;
@@ -200,11 +197,10 @@ public class SupportRecyclerView extends RecyclerView
      */
     @Override
     protected Parcelable onSaveInstanceState() {
-        final Bundle savedState = new Bundle();
-        savedState.putParcelable(KEY_SUPER_STATE, super.onSaveInstanceState());
-        savedState.putInt(KEY_CHOICE_MODE, mChoiceMode);
-        savedState.putParcelable(KEY_CHECKED_ITEMS, mCheckedItems);
-        savedState.putBoolean(KEY_ACTION_MODE, mActionMode != null);
+        final SavedState savedState = new SavedState(super.onSaveInstanceState());
+        savedState.choiceMode = mChoiceMode;
+        savedState.checkedItems = mCheckedItems;
+        savedState.actionMode = mActionMode != null;
         return savedState;
     }
 
@@ -213,11 +209,15 @@ public class SupportRecyclerView extends RecyclerView
      */
     @Override
     protected void onRestoreInstanceState(Parcelable state) {
-        final Bundle savedState = (Bundle) state;
-        super.onRestoreInstanceState(savedState.getParcelable(KEY_SUPER_STATE));
-        mChoiceMode = savedState.getInt(KEY_CHOICE_MODE);
-        mCheckedItems = savedState.getParcelable(KEY_CHECKED_ITEMS);
-        mActionMode = savedState.getBoolean(KEY_ACTION_MODE)
+        if (!(state instanceof SavedState)) {
+            super.onRestoreInstanceState(state);
+            return;
+        }
+        final SavedState savedState = (SavedState) state;
+        super.onRestoreInstanceState(savedState.getSuperState());
+        mChoiceMode = savedState.choiceMode;
+        mCheckedItems = savedState.checkedItems;
+        mActionMode = savedState.actionMode
                 && mMultiChoiceModeListener != null ? startActionMode(this) : null;
     }
 
@@ -753,6 +753,70 @@ public class SupportRecyclerView extends RecyclerView
                     mCheckedItems.remove(fromPosition + i);
                 }
             }
+        }
+
+    }
+
+    /**
+     * Contains the state of this view.
+     */
+    private static class SavedState extends AbsSavedState {
+
+        /**
+         * The creator.
+         */
+        public static final Creator<SavedState> CREATOR = new ClassLoaderCreator<SavedState>() {
+            @Override
+            public SavedState createFromParcel(Parcel source, ClassLoader loader) {
+                return new SavedState(source, loader);
+            }
+
+            @Override
+            public SavedState createFromParcel(Parcel source) {
+                return new SavedState(source, null);
+            }
+
+            @Override
+            public SavedState[] newArray(int size) {
+                return new SavedState[size];
+            }
+        };
+
+        int choiceMode;
+        SparseLongArray checkedItems;
+        boolean actionMode;
+
+        /**
+         * Constructor.
+         *
+         * @param superState the state of the superclass of this view.
+         */
+        SavedState(@NonNull Parcelable superState) {
+            super(superState);
+        }
+
+        /**
+         * Constructor.
+         *
+         * @param source the source.
+         * @param loader the class loader.
+         */
+        private SavedState(@NonNull Parcel source, @Nullable ClassLoader loader) {
+            super(source, loader);
+            choiceMode = source.readInt();
+            checkedItems = SparseLongArray.CREATOR.createFromParcel(source);
+            actionMode = ParcelCompat.readBoolean(source);
+        }
+
+        /**
+         * {@inheritDoc}
+         */
+        @Override
+        public void writeToParcel(@NonNull Parcel dest, int flags) {
+            super.writeToParcel(dest, flags);
+            dest.writeInt(choiceMode);
+            checkedItems.writeToParcel(dest, flags);
+            ParcelCompat.writeBoolean(dest, actionMode);
         }
 
     }

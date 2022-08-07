@@ -63,7 +63,7 @@ public class SparseLongArray extends SparseArray<Long>
      * {@inheritDoc}
      */
     @Override
-    public void writeToParcel(Parcel dest, int flags) {
+    public void writeToParcel(@NonNull Parcel dest, int flags) {
         final int size = size();
         dest.writeInt(size);
         for (int i = 0; i < size; i++) {
