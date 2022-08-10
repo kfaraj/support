@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.commit
+import androidx.fragment.app.replace
 import com.google.android.material.appbar.MaterialToolbar
 
 /**
@@ -16,9 +17,8 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         val toolbar = ActivityCompat.requireViewById<MaterialToolbar>(this, R.id.toolbar)
         setSupportActionBar(toolbar)
         if (savedInstanceState == null) {
-            val fragment = MainFragment.newInstance()
             supportFragmentManager.commit {
-                replace(R.id.container, fragment)
+                replace<MainFragment>(R.id.container)
                 setReorderingAllowed(true)
             }
         }

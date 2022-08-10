@@ -1,20 +1,16 @@
 package com.kfaraj.support.recyclerview.sample
 
-import android.content.Context
 import android.os.Bundle
 import android.view.ActionMode
-import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.view.View.OnClickListener
-import android.view.ViewGroup
 import android.widget.TextView
 import androidx.core.view.ViewCompat
 import androidx.core.view.setPadding
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.ItemTouchHelper
-import androidx.recyclerview.widget.ItemTouchHelper.SimpleCallback
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
 import com.kfaraj.support.recyclerview.sample.util.requireStringArrayList
@@ -35,17 +31,15 @@ class MainFragment : Fragment(R.layout.fragment_main),
     OnItemLongClickListener,
     MultiChoiceModeListener {
 
-    private lateinit var adapter: Adapter
+    private lateinit var adapter: MainAdapter
     private lateinit var recyclerView: SupportRecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val context = requireContext()
-        adapter = Adapter(context)
+        adapter = MainAdapter(arrayListOf())
         if (savedInstanceState != null) {
             val items = savedInstanceState.requireStringArrayList(KEY_ITEMS)
             adapter.items.addAll(items)
-            adapter.notifyItemRangeInserted(0, items.size)
         }
     }
 
@@ -53,7 +47,7 @@ class MainFragment : Fragment(R.layout.fragment_main),
         super.onViewCreated(view, savedInstanceState)
         recyclerView = ViewCompat.requireViewById(view, android.R.id.list)
         val emptyView = ViewCompat.requireViewById<TextView>(view, android.R.id.empty)
-        val callback = object : SimpleCallback(
+        val callback = object : ItemTouchHelper.SimpleCallback(
             ItemTouchHelper.UP or ItemTouchHelper.DOWN,
             ItemTouchHelper.START or ItemTouchHelper.END
         ) {
@@ -131,8 +125,8 @@ class MainFragment : Fragment(R.layout.fragment_main),
     }
 
     override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
-        val inflater = mode.menuInflater
-        inflater.inflate(R.menu.fragment_main_contextual, menu)
+        val menuInflater = mode.menuInflater
+        menuInflater.inflate(R.menu.fragment_main_contextual, menu)
         return true
     }
 
@@ -143,16 +137,17 @@ class MainFragment : Fragment(R.layout.fragment_main),
     }
 
     override fun onActionItemClicked(mode: ActionMode, item: MenuItem): Boolean {
-        if (item.itemId == R.id.delete) {
+        return if (item.itemId == R.id.delete) {
             for (i in adapter.itemCount - 1 downTo 0) {
                 if (recyclerView.isItemChecked(i)) {
                     adapter.items.removeAt(i)
                     adapter.notifyItemRemoved(i)
                 }
             }
-            return true
+            true
+        } else {
+            false
         }
-        return false
     }
 
     override fun onDestroyActionMode(mode: ActionMode) {
@@ -167,64 +162,8 @@ class MainFragment : Fragment(R.layout.fragment_main),
         mode.invalidate()
     }
 
-    /**
-     * The adapter.
-     */
-    private class Adapter(
-        context: Context
-    ) : RecyclerView.Adapter<ViewHolder>() {
-
-        val items = arrayListOf<String>()
-
-        private val inflater = LayoutInflater.from(context)
-
-        init {
-            setHasStableIds(true)
-        }
-
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-            val itemView = inflater.inflate(R.layout.item_card, parent, false)
-            return ViewHolder(itemView)
-        }
-
-        override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-            val item = items[position]
-            holder.textView.text = item
-        }
-
-        override fun getItemId(position: Int): Long {
-            val item = items[position]
-            return item.hashCode().toLong()
-        }
-
-        override fun getItemCount(): Int {
-            return items.size
-        }
-
-    }
-
-    /**
-     * The view holder.
-     */
-    private class ViewHolder(
-        itemView: View
-    ) : RecyclerView.ViewHolder(itemView) {
-
-        val textView = ViewCompat.requireViewById<TextView>(itemView, android.R.id.text1)
-
-    }
-
     companion object {
-
         private const val KEY_ITEMS = "items"
-
-        /**
-         * Creates a new instance of this fragment class.
-         */
-        fun newInstance(): MainFragment {
-            return MainFragment()
-        }
-
     }
 
 }
