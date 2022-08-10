@@ -1,49 +1,40 @@
 package com.kfaraj.support.widget
 
-import android.content.Context
-import android.view.ActionMode
-import android.view.Menu
-import android.view.MenuItem
 import android.view.View
 import android.view.View.MeasureSpec
-import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView.Adapter
-import androidx.recyclerview.widget.RecyclerView.ViewHolder
-import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.SmallTest
 import androidx.test.platform.app.InstrumentationRegistry
-import com.kfaraj.support.widget.SupportRecyclerView.MultiChoiceModeListener
-import com.kfaraj.support.widget.SupportRecyclerView.OnItemClickListener
-import com.kfaraj.support.widget.SupportRecyclerView.OnItemLongClickListener
+import com.kfaraj.support.testutils.TestAdapter
+import com.kfaraj.support.testutils.TestMultiChoiceModeListener
+import com.kfaraj.support.testutils.TestOnItemClickListener
+import com.kfaraj.support.testutils.TestOnItemLongClickListener
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Test
-import org.junit.runner.RunWith
 import java.util.*
 
-@RunWith(AndroidJUnit4::class)
 @SmallTest
 class SupportRecyclerViewTest {
 
     private lateinit var recyclerView: SupportRecyclerView
     private lateinit var emptyView: View
-    private lateinit var adapter: MockAdapter
-    private lateinit var onItemClickListener: MockOnItemClickListener
-    private lateinit var onItemLongClickListener: MockOnItemLongClickListener
-    private lateinit var multiChoiceModeListener: MockMultiChoiceModeListener
+    private lateinit var adapter: TestAdapter
+    private lateinit var onItemClickListener: TestOnItemClickListener
+    private lateinit var onItemLongClickListener: TestOnItemLongClickListener
+    private lateinit var multiChoiceModeListener: TestMultiChoiceModeListener
 
     @Before
     fun setUp() {
         val context = InstrumentationRegistry.getInstrumentation().targetContext
         recyclerView = SupportRecyclerView(context)
         emptyView = View(context)
-        adapter = MockAdapter(context)
-        onItemClickListener = MockOnItemClickListener()
-        onItemLongClickListener = MockOnItemLongClickListener()
-        multiChoiceModeListener = MockMultiChoiceModeListener()
+        adapter = TestAdapter(arrayListOf())
+        onItemClickListener = TestOnItemClickListener()
+        onItemLongClickListener = TestOnItemLongClickListener()
+        multiChoiceModeListener = TestMultiChoiceModeListener()
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.adapter = adapter
         recyclerView.emptyView = emptyView
@@ -66,7 +57,7 @@ class SupportRecyclerViewTest {
         assertEquals(onItemClickListener, recyclerView.onItemClickListener)
         populateAdapter(1)
         recyclerView.getChildAt(0).performClick()
-        assertTrue(onItemClickListener.called)
+        assertTrue(onItemClickListener.invoked)
     }
 
     @Test
@@ -74,7 +65,7 @@ class SupportRecyclerViewTest {
         assertEquals(onItemLongClickListener, recyclerView.onItemLongClickListener)
         populateAdapter(1)
         recyclerView.getChildAt(0).performLongClick()
-        assertTrue(onItemLongClickListener.called)
+        assertTrue(onItemLongClickListener.invoked)
     }
 
     @Test
@@ -100,7 +91,7 @@ class SupportRecyclerViewTest {
         populateAdapter(1)
         recyclerView.getChildAt(0).performClick()
         assertFalse(recyclerView.isItemChecked(0))
-        assertTrue(onItemClickListener.called)
+        assertTrue(onItemClickListener.invoked)
     }
 
     @Test
@@ -109,7 +100,7 @@ class SupportRecyclerViewTest {
         populateAdapter(1)
         recyclerView.getChildAt(0).performClick()
         assertTrue(recyclerView.isItemChecked(0))
-        assertTrue(onItemClickListener.called)
+        assertTrue(onItemClickListener.invoked)
     }
 
     @Test
@@ -118,7 +109,7 @@ class SupportRecyclerViewTest {
         populateAdapter(1)
         recyclerView.getChildAt(0).performClick()
         assertTrue(recyclerView.isItemChecked(0))
-        assertTrue(onItemClickListener.called)
+        assertTrue(onItemClickListener.invoked)
     }
 
     @Test
@@ -127,7 +118,7 @@ class SupportRecyclerViewTest {
         populateAdapter(1)
         recyclerView.getChildAt(0).performClick()
         assertFalse(recyclerView.isItemChecked(0))
-        assertTrue(onItemClickListener.called)
+        assertTrue(onItemClickListener.invoked)
     }
 
     @Test
@@ -136,7 +127,7 @@ class SupportRecyclerViewTest {
         populateAdapter(1)
         recyclerView.getChildAt(0).performLongClick()
         assertFalse(recyclerView.isItemChecked(0))
-        assertTrue(onItemLongClickListener.called)
+        assertTrue(onItemLongClickListener.invoked)
     }
 
     @Test
@@ -145,7 +136,7 @@ class SupportRecyclerViewTest {
         populateAdapter(1)
         recyclerView.getChildAt(0).performLongClick()
         assertFalse(recyclerView.isItemChecked(0))
-        assertTrue(onItemLongClickListener.called)
+        assertTrue(onItemLongClickListener.invoked)
     }
 
     @Test
@@ -154,7 +145,7 @@ class SupportRecyclerViewTest {
         populateAdapter(1)
         recyclerView.getChildAt(0).performLongClick()
         assertFalse(recyclerView.isItemChecked(0))
-        assertTrue(onItemLongClickListener.called)
+        assertTrue(onItemLongClickListener.invoked)
     }
 
     @Test
@@ -163,7 +154,7 @@ class SupportRecyclerViewTest {
         populateAdapter(1)
         recyclerView.getChildAt(0).performLongClick()
         assertTrue(recyclerView.isItemChecked(0))
-        assertFalse(onItemLongClickListener.called)
+        assertTrue(multiChoiceModeListener.invoked)
     }
 
     @Test
@@ -297,97 +288,6 @@ class SupportRecyclerViewTest {
         val heightMeasureSpec = MeasureSpec.makeMeasureSpec(320, MeasureSpec.EXACTLY)
         recyclerView.measure(widthMeasureSpec, heightMeasureSpec)
         recyclerView.layout(0, 0, 320, 320)
-    }
-
-    private class MockAdapter(
-        private val context: Context
-    ) : Adapter<MockViewHolder>() {
-
-        val items = arrayListOf<Any>()
-
-        init {
-            setHasStableIds(true)
-        }
-
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MockViewHolder {
-            val itemView = View(context)
-            return MockViewHolder(itemView)
-        }
-
-        override fun onBindViewHolder(holder: MockViewHolder, position: Int) {
-        }
-
-        override fun getItemId(position: Int): Long {
-            val item = items[position]
-            return item.hashCode().toLong()
-        }
-
-        override fun getItemCount(): Int {
-            return items.size
-        }
-
-    }
-
-    private class MockViewHolder(
-        itemView: View
-    ) : ViewHolder(itemView)
-
-    private class MockOnItemClickListener : OnItemClickListener {
-
-        var called = false
-
-        override fun onItemClick(
-            parent: SupportRecyclerView,
-            view: View,
-            position: Int,
-            id: Long
-        ) {
-            called = true
-        }
-
-    }
-
-    private class MockOnItemLongClickListener : OnItemLongClickListener {
-
-        var called = false
-
-        override fun onItemLongClick(
-            parent: SupportRecyclerView,
-            view: View,
-            position: Int,
-            id: Long
-        ): Boolean {
-            called = true
-            return true
-        }
-
-    }
-
-    private class MockMultiChoiceModeListener : MultiChoiceModeListener {
-
-        override fun onCreateActionMode(mode: ActionMode, menu: Menu): Boolean {
-            return true
-        }
-
-        override fun onPrepareActionMode(mode: ActionMode, menu: Menu): Boolean {
-            return true
-        }
-
-        override fun onActionItemClicked(mode: ActionMode, item: MenuItem): Boolean {
-            return true
-        }
-
-        override fun onDestroyActionMode(mode: ActionMode) {
-        }
-
-        override fun onItemCheckedStateChanged(
-            mode: ActionMode,
-            position: Int,
-            id: Long,
-            checked: Boolean
-        ) {
-        }
-
     }
 
 }

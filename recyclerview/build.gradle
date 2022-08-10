@@ -18,7 +18,6 @@ android {
 dependencies {
     api libs.androidx.recyclerview
     androidTestImplementation libs.androidx.core.ktx
-    androidTestImplementation libs.androidx.test.ext.junit.ktx
     androidTestImplementation libs.androidx.test.rules
     androidTestImplementation libs.androidx.test.runner
     androidTestImplementation libs.org.jetbrains.kotlin.stdlib.jdk8
