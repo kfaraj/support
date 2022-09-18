@@ -10,13 +10,25 @@ android {
         applicationId "com.kfaraj.support.recyclerview.sample"
         minSdk 14
         targetSdk 33
+        versionCode 1
+        versionName "0.0.1"
         vectorDrawables.useSupportLibrary true
+    }
+    signingConfigs {
+        release {
+            def storePath = findProperty('signingStorePath')
+            storeFile storePath ? file(storePath) : null
+            storePassword findProperty('signingStorePassword')
+            keyAlias findProperty('signingKeyAlias')
+            keyPassword findProperty('signingKeyPassword')
+        }
     }
     buildTypes {
         release {
             minifyEnabled true
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
     }
 }
