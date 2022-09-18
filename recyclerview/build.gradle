@@ -7,6 +7,7 @@ group = 'com.kfaraj.support'
 version = '3.0.9'
 
 android {
+    namespace 'com.kfaraj.support.recyclerview'
     compileSdk 33
     defaultConfig {
         minSdk 14

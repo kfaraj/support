@@ -7,6 +7,7 @@ group = 'com.kfaraj.support'
 version = '3.2.0'
 
 android {
+    namespace 'com.kfaraj.support.appcompat'
     compileSdk 33
     defaultConfig {
         minSdk 14
@@ -17,6 +18,8 @@ android {
 
 dependencies {
     api libs.androidx.appcompat
+    debugImplementation libs.androidx.core.ktx
+    debugImplementation libs.org.jetbrains.kotlin.stdlib.jdk8
     androidTestImplementation libs.androidx.core.ktx
     androidTestImplementation libs.androidx.test.rules
     androidTestImplementation libs.androidx.test.runner

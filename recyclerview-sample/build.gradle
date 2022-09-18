@@ -4,6 +4,7 @@ plugins {
 }
 
 android {
+    namespace 'com.kfaraj.support.recyclerview.sample'
     compileSdk 33
     defaultConfig {
         applicationId "com.kfaraj.support.recyclerview.sample"

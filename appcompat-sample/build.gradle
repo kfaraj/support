@@ -4,6 +4,7 @@ plugins {
 }
 
 android {
+    namespace 'com.kfaraj.support.appcompat.sample'
     compileSdk 33
     defaultConfig {
         applicationId "com.kfaraj.support.appcompat.sample"
