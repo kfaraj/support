@@ -3,15 +3,15 @@ package com.kfaraj.support.widget;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.graphics.PorterDuff;
-import android.graphics.drawable.Drawable;
-import android.os.Build;
+import android.graphics.PorterDuff.Mode;
 import android.util.AttributeSet;
+import android.widget.TextView;
 
 import androidx.annotation.AttrRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.widget.AppCompatCheckedTextView;
+import androidx.core.widget.TextViewCompat;
 
 import com.kfaraj.support.appcompat.R;
 import com.kfaraj.support.view.TintableTextView;
@@ -26,11 +26,12 @@ import com.kfaraj.support.view.TintableTextView;
  * <li>{@link R.attr#drawableTint}</li>
  * <li>{@link R.attr#drawableTintMode}</li>
  * </ul>
+ *
+ * @deprecated Use {@link AppCompatCheckedTextView} instead.
  */
+@Deprecated
 public class SupportCheckedTextView extends AppCompatCheckedTextView
         implements TintableTextView {
-
-    private TextViewHelper mHelper;
 
     /**
      * Constructor.
@@ -39,7 +40,6 @@ public class SupportCheckedTextView extends AppCompatCheckedTextView
      */
     public SupportCheckedTextView(@NonNull Context context) {
         super(context);
-        init(context, null, 0);
     }
 
     /**
@@ -51,7 +51,6 @@ public class SupportCheckedTextView extends AppCompatCheckedTextView
     public SupportCheckedTextView(@NonNull Context context,
             @Nullable AttributeSet attrs) {
         super(context, attrs);
-        init(context, attrs, 0);
     }
 
     /**
@@ -64,96 +63,60 @@ public class SupportCheckedTextView extends AppCompatCheckedTextView
     public SupportCheckedTextView(@NonNull Context context,
             @Nullable AttributeSet attrs, @AttrRes int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init(context, attrs, defStyleAttr);
-    }
-
-    /**
-     * Common code for different constructors.
-     *
-     * @param context the context.
-     * @param attrs the attributes.
-     * @param defStyleAttr the default style attribute.
-     */
-    private void init(@NonNull Context context,
-            @Nullable AttributeSet attrs, @AttrRes int defStyleAttr) {
-        mHelper = new TextViewHelper(this);
-        mHelper.loadFromAttributes(context, attrs, defStyleAttr);
     }
 
     /**
      * {@inheritDoc}
+     *
+     * @deprecated Use
+     * {@link TextViewCompat#setCompoundDrawableTintList(TextView, ColorStateList)}
+     * instead.
      */
+    @Deprecated
     @Override
     public void setSupportCompoundDrawableTintList(@Nullable ColorStateList tint) {
-        mHelper.setSupportCompoundDrawableTintList(tint);
+        TextViewCompat.setCompoundDrawableTintList(this, tint);
     }
 
     /**
      * {@inheritDoc}
+     *
+     * @deprecated Use
+     * {@link TextViewCompat#getCompoundDrawableTintList(TextView)}
+     * instead.
      */
+    @Deprecated
     @Nullable
     @Override
     public ColorStateList getSupportCompoundDrawableTintList() {
-        return mHelper.getSupportCompoundDrawableTintList();
+        return TextViewCompat.getCompoundDrawableTintList(this);
     }
 
     /**
      * {@inheritDoc}
+     *
+     * @deprecated Use
+     * {@link TextViewCompat#setCompoundDrawableTintMode(TextView, Mode)}
+     * instead.
      */
+    @Deprecated
     @Override
     public void setSupportCompoundDrawableTintMode(@Nullable PorterDuff.Mode tintMode) {
-        mHelper.setSupportCompoundDrawableTintMode(tintMode);
+        TextViewCompat.setCompoundDrawableTintMode(this, tintMode);
     }
 
     /**
      * {@inheritDoc}
+     *
+     * @deprecated Use
+     * {@link TextViewCompat#getCompoundDrawableTintMode(TextView)}
+     * instead.
      */
+    @Deprecated
     @Nullable
     @Override
     public PorterDuff.Mode getSupportCompoundDrawableTintMode() {
-        return mHelper.getSupportCompoundDrawableTintMode();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void setCompoundDrawables(@Nullable Drawable left, @Nullable Drawable top,
-            @Nullable Drawable right, @Nullable Drawable bottom) {
-        if (mHelper != null) {
-            left = mHelper.applySupportCompoundDrawableTint(left);
-            top = mHelper.applySupportCompoundDrawableTint(top);
-            right = mHelper.applySupportCompoundDrawableTint(right);
-            bottom = mHelper.applySupportCompoundDrawableTint(bottom);
-        }
-        super.setCompoundDrawables(left, top, right, bottom);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @RequiresApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
-    @Override
-    public void setCompoundDrawablesRelative(@Nullable Drawable start, @Nullable Drawable top,
-            @Nullable Drawable end, @Nullable Drawable bottom) {
-        if (mHelper != null) {
-            start = mHelper.applySupportCompoundDrawableTint(start);
-            top = mHelper.applySupportCompoundDrawableTint(top);
-            end = mHelper.applySupportCompoundDrawableTint(end);
-            bottom = mHelper.applySupportCompoundDrawableTint(bottom);
-        }
-        super.setCompoundDrawablesRelative(start, top, end, bottom);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    protected void drawableStateChanged() {
-        super.drawableStateChanged();
-        if (mHelper != null) {
-            invalidate();
-        }
+        return TextViewCompat.getCompoundDrawableTintMode(this);
     }
 
 }
