@@ -2,6 +2,12 @@
 
 These libraries use [Semantic Versioning](https://semver.org/).
 
+## AppCompat Version 4.0.0
+
+**2022-09-20**
+
+- Removed support for compound drawables tint.
+
 ## AppCompat Version 3.2.0
 
 **2022-09-20**
