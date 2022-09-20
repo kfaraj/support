@@ -2,6 +2,13 @@
 
 These libraries use [Semantic Versioning](https://semver.org/).
 
+## AppCompat Version 3.2.0
+
+**2022-09-20**
+
+- Updated the AndroidX AppCompat library version to 1.5.1.
+- Deprecated support for compound drawables tint.
+
 ## AppCompat Version 3.1.8
 
 **2022-08-11**
