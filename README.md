@@ -13,7 +13,7 @@ is designed to be used with Android 4.0 (API level 14) and higher.
 It can be included with the following dependencies:
 
 ```groovy
-implementation 'com.kfaraj.support:appcompat:3.2.0'
+implementation 'com.kfaraj.support:appcompat:4.0.0'
 ```
 
 It adds support for compound drawables tint to the following classes:
