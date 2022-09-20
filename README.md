@@ -16,38 +16,6 @@ It can be included with the following dependencies:
 implementation 'com.kfaraj.support:appcompat:4.0.0'
 ```
 
-It adds support for compound drawables tint to the following classes:
-
-- [SupportAutoCompleteTextView](appcompat/src/main/java/com/kfaraj/support/widget/SupportAutoCompleteTextView.java)
-- [SupportButton](appcompat/src/main/java/com/kfaraj/support/widget/SupportButton.java)
-- [SupportCheckBox](appcompat/src/main/java/com/kfaraj/support/widget/SupportCheckBox.java)
-- [SupportCheckedTextView](appcompat/src/main/java/com/kfaraj/support/widget/SupportCheckedTextView.java)
-- [SupportEditText](appcompat/src/main/java/com/kfaraj/support/widget/SupportEditText.java)
-- [SupportMultiAutoCompleteTextView](appcompat/src/main/java/com/kfaraj/support/widget/SupportMultiAutoCompleteTextView.java)
-- [SupportRadioButton](appcompat/src/main/java/com/kfaraj/support/widget/SupportRadioButton.java)
-- [SupportTextView](appcompat/src/main/java/com/kfaraj/support/widget/SupportTextView.java)
-- [SupportToggleButton](appcompat/src/main/java/com/kfaraj/support/widget/SupportToggleButton.java)
-
-```kotlin
-val textView = SupportTextView(context)
-textView.supportCompoundDrawableTintList = tint
-textView.supportCompoundDrawableTintMode = tintMode
-```
-
-```xml
-<com.kfaraj.support.widget.SupportTextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    app:drawableTint="@color/tint"
-    app:drawableTintMode="multiply" />
-```
-
-## AppCompat sample
-
-This sample app demonstrates how to use the [AppCompat library](#appcompat).
-
-![AppCompat sample app on a Pixel 2](screenshots/appcompat.png)
-
 ## RecyclerView
 
 [![Maven Central](https://img.shields.io/maven-central/v/com.kfaraj.support/recyclerview)](https://search.maven.org/artifact/com.kfaraj.support/recyclerview)
