@@ -12,7 +12,9 @@ android {
         targetSdk 33
         versionCode 1
         versionName "0.0.1"
-        vectorDrawables.useSupportLibrary true
+        vectorDrawables {
+            useSupportLibrary true
+        }
     }
     signingConfigs {
         release {
@@ -37,8 +39,10 @@ dependencies {
     implementation project(':recyclerview')
     implementation libs.androidx.activity.ktx
     implementation libs.androidx.appcompat
+    implementation libs.androidx.coordinatorlayout
     implementation libs.androidx.core.ktx
     implementation libs.androidx.fragment.ktx
+    implementation libs.androidx.recyclerview
     implementation libs.com.google.android.material
     implementation libs.org.jetbrains.kotlin.stdlib.jdk8
 }
