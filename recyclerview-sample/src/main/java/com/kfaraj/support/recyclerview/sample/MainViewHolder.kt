@@ -1,6 +1,7 @@
 package com.kfaraj.support.recyclerview.sample
 
-import android.view.View
+import android.view.LayoutInflater
+import android.view.ViewGroup
 import android.widget.TextView
 import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.RecyclerView
@@ -9,9 +10,18 @@ import androidx.recyclerview.widget.RecyclerView
  * Demonstrates how to use the RecyclerView library.
  */
 class MainViewHolder(
-    itemView: View
-) : RecyclerView.ViewHolder(itemView) {
+    parent: ViewGroup
+) : RecyclerView.ViewHolder(
+    LayoutInflater.from(parent.context).inflate(R.layout.item_card, parent, false)
+) {
 
-    val textView = ViewCompat.requireViewById<TextView>(itemView, R.id.text)
+    private val textView = ViewCompat.requireViewById<TextView>(itemView, R.id.text)
+
+    /**
+     * Binds the [item] with the view.
+     */
+    fun bind(item: String) {
+        textView.text = item
+    }
 
 }

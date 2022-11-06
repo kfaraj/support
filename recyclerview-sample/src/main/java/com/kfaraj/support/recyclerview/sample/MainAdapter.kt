@@ -1,6 +1,5 @@
 package com.kfaraj.support.recyclerview.sample
 
-import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
@@ -8,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
  * Demonstrates how to use the RecyclerView library.
  */
 class MainAdapter(
-    val items: ArrayList<String>
+    val items: MutableList<String> = mutableListOf()
 ) : RecyclerView.Adapter<MainViewHolder>() {
 
     init {
@@ -16,14 +15,12 @@ class MainAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainViewHolder {
-        val layoutInflater = LayoutInflater.from(parent.context)
-        val itemView = layoutInflater.inflate(R.layout.item_card, parent, false)
-        return MainViewHolder(itemView)
+        return MainViewHolder(parent)
     }
 
     override fun onBindViewHolder(holder: MainViewHolder, position: Int) {
         val item = items[position]
-        holder.textView.text = item
+        holder.bind(item)
     }
 
     override fun getItemId(position: Int): Long {

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">RecyclerView</string>
+    <string name="app_name" translatable="false">RecyclerView</string>
     <string name="empty">No items</string>
     <string name="add">Add</string>
     <string name="delete">Delete</string>

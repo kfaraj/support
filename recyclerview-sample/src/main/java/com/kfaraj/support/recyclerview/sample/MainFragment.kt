@@ -8,19 +8,16 @@ import android.view.View
 import android.view.View.OnClickListener
 import android.widget.TextView
 import androidx.core.view.ViewCompat
-import androidx.core.view.setPadding
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
 import com.kfaraj.support.recyclerview.sample.util.requireStringArrayList
-import com.kfaraj.support.recyclerview.sample.widget.SpaceItemDecoration
 import com.kfaraj.support.widget.SupportRecyclerView
 import com.kfaraj.support.widget.SupportRecyclerView.MultiChoiceModeListener
 import com.kfaraj.support.widget.SupportRecyclerView.OnItemClickListener
 import com.kfaraj.support.widget.SupportRecyclerView.OnItemLongClickListener
 import java.util.*
-import kotlin.math.roundToInt
 
 /**
  * Demonstrates how to use the RecyclerView library.
@@ -36,7 +33,7 @@ class MainFragment : Fragment(R.layout.fragment_main),
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        adapter = MainAdapter(arrayListOf())
+        adapter = MainAdapter()
         if (savedInstanceState != null) {
             val items = savedInstanceState.requireStringArrayList(KEY_ITEMS)
             adapter.items.addAll(items)
@@ -74,11 +71,8 @@ class MainFragment : Fragment(R.layout.fragment_main),
         }
         val helper = ItemTouchHelper(callback)
         helper.attachToRecyclerView(recyclerView)
-        val space = (resources.getDimension(R.dimen.card_margin) / 2.0f).roundToInt()
-        recyclerView.setPadding(space)
         recyclerView.setHasFixedSize(true)
         recyclerView.adapter = adapter
-        recyclerView.addItemDecoration(SpaceItemDecoration(space))
         recyclerView.emptyView = emptyView
         recyclerView.onItemClickListener = this
         recyclerView.onItemLongClickListener = this
@@ -90,7 +84,7 @@ class MainFragment : Fragment(R.layout.fragment_main),
         super.onSaveInstanceState(outState)
         outState.apply {
             val items = adapter.items
-            putStringArrayList(KEY_ITEMS, items)
+            putStringArrayList(KEY_ITEMS, ArrayList(items))
         }
     }
 

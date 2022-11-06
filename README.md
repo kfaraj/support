@@ -54,4 +54,4 @@ recyclerView.multiChoiceModeListener = multiChoiceModeListener
 
 This sample app demonstrates how to use the [RecyclerView library](#recyclerview).
 
-![RecyclerView sample app on a Pixel 2](screenshots/recyclerview.png)
+![RecyclerView sample app on a Pixel 2](screenshots/recyclerview.webp)

@@ -1,15 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="Base.Theme.App.Light" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <item name="colorPrimary">@color/teal_500</item>
-        <item name="colorPrimaryDark">?attr/colorPrimaryVariant</item>
-        <item name="colorPrimaryVariant">@color/teal_700</item>
-        <item name="colorOnPrimary">@android:color/white</item>
-        <item name="colorSecondary">@color/blue_grey_500</item>
-        <item name="colorSecondaryVariant">@color/blue_grey_700</item>
-        <item name="colorOnSecondary">@android:color/white</item>
+    <style name="Base.Theme.App.Light" parent="Theme.Material3.Light.NoActionBar">
+        <item name="colorPrimary">@color/primary_40</item>
+        <item name="colorOnPrimary">@color/primary_100</item>
+        <item name="colorPrimaryInverse">@color/primary_80</item>
+        <item name="colorPrimaryContainer">@color/primary_90</item>
+        <item name="colorOnPrimaryContainer">@color/primary_10</item>
+        <item name="colorSecondary">@color/secondary_40</item>
+        <item name="colorOnSecondary">@color/secondary_100</item>
+        <item name="colorSecondaryContainer">@color/secondary_90</item>
+        <item name="colorOnSecondaryContainer">@color/secondary_10</item>
+        <item name="colorTertiary">@color/tertiary_40</item>
+        <item name="colorOnTertiary">@color/tertiary_100</item>
+        <item name="colorTertiaryContainer">@color/tertiary_90</item>
+        <item name="colorOnTertiaryContainer">@color/tertiary_10</item>
+        <item name="android:colorBackground">@color/neutral_99</item>
+        <item name="colorOnBackground">@color/neutral_10</item>
+        <item name="colorSurface">@color/neutral_99</item>
+        <item name="colorOnSurface">@color/neutral_10</item>
+        <item name="colorSurfaceVariant">@color/neutral_variant_90</item>
+        <item name="colorOnSurfaceVariant">@color/neutral_variant_30</item>
+        <item name="colorSurfaceInverse">@color/neutral_20</item>
+        <item name="colorOnSurfaceInverse">@color/neutral_95</item>
+        <item name="colorOutline">@color/neutral_variant_50</item>
         <item name="windowActionModeOverlay">true</item>
         <item name="actionModeCloseDrawable">@drawable/ic_close_24dp</item>
     </style>
-    <style name="Theme.App.Light" parent="Base.Theme.App.Light" />
+    <style name="Theme.App.Light" parent="Base.Theme.App.Light">
+        <item name="android:statusBarColor">?attr/scrimBackground</item>
+        <item name="android:navigationBarColor">?attr/scrimBackground</item>
+    </style>
 </resources>
