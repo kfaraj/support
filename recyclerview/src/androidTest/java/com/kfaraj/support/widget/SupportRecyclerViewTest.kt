@@ -1,10 +1,11 @@
 package com.kfaraj.support.widget
 
+import android.content.Context
 import android.view.View
 import android.view.View.MeasureSpec
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.test.core.app.ApplicationProvider
 import androidx.test.filters.SmallTest
-import androidx.test.platform.app.InstrumentationRegistry
 import com.kfaraj.support.testutils.TestAdapter
 import com.kfaraj.support.testutils.TestMultiChoiceModeListener
 import com.kfaraj.support.testutils.TestOnItemClickListener
@@ -21,17 +22,17 @@ class SupportRecyclerViewTest {
 
     private lateinit var recyclerView: SupportRecyclerView
     private lateinit var emptyView: View
-    private lateinit var adapter: TestAdapter
+    private lateinit var adapter: TestAdapter<Any>
     private lateinit var onItemClickListener: TestOnItemClickListener
     private lateinit var onItemLongClickListener: TestOnItemLongClickListener
     private lateinit var multiChoiceModeListener: TestMultiChoiceModeListener
 
     @Before
     fun setUp() {
-        val context = InstrumentationRegistry.getInstrumentation().targetContext
+        val context = ApplicationProvider.getApplicationContext<Context>()
         recyclerView = SupportRecyclerView(context)
         emptyView = View(context)
-        adapter = TestAdapter(arrayListOf())
+        adapter = TestAdapter()
         onItemClickListener = TestOnItemClickListener()
         onItemLongClickListener = TestOnItemLongClickListener()
         multiChoiceModeListener = TestMultiChoiceModeListener()
@@ -154,7 +155,7 @@ class SupportRecyclerViewTest {
         populateAdapter(1)
         recyclerView.getChildAt(0).performLongClick()
         assertTrue(recyclerView.isItemChecked(0))
-        assertTrue(multiChoiceModeListener.invoked)
+        assertFalse(multiChoiceModeListener.invoked)
     }
 
     @Test

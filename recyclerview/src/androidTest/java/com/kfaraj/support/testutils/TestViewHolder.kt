@@ -1,16 +1,25 @@
 package com.kfaraj.support.testutils
 
-import android.view.View
+import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 /**
  * Provides a test double of [RecyclerView.ViewHolder].
  */
-class TestViewHolder(
-    itemView: View
-) : RecyclerView.ViewHolder(itemView) {
+class TestViewHolder<T : Any>(
+    parent: ViewGroup
+) : RecyclerView.ViewHolder(
+    TextView(parent.context)
+) {
 
-    val textView = itemView as TextView
+    private val textView = itemView as TextView
+
+    /**
+     * Binds the [item] with the view.
+     */
+    fun bind(item: T) {
+        textView.text = item.toString()
+    }
 
 }
