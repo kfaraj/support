@@ -62,7 +62,7 @@ public class SupportRecyclerView extends RecyclerView
          * @param parent the parent.
          * @param view the item view.
          * @param position the item position.
-         * @param id the item id.
+         * @param id the item ID.
          */
         void onItemClick(@NonNull SupportRecyclerView parent,
                 @NonNull View view, int position, long id);
@@ -80,7 +80,7 @@ public class SupportRecyclerView extends RecyclerView
          * @param parent the parent.
          * @param view the item view.
          * @param position the item position.
-         * @param id the item id.
+         * @param id the item ID.
          * @return {@code true} if the event was consumed, {@code false} otherwise.
          */
         boolean onItemLongClick(@NonNull SupportRecyclerView parent,
@@ -98,7 +98,7 @@ public class SupportRecyclerView extends RecyclerView
          *
          * @param mode the action mode.
          * @param position the item position.
-         * @param id the item id.
+         * @param id the item ID.
          * @param checked whether the item is now checked.
          */
         void onItemCheckedStateChanged(@NonNull ActionMode mode,
@@ -574,9 +574,9 @@ public class SupportRecyclerView extends RecyclerView
     }
 
     /**
-     * Returns the set of checked items ids.
+     * Returns the set of checked items IDs.
      *
-     * @return the set of checked items ids.
+     * @return the set of checked items IDs.
      */
     @NonNull
     public long[] getCheckedItemIds() {
@@ -628,10 +628,10 @@ public class SupportRecyclerView extends RecyclerView
     }
 
     /**
-     * Returns the adapter position of the item represented by this id.
+     * Returns the adapter position of the item represented by this ID.
      *
-     * @param id the item id.
-     * @return the adapter position of the item represented by this id.
+     * @param id the item ID.
+     * @return the adapter position of the item represented by this ID.
      */
     private int getAdapterPosition(long id) {
         if (mAdapter != null && mAdapter.hasStableIds()) {
