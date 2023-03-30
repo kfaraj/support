@@ -19,5 +19,6 @@
     <color name="neutral_99">#fffafdfb</color>
     <color name="neutral_variant_30">#ff3f4947</color>
     <color name="neutral_variant_50">#ff6f7977</color>
+    <color name="neutral_variant_80">#ffbec9c6</color>
     <color name="neutral_variant_90">#ffdae5e1</color>
 </resources>

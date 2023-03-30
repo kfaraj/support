@@ -182,14 +182,14 @@ public class SupportRecyclerView extends RecyclerView
      */
     private void init(@NonNull Context context,
             @Nullable AttributeSet attrs, @AttrRes int defStyleAttr) {
-        final TypedArray a = context.obtainStyledAttributes(attrs,
-                R.styleable.SupportRecyclerView, defStyleAttr, 0);
-        if (a.hasValue(R.styleable.SupportRecyclerView_choiceMode)) {
-            final int choiceMode = a.getInt(
-                    R.styleable.SupportRecyclerView_choiceMode, 0);
-            setChoiceMode(choiceMode);
+        try (TypedArray a = context.obtainStyledAttributes(attrs,
+                R.styleable.SupportRecyclerView, defStyleAttr, 0)) {
+            if (a.hasValue(R.styleable.SupportRecyclerView_choiceMode)) {
+                final int choiceMode = a.getInt(
+                        R.styleable.SupportRecyclerView_choiceMode, 0);
+                setChoiceMode(choiceMode);
+            }
         }
-        a.recycle();
     }
 
     /**
