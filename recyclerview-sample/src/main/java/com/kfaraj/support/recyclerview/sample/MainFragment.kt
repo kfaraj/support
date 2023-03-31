@@ -103,6 +103,7 @@ class MainFragment : Fragment(R.layout.fragment_main),
     ) {
         val item = adapter.items[position]
         Snackbar.make(recyclerView, item, Snackbar.LENGTH_SHORT)
+            .setAnchorView(R.id.fab)
             .show()
     }
 
@@ -114,6 +115,7 @@ class MainFragment : Fragment(R.layout.fragment_main),
     ): Boolean {
         val item = adapter.items[position]
         Snackbar.make(recyclerView, item, Snackbar.LENGTH_LONG)
+            .setAnchorView(R.id.fab)
             .show()
         return true
     }
