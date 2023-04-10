@@ -2,6 +2,12 @@
 
 These libraries use [Semantic Versioning](https://semver.org/).
 
+## RecyclerView Version 3.0.11
+
+**2023-04-10**
+
+- Fixed crashes.
+
 ## RecyclerView Version 3.0.10
 
 **2023-03-31**
