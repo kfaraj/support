@@ -180,15 +180,19 @@ public class SupportRecyclerView extends RecyclerView
      * @param attrs the attributes.
      * @param defStyleAttr the default style attribute.
      */
+    @SuppressWarnings("resource")
     private void init(@NonNull Context context,
             @Nullable AttributeSet attrs, @AttrRes int defStyleAttr) {
-        try (TypedArray a = context.obtainStyledAttributes(attrs,
-                R.styleable.SupportRecyclerView, defStyleAttr, 0)) {
+        final TypedArray a = context.obtainStyledAttributes(attrs,
+                R.styleable.SupportRecyclerView, defStyleAttr, 0);
+        try {
             if (a.hasValue(R.styleable.SupportRecyclerView_choiceMode)) {
                 final int choiceMode = a.getInt(
                         R.styleable.SupportRecyclerView_choiceMode, 0);
                 setChoiceMode(choiceMode);
             }
+        } finally {
+            a.recycle();
         }
     }
 
