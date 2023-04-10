@@ -27,7 +27,7 @@ and is designed to be used with Android 4.0 (API level 14) and higher.
 It can be included with the following dependencies:
 
 ```groovy
-implementation 'com.kfaraj.support:recyclerview:3.0.10'
+implementation 'com.kfaraj.support:recyclerview:3.0.11'
 ```
 
 It adds support for empty view, item click and choice mode to the following classes:
