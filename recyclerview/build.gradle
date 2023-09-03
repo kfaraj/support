@@ -6,7 +6,7 @@ plugins {
 }
 
 group = 'com.kfaraj.support'
-version = '3.0.11'
+version = '3.0.12'
 
 android {
     namespace 'com.kfaraj.support.recyclerview'
