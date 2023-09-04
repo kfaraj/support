@@ -19,7 +19,7 @@ public class SparseLongArray extends SparseArray<Long>
     /**
      * The creator.
      */
-    public static final Creator<SparseLongArray> CREATOR = new Creator<SparseLongArray>() {
+    public static final Creator<SparseLongArray> CREATOR = new Creator<>() {
         @Override
         public SparseLongArray createFromParcel(Parcel source) {
             return new SparseLongArray(source);

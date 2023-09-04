@@ -10,7 +10,7 @@ version = '3.0.12'
 
 android {
     namespace 'com.kfaraj.support.recyclerview'
-    compileSdk 33
+    compileSdk 34
     defaultConfig {
         minSdk 14
         targetSdk 33
@@ -19,14 +19,18 @@ android {
     testOptions {
         managedDevices {
             devices {
-                pixel2api33(ManagedVirtualDevice) {
+                pixel2api34(ManagedVirtualDevice) {
                     device 'Pixel 2'
-                    apiLevel 33
+                    apiLevel 34
                     systemImageSource 'google'
                 }
             }
         }
     }
+}
+
+kotlin {
+    jvmToolchain 17
 }
 
 dependencies {

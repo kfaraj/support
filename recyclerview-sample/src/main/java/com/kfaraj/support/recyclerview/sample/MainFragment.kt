@@ -17,7 +17,8 @@ import com.kfaraj.support.widget.SupportRecyclerView
 import com.kfaraj.support.widget.SupportRecyclerView.MultiChoiceModeListener
 import com.kfaraj.support.widget.SupportRecyclerView.OnItemClickListener
 import com.kfaraj.support.widget.SupportRecyclerView.OnItemLongClickListener
-import java.util.*
+import java.util.Collections
+import java.util.UUID
 
 /**
  * Demonstrates how to use the RecyclerView library.

@@ -15,7 +15,7 @@ import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Test
-import java.util.*
+import java.util.Collections
 
 @SmallTest
 class SupportRecyclerViewTest {
@@ -277,7 +277,7 @@ class SupportRecyclerViewTest {
 
     private fun populateAdapter(count: Int) {
         adapter.items.clear()
-        for (i in 0 until count) {
+        for (i in 0..<count) {
             adapter.items.add(Any())
         }
         adapter.notifyDataSetChanged()

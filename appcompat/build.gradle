@@ -7,10 +7,16 @@ version = '4.0.0'
 
 android {
     namespace 'com.kfaraj.support.appcompat'
-    compileSdk 33
+    compileSdk 34
     defaultConfig {
         minSdk 14
         targetSdk 33
+    }
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
     }
 }
 

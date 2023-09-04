@@ -213,11 +213,10 @@ public class SupportRecyclerView extends RecyclerView
      */
     @Override
     protected void onRestoreInstanceState(Parcelable state) {
-        if (!(state instanceof SavedState)) {
+        if (!(state instanceof final SavedState savedState)) {
             super.onRestoreInstanceState(state);
             return;
         }
-        final SavedState savedState = (SavedState) state;
         super.onRestoreInstanceState(savedState.getSuperState());
         mChoiceMode = savedState.choiceMode;
         mCheckedItems = savedState.checkedItems;
@@ -769,7 +768,7 @@ public class SupportRecyclerView extends RecyclerView
         /**
          * The creator.
          */
-        public static final Creator<SavedState> CREATOR = new ClassLoaderCreator<SavedState>() {
+        public static final Creator<SavedState> CREATOR = new ClassLoaderCreator<>() {
             @Override
             public SavedState createFromParcel(Parcel source, ClassLoader loader) {
                 return new SavedState(source, loader);
@@ -795,8 +794,8 @@ public class SupportRecyclerView extends RecyclerView
          *
          * @param superState the state of the superclass of this view.
          */
-        SavedState(@NonNull Parcelable superState) {
-            super(superState);
+        SavedState(@Nullable Parcelable superState) {
+            super(superState != null ? superState : EMPTY_STATE);
         }
 
         /**
