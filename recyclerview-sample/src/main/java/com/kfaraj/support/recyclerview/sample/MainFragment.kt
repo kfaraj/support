@@ -8,10 +8,12 @@ import android.view.View
 import android.view.View.OnClickListener
 import android.widget.TextView
 import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
+import com.kfaraj.support.recyclerview.sample.util.applyWindowInsetsPadding
 import com.kfaraj.support.recyclerview.sample.util.requireStringArrayList
 import com.kfaraj.support.widget.SupportRecyclerView
 import com.kfaraj.support.widget.SupportRecyclerView.MultiChoiceModeListener
@@ -79,6 +81,10 @@ class MainFragment : Fragment(R.layout.fragment_main),
         recyclerView.onItemLongClickListener = this
         recyclerView.choiceMode = SupportRecyclerView.CHOICE_MODE_MULTIPLE_MODAL
         recyclerView.multiChoiceModeListener = this
+        recyclerView.applyWindowInsetsPadding(
+            WindowInsetsCompat.Type.systemBars(),
+            applyBottom = true
+        )
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
