@@ -2,6 +2,14 @@
 
 These libraries use [Semantic Versioning](https://semver.org/).
 
+## RecyclerView Version 3.0.12
+
+**2023-09-09**
+
+- Updated the compile SDK version to API level 34.
+- Updated the Java toolchain version to JDK 17.
+- Updated the AndroidX RecyclerView library version to 1.3.1.
+
 ## RecyclerView Version 3.0.11
 
 **2023-04-10**
