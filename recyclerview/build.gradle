@@ -36,7 +36,6 @@ kotlin {
 dependencies {
     api libs.androidx.recyclerview
     debugImplementation libs.androidx.core.ktx
-    debugImplementation libs.org.jetbrains.kotlin.stdlib
     androidTestImplementation libs.androidx.test.core.ktx
     androidTestImplementation libs.androidx.test.rules
     androidTestImplementation libs.androidx.test.runner

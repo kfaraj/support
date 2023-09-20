@@ -1,5 +1,6 @@
 plugins {
     alias libs.plugins.com.android.library
+    alias libs.plugins.org.jetbrains.kotlin.android
 }
 
 group = 'com.kfaraj.support'
@@ -14,10 +15,8 @@ android {
     }
 }
 
-java {
-    toolchain {
-        languageVersion = JavaLanguageVersion.of(17)
-    }
+kotlin {
+    jvmToolchain 17
 }
 
 dependencies {

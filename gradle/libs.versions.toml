@@ -23,7 +23,6 @@ androidx-test-core-ktx = { module = "androidx.test:core-ktx", version.ref = "and
 androidx-test-rules = { module = "androidx.test:rules", version.ref = "androidx-test-rules" }
 androidx-test-runner = { module = "androidx.test:runner", version.ref = "androidx-test-runner" }
 com-google-android-material = { module = "com.google.android.material:material", version.ref = "com-google-android-material" }
-org-jetbrains-kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib" }
 
 [plugins]
 com-android-application = { id = "com.android.application", version.ref = "com-android-tools-build-gradle" }
