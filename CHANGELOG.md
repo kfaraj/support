@@ -2,6 +2,13 @@
 
 These libraries use [Semantic Versioning](https://semver.org/).
 
+## RecyclerView Version 3.0.13
+
+**2023-09-21**
+
+- Exposed the Kotlin library.
+- Converted internal classes to Kotlin.
+
 ## RecyclerView Version 3.0.12
 
 **2023-09-09**
