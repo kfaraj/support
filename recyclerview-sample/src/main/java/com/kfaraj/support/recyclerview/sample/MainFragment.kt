@@ -154,6 +154,7 @@ class MainFragment : Fragment(R.layout.fragment_main),
     }
 
     override fun onDestroyActionMode(mode: ActionMode) {
+        // Do nothing.
     }
 
     override fun onItemCheckedStateChanged(

@@ -7,13 +7,12 @@ This project is a suite of libraries for Android.
 [![Maven Central](https://img.shields.io/maven-central/v/com.kfaraj.support/appcompat)](https://search.maven.org/artifact/com.kfaraj.support/appcompat)
 
 This library is built on top of the
-[AndroidX AppCompat library](https://developer.android.com/jetpack/androidx/releases/appcompat) and
-is designed to be used with Android 4.0 (API level 14) and higher.
+[AndroidX AppCompat library](https://developer.android.com/jetpack/androidx/releases/appcompat).
 
 It can be included with the following dependencies:
 
 ```groovy
-implementation 'com.kfaraj.support:appcompat:4.0.0'
+implementation("com.kfaraj.support:appcompat:4.0.0")
 ```
 
 ## RecyclerView
@@ -21,13 +20,12 @@ implementation 'com.kfaraj.support:appcompat:4.0.0'
 [![Maven Central](https://img.shields.io/maven-central/v/com.kfaraj.support/recyclerview)](https://search.maven.org/artifact/com.kfaraj.support/recyclerview)
 
 This library is built on top of the
-[AndroidX RecyclerView library](https://developer.android.com/jetpack/androidx/releases/recyclerview)
-and is designed to be used with Android 4.0 (API level 14) and higher.
+[AndroidX RecyclerView library](https://developer.android.com/jetpack/androidx/releases/recyclerview).
 
 It can be included with the following dependencies:
 
 ```groovy
-implementation 'com.kfaraj.support:recyclerview:3.0.14'
+implementation("com.kfaraj.support:recyclerview:3.0.14")
 ```
 
 It adds support for empty view, item click and choice mode to the following classes:

@@ -3,9 +3,9 @@ package com.kfaraj.support.recyclerview.sample
 import android.os.Bundle
 import android.view.View
 import android.view.View.OnClickListener
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
-import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -18,8 +18,8 @@ class MainActivity : AppCompatActivity(R.layout.activity_main),
     OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        enableEdgeToEdge()
         super.onCreate(savedInstanceState)
-        WindowCompat.setDecorFitsSystemWindows(window, false)
         val toolbar = ActivityCompat.requireViewById<MaterialToolbar>(this, R.id.toolbar)
         val fab = ActivityCompat.requireViewById<FloatingActionButton>(this, R.id.fab)
         toolbar.applyWindowInsetsMargin(

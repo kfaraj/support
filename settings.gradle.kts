@@ -14,7 +14,7 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = 'support'
-include ':appcompat'
-include ':recyclerview'
-include ':recyclerview-sample'
+rootProject.name = "support"
+include(":appcompat")
+include(":recyclerview")
+include(":recyclerview-sample")
