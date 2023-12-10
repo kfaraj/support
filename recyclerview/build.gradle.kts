@@ -20,7 +20,7 @@ android {
         }
     }
     testOptions {
-        targetSdk = 33
+        targetSdk = 34
         managedDevices {
             localDevices {
                 register("pixel2Api34") {

@@ -9,7 +9,7 @@ android {
     defaultConfig {
         applicationId = "com.kfaraj.support.recyclerview.sample"
         minSdk = 21
-        targetSdk = 33
+        targetSdk = 34
         versionCode = 1
         versionName = "0.0.1"
         vectorDrawables {
