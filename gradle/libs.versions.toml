@@ -10,7 +10,7 @@ androidx-test-rules = "1.5.0"
 androidx-test-runner = "1.5.2"
 com-android-tools-build-gradle = "8.3.0"
 com-google-android-material = "1.11.0"
-org-jetbrains-kotlin = "1.9.22"
+org-jetbrains-kotlin = "1.9.23"
 
 [libraries]
 androidx-activity-ktx = { module = "androidx.activity:activity-ktx", version.ref = "androidx-activity" }
