@@ -1,4 +1,4 @@
-package com.kfaraj.support.recyclerview.sample
+package com.kfaraj.support.recyclerview.sample.ui
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView

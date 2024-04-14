@@ -1,4 +1,4 @@
-package com.kfaraj.support.recyclerview.sample
+package com.kfaraj.support.recyclerview.sample.ui
 
 import android.os.Bundle
 import android.view.ActionMode
@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
+import com.kfaraj.support.recyclerview.sample.R
 import com.kfaraj.support.recyclerview.sample.util.applyWindowInsetsPadding
 import com.kfaraj.support.recyclerview.sample.util.requireStringArrayList
 import com.kfaraj.support.widget.SupportRecyclerView

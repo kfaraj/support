@@ -1,10 +1,11 @@
-package com.kfaraj.support.recyclerview.sample
+package com.kfaraj.support.recyclerview.sample.ui
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.kfaraj.support.recyclerview.sample.R
 
 /**
  * Demonstrates how to use the RecyclerView library.

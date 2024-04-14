@@ -21,7 +21,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/container"
-        android:name="com.kfaraj.support.recyclerview.sample.MainFragment"
+        android:name="com.kfaraj.support.recyclerview.sample.ui.MainFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
