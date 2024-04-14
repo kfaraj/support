@@ -1,5 +1,5 @@
 [versions]
-androidx-activity = "1.8.1"
+androidx-activity = "1.8.2"
 androidx-appcompat = "1.6.1"
 androidx-coordinatorlayout = "1.2.0"
 androidx-core = "1.12.0"
@@ -8,9 +8,9 @@ androidx-recyclerview = "1.3.2"
 androidx-test-core = "1.5.0"
 androidx-test-rules = "1.5.0"
 androidx-test-runner = "1.5.2"
-com-android-tools-build-gradle = "8.2.0"
-com-google-android-material = "1.10.0"
-org-jetbrains-kotlin = "1.9.21"
+com-android-tools-build-gradle = "8.3.2"
+com-google-android-material = "1.11.0"
+org-jetbrains-kotlin = "1.9.23"
 
 [libraries]
 androidx-activity-ktx = { module = "androidx.activity:activity-ktx", version.ref = "androidx-activity" }

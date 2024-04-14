@@ -8,25 +8,25 @@ configure<PublishingExtension> {
                 from(components["release"])
             }
             pom {
-                name.set(extra["pomName"] as String)
-                description.set(extra["pomDescription"] as String)
-                url.set(extra["pomUrl"] as String)
+                name = extra["pomName"] as String
+                description = extra["pomDescription"] as String
+                url = extra["pomUrl"] as String
                 licenses {
                     license {
-                        name.set("Apache-2.0")
-                        url.set("https://www.apache.org/licenses/LICENSE-2.0.txt")
+                        name = "Apache-2.0"
+                        url = "https://www.apache.org/licenses/LICENSE-2.0.txt"
                     }
                 }
                 developers {
                     developer {
-                        name.set("Kamal Faraj")
-                        email.set("kfaraj.dev@gmail.com")
+                        name = "Kamal Faraj"
+                        email = "kfaraj.dev@gmail.com"
                     }
                 }
                 scm {
-                    connection.set("scm:git:https://gitlab.com/kfaraj/support.git")
-                    developerConnection.set("scm:git:https://gitlab.com/kfaraj/support.git")
-                    url.set("https://gitlab.com/kfaraj/support")
+                    connection = "scm:git:https://gitlab.com/kfaraj/support.git"
+                    developerConnection = "scm:git:https://gitlab.com/kfaraj/support.git"
+                    url = "https://gitlab.com/kfaraj/support"
                 }
             }
         }

@@ -23,10 +23,10 @@ android {
         targetSdk = 34
         managedDevices {
             localDevices {
-                register("pixel2Api34") {
-                    device = "Pixel 2"
+                register("pixel8Api34") {
+                    device = "Pixel 8"
                     apiLevel = 34
-                    systemImageSource = "google"
+                    systemImageSource = "aosp-atd"
                 }
             }
         }
