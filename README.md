@@ -11,7 +11,7 @@ This library is built on top of the
 
 It can be included with the following dependencies:
 
-```groovy
+```kotlin
 implementation("com.kfaraj.support:appcompat:4.0.0")
 ```
 
@@ -24,7 +24,7 @@ This library is built on top of the
 
 It can be included with the following dependencies:
 
-```groovy
+```kotlin
 implementation("com.kfaraj.support:recyclerview:3.0.14")
 ```
 
