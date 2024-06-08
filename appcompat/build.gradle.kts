@@ -10,7 +10,7 @@ android {
     namespace = "com.kfaraj.support.appcompat"
     compileSdk = 34
     defaultConfig {
-        minSdk = 19
+        minSdk = 21
     }
     publishing {
         singleVariant("release") {
