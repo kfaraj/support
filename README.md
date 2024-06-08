@@ -12,7 +12,7 @@ This library is built on top of the
 It can be included with the following dependencies:
 
 ```kotlin
-implementation("com.kfaraj.support:appcompat:4.0.0")
+implementation("com.kfaraj.support:appcompat:5.0.0-SNAPSHOT")
 ```
 
 ## RecyclerView
@@ -25,7 +25,7 @@ This library is built on top of the
 It can be included with the following dependencies:
 
 ```kotlin
-implementation("com.kfaraj.support:recyclerview:3.0.14")
+implementation("com.kfaraj.support:recyclerview:4.0.0-SNAPSHOT")
 ```
 
 It adds support for empty view, item click and choice mode to the following classes:
