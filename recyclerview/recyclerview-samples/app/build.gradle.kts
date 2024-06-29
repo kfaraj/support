@@ -1,0 +1,54 @@
+plugins {
+    alias(libs.plugins.com.android.application)
+    alias(libs.plugins.org.jetbrains.kotlin.android)
+}
+
+android {
+    namespace = "com.kfaraj.support.recyclerview.samples"
+    compileSdk = 34
+    defaultConfig {
+        applicationId = "com.kfaraj.support.recyclerview.samples"
+        minSdk = 21
+        targetSdk = 34
+        versionCode = 1
+        versionName = "0.0.1"
+        vectorDrawables {
+            useSupportLibrary = true
+        }
+    }
+    signingConfigs {
+        register("release") {
+            val storePath = properties["signingStorePath"] as String?
+            storeFile = if (storePath != null) file(storePath) else null
+            storePassword = properties["signingStorePassword"] as String?
+            keyAlias = properties["signingKeyAlias"] as String?
+            keyPassword = properties["signingKeyPassword"] as String?
+        }
+    }
+    buildTypes {
+        named("release") {
+            isMinifyEnabled = true
+            isShrinkResources = true
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+            signingConfig = signingConfigs.getByName("release")
+        }
+    }
+}
+
+kotlin {
+    jvmToolchain(17)
+}
+
+dependencies {
+    implementation(project(":recyclerview:recyclerview"))
+    implementation(libs.androidx.activity.ktx)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.androidx.coordinatorlayout)
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.fragment.ktx)
+    implementation(libs.androidx.recyclerview)
+    implementation(libs.com.google.android.material)
+}
