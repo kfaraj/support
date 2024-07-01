@@ -2,7 +2,7 @@
 
 [![Maven Central](https://img.shields.io/maven-central/v/com.kfaraj.support.recyclerview/recyclerview)](https://search.maven.org/artifact/com.kfaraj.support.recyclerview/recyclerview)
 
-This library is built on top of the
+This library provides additional support for the
 [AndroidX RecyclerView library](https://developer.android.com/jetpack/androidx/releases/recyclerview).
 
 It can be included with the following dependencies:
@@ -11,7 +11,7 @@ It can be included with the following dependencies:
 implementation("com.kfaraj.support.recyclerview:recyclerview:4.0.0-SNAPSHOT")
 ```
 
-It adds support for empty view, item click and choice mode to the following classes:
+It adds support for empty view, item click and choice mode with the following classes:
 
 - [SupportRecyclerView](recyclerview/src/main/java/com/kfaraj/support/recyclerview/widget/SupportRecyclerView.java)
 
@@ -30,9 +30,5 @@ recyclerView.multiChoiceModeListener = multiChoiceModeListener
     android:layout_height="match_parent"
     app:choiceMode="singleChoice" />
 ```
-
-# RecyclerView sample
-
-This sample app demonstrates how to use the [RecyclerView library](#recyclerview).
 
 ![RecyclerView sample app](screenshots/recyclerview.webp)
