@@ -29,7 +29,7 @@ dependencies {
 }
 
 extra["pomName"] = "AppCompat"
-extra["pomDescription"] = "This library is built on top of the AndroidX AppCompat library."
+extra["pomDescription"] = "Provides additional support for the the AndroidX AppCompat library."
 extra["pomUrl"] = "https://gitlab.com/kfaraj/support/-/tree/main/appcompat"
 
 apply(from = "../../publish.gradle.kts")

@@ -46,7 +46,7 @@ dependencies {
 }
 
 extra["pomName"] = "RecyclerView"
-extra["pomDescription"] = "This library is built on top of the AndroidX RecyclerView library."
+extra["pomDescription"] = "Provides additional support for the the AndroidX RecyclerView library."
 extra["pomUrl"] = "https://gitlab.com/kfaraj/support/-/tree/main/recyclerview"
 
 apply(from = "../../publish.gradle.kts")
