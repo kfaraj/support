@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "com.kfaraj.support.recyclerview"
-version = "4.0.0-SNAPSHOT"
+version = "4.0.0"
 
 android {
     namespace = "com.kfaraj.support.recyclerview"

@@ -2,6 +2,24 @@
 
 These libraries use [Semantic Versioning](https://semver.org/).
 
+## AppCompat Version 5.0.0
+
+**2024-07-01**
+
+- Changed the package to `com.kfaraj.support.appcompat`.
+- Updated the minimum SDK version to API level 21.
+- Removed the target SDK version.
+- Updated the AndroidX AppCompat library version to 1.7.0.
+- Updated the Kotlin library version to 2.0.0.
+
+## RecyclerView Version 4.0.0
+
+**2024-07-01**
+
+- Changed the package to `com.kfaraj.support.recyclerview`.
+- Updated the minimum SDK version to API level 21.
+- Updated the Kotlin library version to 2.0.0.
+
 ## RecyclerView Version 3.0.14
 
 **2023-12-11**
