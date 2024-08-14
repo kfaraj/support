@@ -7,8 +7,11 @@ These libraries use [Semantic Versioning](https://semver.org/).
 **2024-07-01**
 
 - Changed the package to `com.kfaraj.support.appcompat`.
+- Updated the compile SDK version to API level 34.
+- Updated the Java toolchain version to JDK 17.
 - Updated the minimum SDK version to API level 21.
 - Removed the target SDK version.
+- Exposed the Kotlin library.
 - Updated the AndroidX AppCompat library version to 1.7.0.
 - Updated the Kotlin library version to 2.0.0.
 
