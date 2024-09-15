@@ -8,7 +8,7 @@ version = "5.0.0"
 
 android {
     namespace = "com.kfaraj.support.appcompat"
-    compileSdk = 34
+    compileSdk = 35
     defaultConfig {
         minSdk = 21
     }

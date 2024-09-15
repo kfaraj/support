@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.kfaraj.support.recyclerview.samples"
-    compileSdk = 34
+    compileSdk = 35
     defaultConfig {
         applicationId = "com.kfaraj.support.recyclerview.samples"
         minSdk = 21
@@ -44,7 +44,7 @@ kotlin {
 
 dependencies {
     implementation(project(":recyclerview:recyclerview"))
-    implementation(libs.androidx.activity.ktx)
+    implementation(libs.androidx.activity)
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.coordinatorlayout)
     implementation(libs.androidx.core.ktx)

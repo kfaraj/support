@@ -8,7 +8,7 @@ version = "4.0.1-SNAPSHOT"
 
 android {
     namespace = "com.kfaraj.support.recyclerview"
-    compileSdk = 34
+    compileSdk = 35
     defaultConfig {
         minSdk = 21
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
