@@ -8,7 +8,7 @@ version = "5.0.1-SNAPSHOT"
 
 android {
     namespace = "com.kfaraj.support.appcompat"
-    compileSdk = 34
+    compileSdk = 35
     defaultConfig {
         minSdk = 21
     }
@@ -21,7 +21,7 @@ android {
 }
 
 kotlin {
-    jvmToolchain(17)
+    jvmToolchain(21)
 }
 
 dependencies {

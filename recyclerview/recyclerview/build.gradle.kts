@@ -8,7 +8,7 @@ version = "4.0.1-SNAPSHOT"
 
 android {
     namespace = "com.kfaraj.support.recyclerview"
-    compileSdk = 34
+    compileSdk = 35
     defaultConfig {
         minSdk = 21
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
@@ -23,8 +23,8 @@ android {
         targetSdk = 34
         managedDevices {
             localDevices {
-                register("pixel8Api34") {
-                    device = "Pixel 8"
+                register("pixel9Api34") {
+                    device = "Pixel 9"
                     apiLevel = 34
                     systemImageSource = "aosp-atd"
                 }
@@ -34,7 +34,7 @@ android {
 }
 
 kotlin {
-    jvmToolchain(17)
+    jvmToolchain(21)
 }
 
 dependencies {

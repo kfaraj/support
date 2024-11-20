@@ -15,7 +15,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
 import com.kfaraj.support.recyclerview.samples.R
 import com.kfaraj.support.recyclerview.samples.util.applyWindowInsetsPadding
-import com.kfaraj.support.recyclerview.samples.util.requireStringArrayList
 import com.kfaraj.support.recyclerview.widget.SupportRecyclerView
 import com.kfaraj.support.recyclerview.widget.SupportRecyclerView.MultiChoiceModeListener
 import com.kfaraj.support.recyclerview.widget.SupportRecyclerView.OnItemClickListener
@@ -39,7 +38,7 @@ class MainFragment : Fragment(R.layout.fragment_main),
         super.onCreate(savedInstanceState)
         adapter = MainAdapter()
         if (savedInstanceState != null) {
-            val items = savedInstanceState.requireStringArrayList(KEY_ITEMS)
+            val items = requireNotNull(savedInstanceState.getStringArrayList(KEY_ITEMS))
             adapter.items.addAll(items)
         }
     }
