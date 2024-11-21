@@ -20,12 +20,12 @@ android {
         }
     }
     testOptions {
-        targetSdk = 34
+        targetSdk = 35
         managedDevices {
             localDevices {
-                register("pixel9Api34") {
+                register("pixel9Api35") {
                     device = "Pixel 9"
-                    apiLevel = 34
+                    apiLevel = 35
                     systemImageSource = "aosp-atd"
                 }
             }
