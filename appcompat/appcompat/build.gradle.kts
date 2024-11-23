@@ -11,6 +11,9 @@ android {
     compileSdk = 35
     defaultConfig {
         minSdk = 21
+        aarMetadata {
+            minCompileSdk = 35
+        }
     }
     publishing {
         singleVariant("release") {

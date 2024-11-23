@@ -12,6 +12,9 @@ android {
     defaultConfig {
         minSdk = 21
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        aarMetadata {
+            minCompileSdk = 35
+        }
     }
     publishing {
         singleVariant("release") {
