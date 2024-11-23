@@ -2,6 +2,25 @@
 
 These libraries use [Semantic Versioning](https://semver.org/).
 
+## AppCompat Version 5.0.1
+
+**2024-11-23**
+
+- Updated the compile SDK version to API level 35.
+- Updated the minimum compile SDK version to API level 35.
+- Updated the Java toolchain version to JDK 21.
+- Updated the Kotlin library version to 2.0.21.
+- Declared public resources.
+
+## RecyclerView Version 4.0.1
+
+**2024-11-23**
+
+- Updated the compile SDK version to API level 35.
+- Updated the minimum compile SDK version to API level 35.
+- Updated the Java toolchain version to JDK 21.
+- Updated the Kotlin library version to 2.0.21.
+
 ## AppCompat Version 5.0.0
 
 **2024-07-01**

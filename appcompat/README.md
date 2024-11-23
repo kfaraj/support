@@ -8,7 +8,7 @@ This library provides additional support for the
 It can be included with the following dependencies:
 
 ```kotlin
-implementation("com.kfaraj.support.appcompat:appcompat:5.0.1-SNAPSHOT")
+implementation("com.kfaraj.support.appcompat:appcompat:5.0.1")
 ```
 
 It is now completely empty.
