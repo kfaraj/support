@@ -7,19 +7,19 @@ These libraries use [Semantic Versioning](https://semver.org/).
 **2024-11-23**
 
 - Updated the compile SDK version to API level 35.
-- Updated the minimum compile SDK version to API level 35.
 - Updated the Java toolchain version to JDK 21.
-- Updated the Kotlin library version to 2.0.21.
+- Updated the Kotlin standard library version to 2.0.21.
 - Declared public resources.
+- Updated the AAR metadata.
 
 ## RecyclerView Version 4.0.1
 
 **2024-11-23**
 
 - Updated the compile SDK version to API level 35.
-- Updated the minimum compile SDK version to API level 35.
 - Updated the Java toolchain version to JDK 21.
-- Updated the Kotlin library version to 2.0.21.
+- Updated the Kotlin standard library version to 2.0.21.
+- Updated the AAR metadata.
 
 ## AppCompat Version 5.0.0
 
@@ -27,12 +27,10 @@ These libraries use [Semantic Versioning](https://semver.org/).
 
 - Changed the package to `com.kfaraj.support.appcompat`.
 - Updated the compile SDK version to API level 34.
-- Updated the Java toolchain version to JDK 17.
 - Updated the minimum SDK version to API level 21.
-- Removed the target SDK version.
-- Exposed the Kotlin library.
+- Updated the Java toolchain version to JDK 17.
 - Updated the AndroidX AppCompat library version to 1.7.0.
-- Updated the Kotlin library version to 2.0.0.
+- Updated the Kotlin standard library version to 2.0.0.
 
 ## RecyclerView Version 4.0.0
 
@@ -40,22 +38,21 @@ These libraries use [Semantic Versioning](https://semver.org/).
 
 - Changed the package to `com.kfaraj.support.recyclerview`.
 - Updated the minimum SDK version to API level 21.
-- Updated the Kotlin library version to 2.0.0.
+- Updated the Kotlin standard library version to 2.0.0.
 
 ## RecyclerView Version 3.0.14
 
 **2023-12-11**
 
 - Updated the minimum SDK version to API level 19.
-- Removed the target SDK version.
 - Updated the AndroidX RecyclerView library version to 1.3.2.
-- Updated the Kotlin library version to 1.9.21.
+- Updated the Kotlin standard library version to 1.9.21.
 
 ## RecyclerView Version 3.0.13
 
 **2023-09-21**
 
-- Exposed the Kotlin library.
+- Updated the Kotlin standard library version to 1.9.10.
 - Converted internal classes to Kotlin.
 
 ## RecyclerView Version 3.0.12
@@ -96,26 +93,26 @@ These libraries use [Semantic Versioning](https://semver.org/).
 
 **2022-08-11**
 
-- Updated the target SDK version to API level 33.
+- Updated the compile SDK version to API level 33.
 - Updated the AndroidX AppCompat library version to 1.4.2.
 
 ## RecyclerView Version 3.0.9
 
 **2022-08-11**
 
-- Updated the target SDK version to API level 33.
+- Updated the compile SDK version to API level 33.
 
 ## AppCompat Version 3.1.7
 
 **2022-03-27**
 
-- Updated the target SDK version to API level 32.
+- Updated the compile SDK version to API level 32.
 
 ## RecyclerView Version 3.0.8
 
 **2022-03-27**
 
-- Updated the target SDK version to API level 32.
+- Updated the compile SDK version to API level 32.
 
 ## AppCompat Version 3.1.6
 
@@ -134,14 +131,14 @@ These libraries use [Semantic Versioning](https://semver.org/).
 
 **2021-10-24**
 
-- Updated the target SDK version to API level 31.
+- Updated the compile SDK version to API level 31.
 - Updated the AndroidX AppCompat library version to 1.3.1.
 
 ## RecyclerView Version 3.0.6
 
 **2021-10-24**
 
-- Updated the target SDK version to API level 31.
+- Updated the compile SDK version to API level 31.
 - Updated the AndroidX RecyclerView library version to 1.2.1.
 - Updated the documentation.
 
@@ -161,14 +158,12 @@ These libraries use [Semantic Versioning](https://semver.org/).
 
 **2021-02-07**
 
-- Exposed the AndroidX AppCompat library.
 - Declared public resources.
 
 ## RecyclerView Version 3.0.4
 
 **2021-02-07**
 
-- Exposed the AndroidX RecyclerView library.
 - Declared public resources.
 
 ## AppCompat Version 3.1.2
@@ -181,14 +176,14 @@ These libraries use [Semantic Versioning](https://semver.org/).
 
 **2020-07-18**
 
-- Updated the target SDK version to API level 30.
+- Updated the compile SDK version to API level 30.
 - Updated the annotations.
 
 ## RecyclerView Version 3.0.3
 
 **2020-07-18**
 
-- Updated the target SDK version to API level 30.
+- Updated the compile SDK version to API level 30.
 
 ## RecyclerView Version 3.0.2
 
@@ -200,22 +195,22 @@ These libraries use [Semantic Versioning](https://semver.org/).
 
 **2019-09-26**
 
-- Updated the target SDK version to API level 29.
+- Updated the compile SDK version to API level 29.
 - Updated the AndroidX AppCompat library version to 1.1.0.
-- Added SupportToggleButton.
+- Added support for compound drawables tint.
 
 ## RecyclerView Version 3.0.1
 
 **2019-09-26**
 
-- Updated the target SDK version to API level 29.
+- Updated the compile SDK version to API level 29.
 - Updated the annotations.
 
 ## AppCompat Version 3.0.0
 
 **2018-10-02**
 
-- Updated the target SDK version to API level 28.
+- Updated the compile SDK version to API level 28.
 - Migrated to the AndroidX AppCompat library.
 - Restricted usage of utility classes.
 - Updated the documentation.
@@ -224,7 +219,7 @@ These libraries use [Semantic Versioning](https://semver.org/).
 
 **2018-10-02**
 
-- Updated the target SDK version to API level 28.
+- Updated the compile SDK version to API level 28.
 - Migrated to the AndroidX RecyclerView library.
 - Restricted usage of utility classes.
 
@@ -232,12 +227,12 @@ These libraries use [Semantic Versioning](https://semver.org/).
 
 **2018-07-14**
 
-Changes for appcompat library:
+### AppCompat
 
 - Updated the v7 appcompat library version to 27.1.1.
 - Updated the annotations.
 
-Changes for recyclerview library:
+### RecyclerView
 
 - Updated the v7 recyclerview library version to 27.1.1.
 
@@ -245,38 +240,38 @@ Changes for recyclerview library:
 
 **2017-12-11**
 
-Changes for appcompat library:
+### AppCompat
 
-- Updated the target SDK version to API level 27.
+- Updated the compile SDK version to API level 27.
 - Updated the v7 appcompat library version to 27.0.2.
 
-Changes for recyclerview library:
+### RecyclerView
 
-- Updated the target SDK version to API level 27.
+- Updated the compile SDK version to API level 27.
 - Updated the v7 recyclerview library version to 27.0.2.
 
 ## Version 2.0.0
 
 **2017-09-01**
 
-Changes for appcompat library:
+### AppCompat
 
+- Updated the compile SDK version to API level 26.
 - Updated the minimum SDK version to API level 14.
-- Updated the target SDK version to API level 26.
 - Updated the v7 appcompat library version to 26.0.2.
-- Moved support for image drawable tint to the v7 appcompat library.
+- Removed support for image drawable tint.
 
-Changes for recyclerview library:
+### RecyclerView
 
+- Updated the compile SDK version to API level 26.
 - Updated the minimum SDK version to API level 14.
-- Updated the target SDK version to API level 26.
 - Updated the v7 recyclerview library version to 26.0.2.
 
 ## Version 1.1.3
 
 **2017-07-07**
 
-Changes for recyclerview library:
+### RecyclerView
 
 - Improved support for choice mode.
 
@@ -284,12 +279,12 @@ Changes for recyclerview library:
 
 **2017-06-11**
 
-Changes for appcompat library:
+### AppCompat
 
 - Updated the annotations.
 - Updated the documentation.
 
-Changes for recyclerview library:
+### RecyclerView
 
 - Updated the annotations.
 - Updated the documentation.
@@ -298,12 +293,12 @@ Changes for recyclerview library:
 
 **2017-04-23**
 
-Changes for appcompat library:
+### AppCompat
 
 - Updated the v7 appcompat library version to 25.3.1.
 - Updated the documentation.
 
-Changes for recyclerview library:
+### RecyclerView
 
 - Updated the v7 recyclerview library version to 25.3.1.
 - Updated the documentation.
@@ -312,12 +307,15 @@ Changes for recyclerview library:
 
 **2017-01-10**
 
-Changes for appcompat library:
+### AppCompat
 
 - Updated the v7 appcompat library version to 25.1.0.
 
-New recyclerview library:
+### RecyclerView
 
+- Updated the compile SDK version to API level 25.
+- Updated the minimum SDK version to API level 11.
+- Updated the v7 recyclerview library version to 25.1.0.
 - Added support for empty view.
 - Added support for item click.
 - Added support for choice mode.
@@ -326,16 +324,16 @@ New recyclerview library:
 
 **2016-11-13**
 
-Changes for appcompat library:
+### AppCompat
 
-- Updated the target SDK version to API level 25.
+- Updated the compile SDK version to API level 25.
 - Updated the v7 appcompat library version to 25.0.0.
 
 ## Version 1.0.1
 
 **2016-10-23**
 
-Changes for appcompat library:
+### AppCompat
 
 - Allowed subclasses to use their own base style when they are inflating.
 - Updated the documentation.
@@ -344,7 +342,10 @@ Changes for appcompat library:
 
 **2016-10-03**
 
-New appcompat library:
+### AppCompat
 
+- Updated the compile SDK version to API level 24.
+- Updated the minimum SDK version to API level 11.
+- Updated the v7 appcompat library version to 24.2.1.
 - Added support for image drawable tint.
 - Added support for compound drawables tint.
