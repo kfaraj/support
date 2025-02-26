@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "com.kfaraj.support.appcompat"
-version = "5.0.1"
+version = "5.0.2-SNAPSHOT"
 
 android {
     namespace = "com.kfaraj.support.appcompat"
