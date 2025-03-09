@@ -3,8 +3,8 @@ plugins {
     alias(libs.plugins.org.jetbrains.kotlin.android)
 }
 
-group = "com.kfaraj.support.appcompat"
-version = "5.0.2-SNAPSHOT"
+group = requireNotNull(libs.com.kfaraj.support.appcompat.get().group)
+version = requireNotNull(libs.com.kfaraj.support.appcompat.get().version)
 
 android {
     namespace = "com.kfaraj.support.appcompat"

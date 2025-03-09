@@ -3,8 +3,8 @@ plugins {
     alias(libs.plugins.org.jetbrains.kotlin.android)
 }
 
-group = "com.kfaraj.support.recyclerview"
-version = "4.0.2-SNAPSHOT"
+group = requireNotNull(libs.com.kfaraj.support.recyclerview.get().group)
+version = requireNotNull(libs.com.kfaraj.support.recyclerview.get().version)
 
 android {
     namespace = "com.kfaraj.support.recyclerview"
@@ -42,7 +42,6 @@ kotlin {
 
 dependencies {
     api(libs.androidx.recyclerview)
-    debugImplementation(libs.androidx.core.ktx)
     androidTestImplementation(libs.androidx.test.core.ktx)
     androidTestImplementation(libs.androidx.test.rules)
     androidTestImplementation(libs.androidx.test.runner)
