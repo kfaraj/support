@@ -1,16 +1,26 @@
-apply(plugin = "maven-publish")
-apply(plugin = "signing")
+plugins {
+    `maven-publish`
+    signing
+}
 
-configure<PublishingExtension> {
+interface MavenPomExtension {
+    val name: Property<String>
+    val description: Property<String>
+    val url: Property<String>
+}
+
+val pomExtension = extensions.create<MavenPomExtension>("pom")
+
+publishing {
     publications {
         register<MavenPublication>("release") {
             afterEvaluate {
                 from(components["release"])
             }
             pom {
-                name = extra["pomName"] as String
-                description = extra["pomDescription"] as String
-                url = extra["pomUrl"] as String
+                name = pomExtension.name
+                description = pomExtension.description
+                url = pomExtension.url
                 licenses {
                     license {
                         name = "Apache-2.0"
@@ -44,6 +54,6 @@ configure<PublishingExtension> {
     }
 }
 
-configure<SigningExtension> {
-    sign(the<PublishingExtension>().publications["release"])
+signing {
+    sign(publishing.publications["release"])
 }

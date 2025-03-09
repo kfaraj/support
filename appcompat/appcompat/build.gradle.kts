@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.com.android.library)
     alias(libs.plugins.org.jetbrains.kotlin.android)
+    id("publish")
 }
 
 group = requireNotNull(libs.com.kfaraj.support.appcompat.get().group)
@@ -31,8 +32,8 @@ dependencies {
     api(libs.androidx.appcompat)
 }
 
-extra["pomName"] = "AppCompat"
-extra["pomDescription"] = "Provides additional support for the the AndroidX AppCompat library."
-extra["pomUrl"] = "https://gitlab.com/kfaraj/support/-/tree/main/appcompat"
-
-apply(from = "../../publish.gradle.kts")
+pom {
+    name = "AppCompat"
+    description = "Provides additional support for the the AndroidX AppCompat library."
+    url = "https://gitlab.com/kfaraj/support/-/tree/main/appcompat"
+}

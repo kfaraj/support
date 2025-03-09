@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.com.android.library)
     alias(libs.plugins.org.jetbrains.kotlin.android)
+    id("publish")
 }
 
 group = requireNotNull(libs.com.kfaraj.support.recyclerview.get().group)
@@ -47,8 +48,8 @@ dependencies {
     androidTestImplementation(libs.androidx.test.runner)
 }
 
-extra["pomName"] = "RecyclerView"
-extra["pomDescription"] = "Provides additional support for the the AndroidX RecyclerView library."
-extra["pomUrl"] = "https://gitlab.com/kfaraj/support/-/tree/main/recyclerview"
-
-apply(from = "../../publish.gradle.kts")
+pom {
+    name = "RecyclerView"
+    description = "Provides additional support for the the AndroidX RecyclerView library."
+    url = "https://gitlab.com/kfaraj/support/-/tree/main/recyclerview"
+}
