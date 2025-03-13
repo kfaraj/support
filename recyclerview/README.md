@@ -31,4 +31,6 @@ recyclerView.multiChoiceModeListener = multiChoiceModeListener
     app:choiceMode="singleChoice" />
 ```
 
-![RecyclerView sample app](screenshots/recyclerview.webp)
+This sample demonstrates how to use the RecyclerView library.
+
+![RecyclerView sample](screenshots/recyclerview.webp)
