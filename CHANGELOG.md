@@ -2,6 +2,21 @@
 
 These libraries use [Semantic Versioning](https://semver.org/).
 
+## AppCompat Version 5.0.2
+
+**2025-03-14**
+
+- Updated the Kotlin standard library version to 2.1.10.
+- Updated the POM metadata.
+
+## RecyclerView Version 4.0.2
+
+**2025-03-14**
+
+- Updated the AndroidX RecyclerView library version to 1.4.0.
+- Updated the Kotlin standard library version to 2.1.10.
+- Updated the POM metadata.
+
 ## AppCompat Version 5.0.1
 
 **2024-11-23**
@@ -31,6 +46,7 @@ These libraries use [Semantic Versioning](https://semver.org/).
 - Updated the Java toolchain version to JDK 17.
 - Updated the AndroidX AppCompat library version to 1.7.0.
 - Updated the Kotlin standard library version to 2.0.0.
+- Update the POM metadata.
 
 ## RecyclerView Version 4.0.0
 
@@ -39,6 +55,7 @@ These libraries use [Semantic Versioning](https://semver.org/).
 - Changed the package to `com.kfaraj.support.recyclerview`.
 - Updated the minimum SDK version to API level 21.
 - Updated the Kotlin standard library version to 2.0.0.
+- Updated the POM metadata.
 
 ## RecyclerView Version 3.0.14
 
@@ -119,13 +136,13 @@ These libraries use [Semantic Versioning](https://semver.org/).
 **2022-02-11**
 
 - Updated the AndroidX AppCompat library version to 1.4.1.
-- Updated the POM.
+- Updated the POM metadata.
 
 ## RecyclerView Version 3.0.7
 
 **2022-02-11**
 
-- Updated the POM.
+- Updated the POM metadata.
 
 ## AppCompat Version 3.1.5
 
