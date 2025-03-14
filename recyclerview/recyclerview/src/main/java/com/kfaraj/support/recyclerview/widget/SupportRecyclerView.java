@@ -1,7 +1,7 @@
 package com.kfaraj.support.recyclerview.widget;
 
 import android.content.Context;
-import android.content.res.TypedArray;
+import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.AttributeSet;
@@ -12,18 +12,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnLongClickListener;
-import android.widget.AbsListView;
-import android.widget.Checkable;
 
 import androidx.annotation.AttrRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.os.ParcelCompat;
 import androidx.customview.view.AbsSavedState;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.kfaraj.support.recyclerview.R;
-import com.kfaraj.support.recyclerview.util.SparseLongArray;
 
 /**
  * Adds support for empty view, item click and choice mode.
@@ -54,7 +50,8 @@ public class SupportRecyclerView extends RecyclerView
     /**
      * Callback to be invoked when an item has been clicked.
      */
-    public interface OnItemClickListener {
+    public interface OnItemClickListener
+            extends RecyclerViewHelper.OnItemClickListener<SupportRecyclerView> {
 
         /**
          * Called when an item has been clicked.
@@ -64,6 +61,7 @@ public class SupportRecyclerView extends RecyclerView
          * @param position the item position.
          * @param id the item ID.
          */
+        @Override
         void onItemClick(@NonNull SupportRecyclerView parent,
                 @NonNull View view, int position, long id);
 
@@ -72,7 +70,8 @@ public class SupportRecyclerView extends RecyclerView
     /**
      * Callback to be invoked when an item has been clicked and held.
      */
-    public interface OnItemLongClickListener {
+    public interface OnItemLongClickListener
+            extends RecyclerViewHelper.OnItemLongClickListener<SupportRecyclerView> {
 
         /**
          * Called when an item has been clicked and held.
@@ -83,6 +82,7 @@ public class SupportRecyclerView extends RecyclerView
          * @param id the item ID.
          * @return {@code true} if the event was consumed, {@code false} otherwise.
          */
+        @Override
         boolean onItemLongClick(@NonNull SupportRecyclerView parent,
                 @NonNull View view, int position, long id);
 
@@ -91,7 +91,8 @@ public class SupportRecyclerView extends RecyclerView
     /**
      * Callback to be invoked when an item has been checked or unchecked.
      */
-    public interface MultiChoiceModeListener extends ActionMode.Callback {
+    public interface MultiChoiceModeListener
+            extends RecyclerViewHelper.MultiChoiceModeListener<SupportRecyclerView> {
 
         /**
          * Called when an item has been checked or unchecked.
@@ -101,6 +102,7 @@ public class SupportRecyclerView extends RecyclerView
          * @param id the item ID.
          * @param checked whether the item is now checked.
          */
+        @Override
         void onItemCheckedStateChanged(@NonNull ActionMode mode,
                 int position, long id, boolean checked);
 
@@ -109,34 +111,24 @@ public class SupportRecyclerView extends RecyclerView
     /**
      * The list does not indicate choices.
      */
-    public static final int CHOICE_MODE_NONE = AbsListView.CHOICE_MODE_NONE;
+    public static final int CHOICE_MODE_NONE = RecyclerViewHelper.CHOICE_MODE_NONE;
 
     /**
      * The list allows up to one choice.
      */
-    public static final int CHOICE_MODE_SINGLE = AbsListView.CHOICE_MODE_SINGLE;
+    public static final int CHOICE_MODE_SINGLE = RecyclerViewHelper.CHOICE_MODE_SINGLE;
 
     /**
      * The list allows multiple choices.
      */
-    public static final int CHOICE_MODE_MULTIPLE = AbsListView.CHOICE_MODE_MULTIPLE;
+    public static final int CHOICE_MODE_MULTIPLE = RecyclerViewHelper.CHOICE_MODE_MULTIPLE;
 
     /**
      * The list allows multiple choices in a modal selection mode.
      */
-    public static final int CHOICE_MODE_MULTIPLE_MODAL = AbsListView.CHOICE_MODE_MULTIPLE_MODAL;
+    public static final int CHOICE_MODE_MULTIPLE_MODAL = RecyclerViewHelper.CHOICE_MODE_MULTIPLE_MODAL;
 
-    private final AdapterDataObserver mObserver = new RecyclerViewAdapterDataObserver();
-
-    private Adapter<?> mAdapter;
-    private int mChildrenCount;
-    private View mEmptyView;
-    private OnItemClickListener mOnItemClickListener;
-    private OnItemLongClickListener mOnItemLongClickListener;
-    private int mChoiceMode = CHOICE_MODE_NONE;
-    private SparseLongArray mCheckedItems = new SparseLongArray();
-    private MultiChoiceModeListener mMultiChoiceModeListener;
-    private ActionMode mActionMode;
+    private RecyclerViewHelper<SupportRecyclerView> mHelper;
 
     /**
      * Constructor.
@@ -180,20 +172,10 @@ public class SupportRecyclerView extends RecyclerView
      * @param attrs the attributes.
      * @param defStyleAttr the default style attribute.
      */
-    @SuppressWarnings("resource")
     private void init(@NonNull Context context,
             @Nullable AttributeSet attrs, @AttrRes int defStyleAttr) {
-        final TypedArray a = context.obtainStyledAttributes(attrs,
-                R.styleable.SupportRecyclerView, defStyleAttr, 0);
-        try {
-            if (a.hasValue(R.styleable.SupportRecyclerView_choiceMode)) {
-                final int choiceMode = a.getInt(
-                        R.styleable.SupportRecyclerView_choiceMode, 0);
-                setChoiceMode(choiceMode);
-            }
-        } finally {
-            a.recycle();
-        }
+        mHelper = new RecyclerViewHelper<>(this);
+        mHelper.loadFromAttributes(context, attrs, defStyleAttr);
     }
 
     /**
@@ -202,9 +184,7 @@ public class SupportRecyclerView extends RecyclerView
     @Override
     protected Parcelable onSaveInstanceState() {
         final SavedState savedState = new SavedState(super.onSaveInstanceState());
-        savedState.choiceMode = mChoiceMode;
-        savedState.checkedItems = mCheckedItems;
-        savedState.actionMode = mActionMode != null;
+        mHelper.onSaveInstanceState(savedState.state);
         return savedState;
     }
 
@@ -218,10 +198,7 @@ public class SupportRecyclerView extends RecyclerView
             return;
         }
         super.onRestoreInstanceState(savedState.getSuperState());
-        mChoiceMode = savedState.choiceMode;
-        mCheckedItems = savedState.checkedItems;
-        mActionMode = savedState.actionMode
-                && mMultiChoiceModeListener != null ? startActionMode(this) : null;
+        mHelper.onRestoreInstanceState(savedState.state);
     }
 
     /**
@@ -229,14 +206,8 @@ public class SupportRecyclerView extends RecyclerView
      */
     @Override
     public void swapAdapter(@Nullable Adapter adapter, boolean removeAndRecycleExistingViews) {
-        if (mAdapter != null) {
-            mAdapter.unregisterAdapterDataObserver(mObserver);
-        }
         super.swapAdapter(adapter, removeAndRecycleExistingViews);
-        mAdapter = adapter;
-        if (mAdapter != null) {
-            mAdapter.registerAdapterDataObserver(mObserver);
-        }
+        mHelper.swapAdapter(adapter);
     }
 
     /**
@@ -244,14 +215,8 @@ public class SupportRecyclerView extends RecyclerView
      */
     @Override
     public void setAdapter(@Nullable Adapter adapter) {
-        if (mAdapter != null) {
-            mAdapter.unregisterAdapterDataObserver(mObserver);
-        }
         super.setAdapter(adapter);
-        mAdapter = adapter;
-        if (mAdapter != null) {
-            mAdapter.registerAdapterDataObserver(mObserver);
-        }
+        mHelper.setAdapter(adapter);
     }
 
     /**
@@ -260,11 +225,7 @@ public class SupportRecyclerView extends RecyclerView
     @Override
     public void onChildAttachedToWindow(@NonNull View child) {
         super.onChildAttachedToWindow(child);
-        mChildrenCount++;
-        updateEmptyStatus();
-        updateChildStatus(child);
-        child.setOnClickListener(this);
-        child.setOnLongClickListener(this);
+        mHelper.onChildViewAttachedToWindow(child);
     }
 
     /**
@@ -273,11 +234,7 @@ public class SupportRecyclerView extends RecyclerView
     @Override
     public void onChildDetachedFromWindow(@NonNull View child) {
         super.onChildDetachedFromWindow(child);
-        mChildrenCount--;
-        updateEmptyStatus();
-        updateChildStatus(child);
-        child.setOnClickListener(null);
-        child.setOnLongClickListener(null);
+        mHelper.onChildViewDetachedFromWindow(child);
     }
 
     /**
@@ -285,34 +242,7 @@ public class SupportRecyclerView extends RecyclerView
      */
     @Override
     public void onClick(View v) {
-        final int position = getChildAdapterPosition(v);
-        final long id = getChildItemId(v);
-        if (position == NO_POSITION) {
-            return;
-        }
-        if (mChoiceMode == CHOICE_MODE_NONE) {
-            if (mOnItemClickListener != null) {
-                mOnItemClickListener.onItemClick(this, v, position, id);
-            }
-        } else if (mChoiceMode == CHOICE_MODE_SINGLE) {
-            setItemChecked(position, true);
-            if (mOnItemClickListener != null) {
-                mOnItemClickListener.onItemClick(this, v, position, id);
-            }
-        } else if (mChoiceMode == CHOICE_MODE_MULTIPLE) {
-            setItemChecked(position, !isItemChecked(position));
-            if (mOnItemClickListener != null) {
-                mOnItemClickListener.onItemClick(this, v, position, id);
-            }
-        } else if (mChoiceMode == CHOICE_MODE_MULTIPLE_MODAL) {
-            if (getCheckedItemCount() == 0) {
-                if (mOnItemClickListener != null) {
-                    mOnItemClickListener.onItemClick(this, v, position, id);
-                }
-            } else {
-                setItemChecked(position, !isItemChecked(position));
-            }
-        }
+        mHelper.onClick(v);
     }
 
     /**
@@ -320,30 +250,7 @@ public class SupportRecyclerView extends RecyclerView
      */
     @Override
     public boolean onLongClick(View v) {
-        final int position = getChildAdapterPosition(v);
-        final long id = getChildItemId(v);
-        if (position == NO_POSITION) {
-            return false;
-        }
-        if (mChoiceMode == CHOICE_MODE_NONE) {
-            if (mOnItemLongClickListener != null) {
-                return mOnItemLongClickListener.onItemLongClick(this, v, position, id);
-            }
-        } else if (mChoiceMode == CHOICE_MODE_SINGLE) {
-            if (mOnItemLongClickListener != null) {
-                return mOnItemLongClickListener.onItemLongClick(this, v, position, id);
-            }
-        } else if (mChoiceMode == CHOICE_MODE_MULTIPLE) {
-            if (mOnItemLongClickListener != null) {
-                return mOnItemLongClickListener.onItemLongClick(this, v, position, id);
-            }
-        } else if (mChoiceMode == CHOICE_MODE_MULTIPLE_MODAL) {
-            if (getCheckedItemCount() == 0) {
-                setItemChecked(position, true);
-            }
-            return true;
-        }
-        return false;
+        return mHelper.onLongClick(v);
     }
 
     /**
@@ -351,7 +258,7 @@ public class SupportRecyclerView extends RecyclerView
      */
     @Override
     public boolean onCreateActionMode(ActionMode mode, Menu menu) {
-        return mMultiChoiceModeListener.onCreateActionMode(mode, menu);
+        return mHelper.onCreateActionMode(mode, menu);
     }
 
     /**
@@ -359,7 +266,7 @@ public class SupportRecyclerView extends RecyclerView
      */
     @Override
     public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
-        return mMultiChoiceModeListener.onPrepareActionMode(mode, menu);
+        return mHelper.onPrepareActionMode(mode, menu);
     }
 
     /**
@@ -367,7 +274,7 @@ public class SupportRecyclerView extends RecyclerView
      */
     @Override
     public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
-        return mMultiChoiceModeListener.onActionItemClicked(mode, item);
+        return mHelper.onActionItemClicked(mode, item);
     }
 
     /**
@@ -375,9 +282,7 @@ public class SupportRecyclerView extends RecyclerView
      */
     @Override
     public void onDestroyActionMode(ActionMode mode) {
-        mMultiChoiceModeListener.onDestroyActionMode(mode);
-        mActionMode = null;
-        clearChoices();
+        mHelper.onDestroyActionMode(mode);
     }
 
     /**
@@ -386,8 +291,7 @@ public class SupportRecyclerView extends RecyclerView
      * @param emptyView the view to show when the adapter is empty.
      */
     public void setEmptyView(@Nullable View emptyView) {
-        mEmptyView = emptyView;
-        updateEmptyStatus();
+        mHelper.setEmptyView(emptyView);
     }
 
     /**
@@ -397,7 +301,7 @@ public class SupportRecyclerView extends RecyclerView
      */
     @Nullable
     public View getEmptyView() {
-        return mEmptyView;
+        return mHelper.getEmptyView();
     }
 
     /**
@@ -406,7 +310,7 @@ public class SupportRecyclerView extends RecyclerView
      * @param listener the callback to be invoked when an item has been clicked.
      */
     public void setOnItemClickListener(@Nullable OnItemClickListener listener) {
-        mOnItemClickListener = listener;
+        mHelper.setOnItemClickListener(listener);
     }
 
     /**
@@ -416,7 +320,7 @@ public class SupportRecyclerView extends RecyclerView
      */
     @Nullable
     public OnItemClickListener getOnItemClickListener() {
-        return mOnItemClickListener;
+        return (OnItemClickListener) mHelper.getOnItemClickListener();
     }
 
     /**
@@ -425,7 +329,7 @@ public class SupportRecyclerView extends RecyclerView
      * @param listener the callback to be invoked when an item has been clicked and held.
      */
     public void setOnItemLongClickListener(@Nullable OnItemLongClickListener listener) {
-        mOnItemLongClickListener = listener;
+        mHelper.setOnItemLongClickListener(listener);
     }
 
     /**
@@ -435,7 +339,7 @@ public class SupportRecyclerView extends RecyclerView
      */
     @Nullable
     public OnItemLongClickListener getOnItemLongClickListener() {
-        return mOnItemLongClickListener;
+        return (OnItemLongClickListener) mHelper.getOnItemLongClickListener();
     }
 
     /**
@@ -444,8 +348,7 @@ public class SupportRecyclerView extends RecyclerView
      * @param choiceMode the choice mode.
      */
     public void setChoiceMode(int choiceMode) {
-        mChoiceMode = choiceMode;
-        clearChoices();
+        mHelper.setChoiceMode(choiceMode);
     }
 
     /**
@@ -454,7 +357,7 @@ public class SupportRecyclerView extends RecyclerView
      * @return the choice mode.
      */
     public int getChoiceMode() {
-        return mChoiceMode;
+        return mHelper.getChoiceMode();
     }
 
     /**
@@ -463,7 +366,7 @@ public class SupportRecyclerView extends RecyclerView
      * @param listener the callback to be invoked when an item has been checked or unchecked.
      */
     public void setMultiChoiceModeListener(@Nullable MultiChoiceModeListener listener) {
-        mMultiChoiceModeListener = listener;
+        mHelper.setMultiChoiceModeListener(listener);
     }
 
     /**
@@ -473,18 +376,14 @@ public class SupportRecyclerView extends RecyclerView
      */
     @Nullable
     public MultiChoiceModeListener getMultiChoiceModeListener() {
-        return mMultiChoiceModeListener;
+        return (MultiChoiceModeListener) mHelper.getMultiChoiceModeListener();
     }
 
     /**
      * Clears any choices previously set.
      */
     public void clearChoices() {
-        mCheckedItems.clear();
-        if (mActionMode != null && mMultiChoiceModeListener != null) {
-            mActionMode.finish();
-        }
-        updateChildrenStatus();
+        mHelper.clearChoices();
     }
 
     /**
@@ -494,40 +393,7 @@ public class SupportRecyclerView extends RecyclerView
      * @param value the state.
      */
     public void setItemChecked(int position, boolean value) {
-        final long id = mAdapter != null ? mAdapter.getItemId(position) : NO_ID;
-        if (mChoiceMode == CHOICE_MODE_SINGLE) {
-            if (value) {
-                mCheckedItems.clear();
-                mCheckedItems.put(position, id);
-            } else {
-                mCheckedItems.remove(position);
-            }
-        } else if (mChoiceMode == CHOICE_MODE_MULTIPLE) {
-            if (value) {
-                mCheckedItems.put(position, id);
-            } else {
-                mCheckedItems.remove(position);
-            }
-        } else if (mChoiceMode == CHOICE_MODE_MULTIPLE_MODAL) {
-            if (value) {
-                mCheckedItems.put(position, id);
-            } else {
-                mCheckedItems.remove(position);
-            }
-            if (mMultiChoiceModeListener != null) {
-                if (mActionMode == null && mCheckedItems.size() > 0) {
-                    mActionMode = startActionMode(this);
-                }
-                if (mActionMode != null) {
-                    mMultiChoiceModeListener.onItemCheckedStateChanged(mActionMode,
-                            position, id, value);
-                }
-                if (mActionMode != null && mCheckedItems.size() == 0) {
-                    mActionMode.finish();
-                }
-            }
-        }
-        updateChildrenStatus();
+        mHelper.setItemChecked(position, value);
     }
 
     /**
@@ -537,7 +403,7 @@ public class SupportRecyclerView extends RecyclerView
      * @return the checked state of the specified position.
      */
     public boolean isItemChecked(int position) {
-        return mCheckedItems.indexOfKey(position) >= 0;
+        return mHelper.isItemChecked(position);
     }
 
     /**
@@ -546,7 +412,7 @@ public class SupportRecyclerView extends RecyclerView
      * @return the number of items currently selected.
      */
     public int getCheckedItemCount() {
-        return mCheckedItems.size();
+        return mHelper.getCheckedItemCount();
     }
 
     /**
@@ -555,10 +421,7 @@ public class SupportRecyclerView extends RecyclerView
      * @return the currently checked item.
      */
     public int getCheckedItemPosition() {
-        if (mCheckedItems.size() == 1) {
-            return mCheckedItems.keyAt(0);
-        }
-        return NO_POSITION;
+        return mHelper.getCheckedItemPosition();
     }
 
     /**
@@ -568,12 +431,7 @@ public class SupportRecyclerView extends RecyclerView
      */
     @NonNull
     public SparseBooleanArray getCheckedItemPositions() {
-        final int count = mCheckedItems.size();
-        final SparseBooleanArray positions = new SparseBooleanArray(count);
-        for (int i = 0; i < count; i++) {
-            positions.put(mCheckedItems.keyAt(i), true);
-        }
-        return positions;
+        return mHelper.getCheckedItemPositions();
     }
 
     /**
@@ -583,181 +441,7 @@ public class SupportRecyclerView extends RecyclerView
      */
     @NonNull
     public long[] getCheckedItemIds() {
-        final int count = mCheckedItems.size();
-        final long[] ids = new long[count];
-        for (int i = 0; i < count; i++) {
-            ids[i] = mCheckedItems.valueAt(i);
-        }
-        return ids;
-    }
-
-    /**
-     * Updates the visibility of the empty view.
-     */
-    private void updateEmptyStatus() {
-        if (mEmptyView != null) {
-            if (mChildrenCount > 0) {
-                mEmptyView.setVisibility(View.GONE);
-            } else {
-                mEmptyView.setVisibility(View.VISIBLE);
-            }
-        }
-    }
-
-    /**
-     * Updates the checked state of the children.
-     */
-    private void updateChildrenStatus() {
-        final int count = getChildCount();
-        for (int i = 0; i < count; i++) {
-            final View child = getChildAt(i);
-            updateChildStatus(child);
-        }
-    }
-
-    /**
-     * Updates the checked state of the child.
-     *
-     * @param child the child.
-     */
-    private void updateChildStatus(@NonNull View child) {
-        final int position = getChildAdapterPosition(child);
-        final boolean checked = isItemChecked(position);
-        if (child instanceof Checkable) {
-            ((Checkable) child).setChecked(checked);
-        } else {
-            child.setActivated(checked);
-        }
-    }
-
-    /**
-     * Returns the adapter position of the item represented by this ID.
-     *
-     * @param id the item ID.
-     * @return the adapter position of the item represented by this ID.
-     */
-    private int getAdapterPosition(long id) {
-        if (mAdapter != null && mAdapter.hasStableIds()) {
-            final int count = mAdapter.getItemCount();
-            for (int i = 0; i < count; i++) {
-                if (mAdapter.getItemId(i) == id) {
-                    return i;
-                }
-            }
-        }
-        return NO_POSITION;
-    }
-
-    /**
-     * Observer class for watching changes to the adapter.
-     */
-    private class RecyclerViewAdapterDataObserver extends AdapterDataObserver {
-
-        /**
-         * Constructor.
-         */
-        RecyclerViewAdapterDataObserver() {
-        }
-
-        /**
-         * {@inheritDoc}
-         */
-        @Override
-        public void onChanged() {
-            super.onChanged();
-            if (mAdapter != null && mAdapter.hasStableIds()) {
-                for (int i = 0; i < mCheckedItems.size(); i++) {
-                    final int position = mCheckedItems.keyAt(i);
-                    final Long id = mCheckedItems.valueAt(i);
-                    final int newPosition = getAdapterPosition(id);
-                    final Long newId = mCheckedItems.get(newPosition);
-                    if (newPosition != position) {
-                        if (newPosition != NO_POSITION) {
-                            mCheckedItems.put(newPosition, id);
-                            i = mCheckedItems.indexOfKey(position);
-                            if (newId != null) {
-                                mCheckedItems.setValueAt(i--, newId);
-                            } else {
-                                mCheckedItems.removeAt(i--);
-                            }
-                        } else {
-                            mCheckedItems.removeAt(i--);
-                            if (mActionMode != null && mMultiChoiceModeListener != null) {
-                                mMultiChoiceModeListener.onItemCheckedStateChanged(mActionMode,
-                                        position, id, false);
-                                if (mCheckedItems.size() == 0) {
-                                    mActionMode.finish();
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        /**
-         * {@inheritDoc}
-         */
-        @Override
-        public void onItemRangeInserted(int positionStart, int itemCount) {
-            super.onItemRangeInserted(positionStart, itemCount);
-            for (int i = mCheckedItems.size() - 1; i >= 0; i--) {
-                final int position = mCheckedItems.keyAt(i);
-                final Long id = mCheckedItems.valueAt(i);
-                if (position >= positionStart) {
-                    mCheckedItems.removeAt(i);
-                    mCheckedItems.put(position + itemCount, id);
-                }
-            }
-        }
-
-        /**
-         * {@inheritDoc}
-         */
-        @Override
-        public void onItemRangeRemoved(int positionStart, int itemCount) {
-            super.onItemRangeRemoved(positionStart, itemCount);
-            for (int i = 0; i < mCheckedItems.size(); i++) {
-                final int position = mCheckedItems.keyAt(i);
-                final Long id = mCheckedItems.valueAt(i);
-                if (position >= positionStart + itemCount) {
-                    mCheckedItems.removeAt(i);
-                    mCheckedItems.put(position - itemCount, id);
-                } else if (position >= positionStart) {
-                    mCheckedItems.removeAt(i--);
-                    if (mActionMode != null && mMultiChoiceModeListener != null) {
-                        mMultiChoiceModeListener.onItemCheckedStateChanged(mActionMode,
-                                position, id, false);
-                        if (mCheckedItems.size() == 0) {
-                            mActionMode.finish();
-                        }
-                    }
-                }
-            }
-        }
-
-        /**
-         * {@inheritDoc}
-         */
-        @Override
-        public void onItemRangeMoved(int fromPosition, int toPosition, int itemCount) {
-            super.onItemRangeMoved(fromPosition, toPosition, itemCount);
-            for (int i = 0; i < itemCount; i++) {
-                final Long fromId = mCheckedItems.get(fromPosition + i);
-                final Long toId = mCheckedItems.get(toPosition + i);
-                if (fromId != null) {
-                    mCheckedItems.put(toPosition + i, fromId);
-                } else {
-                    mCheckedItems.remove(toPosition + i);
-                }
-                if (toId != null) {
-                    mCheckedItems.put(fromPosition + i, toId);
-                } else {
-                    mCheckedItems.remove(fromPosition + i);
-                }
-            }
-        }
-
+        return mHelper.getCheckedItemIds();
     }
 
     /**
@@ -785,9 +469,7 @@ public class SupportRecyclerView extends RecyclerView
             }
         };
 
-        int choiceMode;
-        SparseLongArray checkedItems;
-        boolean actionMode;
+        final Bundle state;
 
         /**
          * Constructor.
@@ -796,6 +478,7 @@ public class SupportRecyclerView extends RecyclerView
          */
         SavedState(@Nullable Parcelable superState) {
             super(superState != null ? superState : EMPTY_STATE);
+            state = new Bundle();
         }
 
         /**
@@ -806,9 +489,7 @@ public class SupportRecyclerView extends RecyclerView
          */
         private SavedState(@NonNull Parcel source, @Nullable ClassLoader loader) {
             super(source, loader);
-            choiceMode = source.readInt();
-            checkedItems = SparseLongArray.CREATOR.createFromParcel(source);
-            actionMode = ParcelCompat.readBoolean(source);
+            state = source.readBundle(loader);
         }
 
         /**
@@ -817,9 +498,7 @@ public class SupportRecyclerView extends RecyclerView
         @Override
         public void writeToParcel(@NonNull Parcel dest, int flags) {
             super.writeToParcel(dest, flags);
-            dest.writeInt(choiceMode);
-            checkedItems.writeToParcel(dest, flags);
-            ParcelCompat.writeBoolean(dest, actionMode);
+            dest.writeBundle(state);
         }
 
     }

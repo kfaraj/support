@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- These are the attributes for the SupportRecyclerView. -->
-    <declare-styleable name="SupportRecyclerView">
+    <!-- These are the attributes for the RecyclerViewHelper. -->
+    <declare-styleable name="RecyclerViewHelper">
         <!-- The choice behavior for the list. -->
         <attr name="choiceMode">
             <!-- The list does not indicate choices. -->
@@ -15,5 +15,8 @@
             <enum name="multipleChoiceModal" value="3" />
         </attr>
     </declare-styleable>
+
+    <!-- These are the attributes for the SupportRecyclerView. -->
+    <declare-styleable name="SupportRecyclerView" parent="RecyclerViewHelper" />
 
 </resources>
