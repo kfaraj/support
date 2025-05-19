@@ -2,17 +2,17 @@
 androidx-activity = "1.10.1"
 androidx-appcompat = "1.7.0"
 androidx-coordinatorlayout = "1.3.0"
-androidx-core = "1.15.0"
+androidx-core = "1.16.0"
 androidx-fragment = "1.8.6"
 androidx-recyclerview = "1.4.0"
 androidx-test-core = "1.6.1"
 androidx-test-rules = "1.6.1"
 androidx-test-runner = "1.6.2"
-com-android-tools-build-gradle = "8.9.0"
+com-android-tools-build-gradle = "8.10.0"
 com-google-android-material = "1.12.0"
 com-kfaraj-support-appcompat = "5.0.2"
 com-kfaraj-support-recyclerview = "4.0.2"
-org-jetbrains-kotlin = "2.1.10"
+org-jetbrains-kotlin = "2.1.21"
 
 [libraries]
 androidx-activity = { module = "androidx.activity:activity", version.ref = "androidx-activity" }
