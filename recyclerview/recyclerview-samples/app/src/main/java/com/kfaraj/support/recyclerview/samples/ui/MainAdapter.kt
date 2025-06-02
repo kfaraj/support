@@ -6,19 +6,19 @@ import androidx.recyclerview.widget.RecyclerView
 /**
  * Demonstrates how to use the RecyclerView library.
  */
-class MainAdapter(
-    val items: MutableList<String> = mutableListOf()
-) : RecyclerView.Adapter<MainViewHolder>() {
+class MainAdapter<T : Any>(
+    val items: MutableList<T> = mutableListOf()
+) : RecyclerView.Adapter<MainViewHolder<T>>() {
 
     init {
         setHasStableIds(true)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainViewHolder<T> {
         return MainViewHolder(parent)
     }
 
-    override fun onBindViewHolder(holder: MainViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: MainViewHolder<T>, position: Int) {
         val item = items[position]
         holder.bind(item)
     }

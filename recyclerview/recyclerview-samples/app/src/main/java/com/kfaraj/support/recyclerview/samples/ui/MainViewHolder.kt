@@ -10,7 +10,7 @@ import com.kfaraj.support.recyclerview.samples.R
 /**
  * Demonstrates how to use the RecyclerView library.
  */
-class MainViewHolder(
+class MainViewHolder<T : Any>(
     parent: ViewGroup
 ) : RecyclerView.ViewHolder(
     LayoutInflater.from(parent.context).inflate(R.layout.item_card, parent, false)
@@ -21,8 +21,8 @@ class MainViewHolder(
     /**
      * Binds the [item] with the view.
      */
-    fun bind(item: String) {
-        textView.text = item
+    fun bind(item: T) {
+        textView.text = item.toString()
     }
 
 }

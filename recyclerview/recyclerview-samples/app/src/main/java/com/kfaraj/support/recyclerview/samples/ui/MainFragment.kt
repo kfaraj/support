@@ -31,7 +31,7 @@ class MainFragment : Fragment(R.layout.fragment_main),
     OnItemLongClickListener,
     MultiChoiceModeListener {
 
-    private lateinit var adapter: MainAdapter
+    private lateinit var adapter: MainAdapter<String>
     private lateinit var recyclerView: SupportRecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
