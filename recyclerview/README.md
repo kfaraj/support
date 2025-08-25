@@ -8,7 +8,7 @@ This library provides additional support for the
 It can be included with the following dependencies:
 
 ```kotlin
-implementation("com.kfaraj.support.recyclerview:recyclerview:4.0.2")
+implementation("com.kfaraj.support.recyclerview:recyclerview:4.0.3-SNAPSHOT")
 ```
 
 It adds support for empty view, item click and choice mode with the following classes:
