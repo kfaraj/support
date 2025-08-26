@@ -11,7 +11,7 @@ android {
     namespace = "com.kfaraj.support.recyclerview"
     compileSdk = 35
     defaultConfig {
-        minSdk = 21
+        minSdk = 23
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         aarMetadata {
             minCompileSdk = 35

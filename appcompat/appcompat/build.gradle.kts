@@ -11,7 +11,7 @@ android {
     namespace = "com.kfaraj.support.appcompat"
     compileSdk = 35
     defaultConfig {
-        minSdk = 21
+        minSdk = 23
         aarMetadata {
             minCompileSdk = 35
         }
