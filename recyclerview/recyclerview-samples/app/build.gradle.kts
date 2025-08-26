@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.kfaraj.support.recyclerview.samples"
-    compileSdk = 35
+    compileSdk = 36
     defaultConfig {
         applicationId = "com.kfaraj.support.recyclerview.samples"
         minSdk = 26

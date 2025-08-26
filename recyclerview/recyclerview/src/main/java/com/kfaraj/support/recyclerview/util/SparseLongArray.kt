@@ -2,12 +2,12 @@ package com.kfaraj.support.recyclerview.util
 
 import android.os.Parcel
 import android.os.Parcelable
-import android.util.SparseArray
+import androidx.collection.SparseArrayCompat
 
 /**
  * Maps integers to longs.
  */
-internal class SparseLongArray : SparseArray<Long?>,
+internal class SparseLongArray : SparseArrayCompat<Long>,
     Parcelable {
 
     /**
@@ -24,7 +24,7 @@ internal class SparseLongArray : SparseArray<Long?>,
         val size = source.readInt()
         for (i in 0..<size) {
             val key = source.readInt()
-            val value = source.readValue(Long::class.java.classLoader) as Long?
+            val value = source.readLong()
             put(key, value)
         }
     }
@@ -40,7 +40,7 @@ internal class SparseLongArray : SparseArray<Long?>,
             val key = keyAt(i)
             val value = valueAt(i)
             dest.writeInt(key)
-            dest.writeValue(value)
+            dest.writeLong(value)
         }
     }
 

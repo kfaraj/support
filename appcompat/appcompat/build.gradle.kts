@@ -9,11 +9,11 @@ version = requireNotNull(libs.com.kfaraj.support.appcompat.get().version)
 
 android {
     namespace = "com.kfaraj.support.appcompat"
-    compileSdk = 35
+    compileSdk = 36
     defaultConfig {
         minSdk = 23
         aarMetadata {
-            minCompileSdk = 35
+            minCompileSdk = 36
         }
     }
     publishing {

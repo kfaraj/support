@@ -9,12 +9,12 @@ version = requireNotNull(libs.com.kfaraj.support.recyclerview.get().version)
 
 android {
     namespace = "com.kfaraj.support.recyclerview"
-    compileSdk = 35
+    compileSdk = 36
     defaultConfig {
         minSdk = 23
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         aarMetadata {
-            minCompileSdk = 35
+            minCompileSdk = 36
         }
     }
     publishing {
@@ -27,9 +27,9 @@ android {
         targetSdk = 35
         managedDevices {
             localDevices {
-                register("pixel9Api35") {
-                    device = "Pixel 9"
-                    apiLevel = 35
+                register("mediumPhoneApi36") {
+                    device = "Medium Phone"
+                    apiLevel = 36
                     systemImageSource = "aosp-atd"
                 }
             }
@@ -44,6 +44,7 @@ kotlin {
 dependencies {
     api(libs.androidx.recyclerview)
     androidTestImplementation(libs.androidx.test.core.ktx)
+    androidTestImplementation(libs.androidx.test.ext.junit.ktx)
     androidTestImplementation(libs.androidx.test.rules)
     androidTestImplementation(libs.androidx.test.runner)
 }

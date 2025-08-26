@@ -515,14 +515,14 @@ public class SupportRecyclerView extends RecyclerView
                 mCheckedItems.remove(position);
             }
             if (mMultiChoiceModeListener != null) {
-                if (mActionMode == null && mCheckedItems.size() > 0) {
+                if (mActionMode == null && !mCheckedItems.isEmpty()) {
                     mActionMode = startActionMode(this);
                 }
                 if (mActionMode != null) {
                     mMultiChoiceModeListener.onItemCheckedStateChanged(mActionMode,
                             position, id, value);
                 }
-                if (mActionMode != null && mCheckedItems.size() == 0) {
+                if (mActionMode != null && mCheckedItems.isEmpty()) {
                     mActionMode.finish();
                 }
             }
@@ -581,6 +581,7 @@ public class SupportRecyclerView extends RecyclerView
      *
      * @return the set of checked items IDs.
      */
+    @SuppressWarnings("MismatchedJavadocCode")
     @NonNull
     public long[] getCheckedItemIds() {
         final int count = mCheckedItems.size();
@@ -685,7 +686,7 @@ public class SupportRecyclerView extends RecyclerView
                             if (mActionMode != null && mMultiChoiceModeListener != null) {
                                 mMultiChoiceModeListener.onItemCheckedStateChanged(mActionMode,
                                         position, id, false);
-                                if (mCheckedItems.size() == 0) {
+                                if (mCheckedItems.isEmpty()) {
                                     mActionMode.finish();
                                 }
                             }
@@ -728,7 +729,7 @@ public class SupportRecyclerView extends RecyclerView
                     if (mActionMode != null && mMultiChoiceModeListener != null) {
                         mMultiChoiceModeListener.onItemCheckedStateChanged(mActionMode,
                                 position, id, false);
-                        if (mCheckedItems.size() == 0) {
+                        if (mCheckedItems.isEmpty()) {
                             mActionMode.finish();
                         }
                     }

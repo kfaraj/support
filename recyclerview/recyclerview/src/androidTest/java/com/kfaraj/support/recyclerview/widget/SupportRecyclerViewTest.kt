@@ -5,7 +5,7 @@ import android.view.View
 import android.view.View.MeasureSpec
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.test.core.app.ApplicationProvider
-import androidx.test.filters.SmallTest
+import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.kfaraj.support.recyclerview.testutils.TestAdapter
 import com.kfaraj.support.recyclerview.testutils.TestMultiChoiceModeListener
 import com.kfaraj.support.recyclerview.testutils.TestOnItemClickListener
@@ -15,9 +15,10 @@ import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Test
+import org.junit.runner.RunWith
 import java.util.Collections
 
-@SmallTest
+@RunWith(AndroidJUnit4::class)
 class SupportRecyclerViewTest {
 
     private lateinit var recyclerView: SupportRecyclerView
