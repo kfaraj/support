@@ -24,7 +24,7 @@ android {
         }
     }
     testOptions {
-        targetSdk = 35
+        targetSdk = 36
         managedDevices {
             localDevices {
                 register("mediumPhoneApi36") {
