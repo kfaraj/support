@@ -33,4 +33,5 @@ com-kfaraj-support-recyclerview = { module = "com.kfaraj.support.recyclerview:re
 [plugins]
 com-android-application = { id = "com.android.application", version.ref = "com-android-tools-build-gradle" }
 com-android-library = { id = "com.android.library", version.ref = "com-android-tools-build-gradle" }
+com-kfaraj-support-publish = { id = "com.kfaraj.support.publish" }
 org-jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "org-jetbrains-kotlin" }

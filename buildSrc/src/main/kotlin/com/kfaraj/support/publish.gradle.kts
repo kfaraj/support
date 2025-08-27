@@ -1,3 +1,5 @@
+package com.kfaraj.support
+
 plugins {
     `maven-publish`
     signing

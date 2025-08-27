@@ -1,7 +1,7 @@
 plugins {
     alias(libs.plugins.com.android.library)
     alias(libs.plugins.org.jetbrains.kotlin.android)
-    id("publish")
+    alias(libs.plugins.com.kfaraj.support.publish)
 }
 
 group = requireNotNull(libs.com.kfaraj.support.appcompat.get().group)
