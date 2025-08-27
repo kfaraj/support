@@ -35,5 +35,5 @@ dependencies {
 pom {
     name = "AppCompat"
     description = "Additional support for the the AndroidX AppCompat library"
-    url = "https://gitlab.com/kfaraj/support/-/tree/main/appcompat"
+    url = "https://github.com/kfaraj/support/tree/main/appcompat"
 }

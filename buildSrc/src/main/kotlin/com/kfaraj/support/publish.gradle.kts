@@ -36,9 +36,9 @@ publishing {
                     }
                 }
                 scm {
-                    connection = "scm:git:https://gitlab.com/kfaraj/support.git"
-                    developerConnection = "scm:git:https://gitlab.com/kfaraj/support.git"
-                    url = "https://gitlab.com/kfaraj/support"
+                    connection = "scm:git:https://github.com/kfaraj/support.git"
+                    developerConnection = "scm:git:https://github.com/kfaraj/support.git"
+                    url = "https://github.com/kfaraj/support"
                 }
             }
         }
