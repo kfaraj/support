@@ -2,6 +2,25 @@
 
 These libraries use [Semantic Versioning](https://semver.org/).
 
+## AppCompat Version 5.0.3
+
+**2025-08-28**
+
+- Updated the compile SDK version to API level 36.
+- Updated the minimum SDK version to API level 23.
+- Updated the AndroidX AppCompat library version to 1.7.1.
+- Updated the Kotlin standard library version to 2.2.10.
+- Updated the POM metadata.
+
+## RecyclerView Version 4.0.3
+
+**2025-08-28**
+
+- Updated the compile SDK version to API level 36.
+- Updated the minimum SDK version to API level 23.
+- Updated the Kotlin standard library version to 2.2.10.
+- Updated the POM metadata.
+
 ## AppCompat Version 5.0.2
 
 **2025-03-14**
