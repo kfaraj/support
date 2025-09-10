@@ -1,6 +1,6 @@
 # RecyclerView
 
-[![Maven Central](https://img.shields.io/maven-central/v/com.kfaraj.support.recyclerview/recyclerview)](https://search.maven.org/artifact/com.kfaraj.support.recyclerview/recyclerview)
+[![Maven Central](https://img.shields.io/maven-central/v/com.kfaraj.support.recyclerview/recyclerview)](https://central.sonatype.com/artifact/com.kfaraj.support.recyclerview/recyclerview)
 
 This library provides additional support for the
 [AndroidX RecyclerView library](https://developer.android.com/jetpack/androidx/releases/recyclerview).
