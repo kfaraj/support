@@ -1,4 +1,4 @@
-# Versions
+# Changelog
 
 These libraries use [Semantic Versioning](https://semver.org/).
 
@@ -62,10 +62,10 @@ These libraries use [Semantic Versioning](https://semver.org/).
 - Changed the package to `com.kfaraj.support.appcompat`.
 - Updated the compile SDK version to API level 34.
 - Updated the minimum SDK version to API level 21.
-- Updated the Java toolchain version to JDK 17.
+- Added the Java toolchain version to JDK 17.
 - Updated the AndroidX AppCompat library version to 1.7.0.
-- Updated the Kotlin standard library version to 2.0.0.
-- Update the POM metadata.
+- Added the Kotlin standard library version to 2.0.0.
+- Updated the POM metadata.
 
 ## RecyclerView Version 4.0.0
 
@@ -88,7 +88,7 @@ These libraries use [Semantic Versioning](https://semver.org/).
 
 **2023-09-21**
 
-- Updated the Kotlin standard library version to 1.9.10.
+- Added the Kotlin standard library version to 1.9.10.
 - Converted internal classes to Kotlin.
 
 ## RecyclerView Version 3.0.12
@@ -96,7 +96,7 @@ These libraries use [Semantic Versioning](https://semver.org/).
 **2023-09-09**
 
 - Updated the compile SDK version to API level 34.
-- Updated the Java toolchain version to JDK 17.
+- Added the Java toolchain version to JDK 17.
 - Updated the AndroidX RecyclerView library version to 1.3.1.
 
 ## RecyclerView Version 3.0.11
@@ -349,9 +349,9 @@ These libraries use [Semantic Versioning](https://semver.org/).
 
 ### RecyclerView
 
-- Updated the compile SDK version to API level 25.
-- Updated the minimum SDK version to API level 11.
-- Updated the v7 recyclerview library version to 25.1.0.
+- Added the compile SDK version to API level 25.
+- Added the minimum SDK version to API level 11.
+- Added the v7 recyclerview library version to 25.1.0.
 - Added support for empty view.
 - Added support for item click.
 - Added support for choice mode.
@@ -380,8 +380,8 @@ These libraries use [Semantic Versioning](https://semver.org/).
 
 ### AppCompat
 
-- Updated the compile SDK version to API level 24.
-- Updated the minimum SDK version to API level 11.
-- Updated the v7 appcompat library version to 24.2.1.
+- Added the compile SDK version to API level 24.
+- Added the minimum SDK version to API level 11.
+- Added the v7 appcompat library version to 24.2.1.
 - Added support for image drawable tint.
 - Added support for compound drawables tint.
