@@ -45,7 +45,7 @@
         <item name="colorOutlineVariant">@color/neutral_variant_80</item>
         <item name="windowActionModeOverlay">true</item>
         <item name="actionBarTheme">@style/ThemeOverlay.Material3.ActionBar</item>
-        <item name="actionModeCloseDrawable">@drawable/ic_close_24dp</item>
+        <item name="actionModeCloseDrawable">@drawable/ic_close</item>
     </style>
     <style name="Theme.App.Dark" parent="Theme.Material3.Dark.NoActionBar">
         <item name="colorPrimary">@color/primary_80</item>
@@ -92,7 +92,7 @@
         <item name="colorOutlineVariant">@color/neutral_variant_30</item>
         <item name="windowActionModeOverlay">true</item>
         <item name="actionBarTheme">@style/ThemeOverlay.Material3.Dark.ActionBar</item>
-        <item name="actionModeCloseDrawable">@drawable/ic_close_24dp</item>
+        <item name="actionModeCloseDrawable">@drawable/ic_close</item>
     </style>
     <style name="Theme.App.DayNight" parent="Theme.App.Light" />
 </resources>
