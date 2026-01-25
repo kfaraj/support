@@ -624,8 +624,8 @@ public class SupportRecyclerView extends RecyclerView
     private void updateChildStatus(@NonNull View child) {
         final int position = getChildAdapterPosition(child);
         final boolean checked = isItemChecked(position);
-        if (child instanceof Checkable) {
-            ((Checkable) child).setChecked(checked);
+        if (child instanceof final Checkable checkable) {
+            checkable.setChecked(checked);
         } else {
             child.setActivated(checked);
         }
@@ -658,6 +658,7 @@ public class SupportRecyclerView extends RecyclerView
          * Constructor.
          */
         RecyclerViewAdapterDataObserver() {
+            // Do nothing.
         }
 
         /**

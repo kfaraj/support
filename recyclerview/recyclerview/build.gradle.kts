@@ -1,6 +1,5 @@
 plugins {
     alias(libs.plugins.com.android.library)
-    alias(libs.plugins.org.jetbrains.kotlin.android)
     alias(libs.plugins.com.kfaraj.support.publish)
 }
 
@@ -12,7 +11,6 @@ android {
     compileSdk = 36
     defaultConfig {
         minSdk = 23
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         aarMetadata {
             minCompileSdk = 36
         }
@@ -24,15 +22,8 @@ android {
         }
     }
     testOptions {
-        targetSdk = 36
-        managedDevices {
-            localDevices {
-                register("mediumPhoneApi36") {
-                    device = "Medium Phone"
-                    apiLevel = 36
-                    systemImageSource = "aosp-atd"
-                }
-            }
+        unitTests {
+            isIncludeAndroidResources = true
         }
     }
 }
@@ -43,10 +34,10 @@ kotlin {
 
 dependencies {
     api(libs.androidx.recyclerview)
-    androidTestImplementation(libs.androidx.test.core.ktx)
-    androidTestImplementation(libs.androidx.test.ext.junit.ktx)
-    androidTestImplementation(libs.androidx.test.rules)
-    androidTestImplementation(libs.androidx.test.runner)
+    testImplementation(libs.androidx.test.core.ktx)
+    testImplementation(libs.androidx.test.ext.junit.ktx)
+    testImplementation(libs.junit)
+    testImplementation(libs.org.robolectric)
 }
 
 pom {
