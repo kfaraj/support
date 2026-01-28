@@ -13,7 +13,7 @@ implementation("com.kfaraj.support.recyclerview:recyclerview:4.0.4-SNAPSHOT")
 
 It adds support for empty view, item click and choice mode with the following classes:
 
-- [SupportRecyclerView](recyclerview/src/main/java/com/kfaraj/support/recyclerview/widget/SupportRecyclerView.java)
+- [SupportRecyclerView](recyclerview/src/main/java/com/kfaraj/support/recyclerview/widget/SupportRecyclerView.kt)
 
 ```kotlin
 val recyclerView = SupportRecyclerView(context)

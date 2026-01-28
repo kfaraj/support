@@ -30,6 +30,7 @@ android {
 
 kotlin {
     jvmToolchain(21)
+    explicitApi()
 }
 
 dependencies {
