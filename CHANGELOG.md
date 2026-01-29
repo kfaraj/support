@@ -2,6 +2,13 @@
 
 These libraries use [Semantic Versioning](https://semver.org/).
 
+## RecyclerView Version 4.1.0
+
+**2026-01-29**
+
+- Updated the Kotlin standard library version to 2.3.0.
+- Converted public classes to Kotlin.
+
 ## AppCompat Version 5.0.3
 
 **2025-08-28**
