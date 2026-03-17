@@ -5,9 +5,9 @@ import com.kfaraj.support.recyclerview.widget.SupportRecyclerView
 import com.kfaraj.support.recyclerview.widget.SupportRecyclerView.OnItemLongClickListener
 
 /**
- * Provides a test double of [OnItemLongClickListener].
+ * Provides a fake implementation of [OnItemLongClickListener].
  */
-class TestOnItemLongClickListener : OnItemLongClickListener {
+class FakeOnItemLongClickListener : OnItemLongClickListener {
 
     /**
      * Whether it has been invoked.

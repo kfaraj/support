@@ -8,9 +8,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.kfaraj.support.recyclerview.samples.R
 
 /**
- * Demonstrates how to use the RecyclerView library.
+ * Provides a default implementation of [RecyclerView.ViewHolder].
  */
-class MainViewHolder<T : Any>(
+class DefaultViewHolder<T : Any>(
     parent: ViewGroup
 ) : RecyclerView.ViewHolder(
     LayoutInflater.from(parent.context).inflate(R.layout.item_card, parent, false)

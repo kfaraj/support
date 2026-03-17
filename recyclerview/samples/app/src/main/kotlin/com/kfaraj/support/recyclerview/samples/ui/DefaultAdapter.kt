@@ -1,24 +1,24 @@
-package com.kfaraj.support.recyclerview.testutils
+package com.kfaraj.support.recyclerview.samples.ui
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
 /**
- * Provides a test double of [RecyclerView.Adapter].
+ * Provides a default implementation of [RecyclerView.Adapter].
  */
-class TestAdapter<T : Any>(
+class DefaultAdapter<T : Any>(
     val items: MutableList<T> = mutableListOf()
-) : RecyclerView.Adapter<TestViewHolder<T>>() {
+) : RecyclerView.Adapter<DefaultViewHolder<T>>() {
 
     init {
         setHasStableIds(true)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TestViewHolder<T> {
-        return TestViewHolder(parent)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DefaultViewHolder<T> {
+        return DefaultViewHolder(parent)
     }
 
-    override fun onBindViewHolder(holder: TestViewHolder<T>, position: Int) {
+    override fun onBindViewHolder(holder: DefaultViewHolder<T>, position: Int) {
         val item = items[position]
         holder.bind(item)
     }

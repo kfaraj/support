@@ -1,24 +1,24 @@
-package com.kfaraj.support.recyclerview.samples.ui
+package com.kfaraj.support.recyclerview.testutils
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
 /**
- * Demonstrates how to use the RecyclerView library.
+ * Provides a fake implementation of [RecyclerView.Adapter].
  */
-class MainAdapter<T : Any>(
+class FakeAdapter<T : Any>(
     val items: MutableList<T> = mutableListOf()
-) : RecyclerView.Adapter<MainViewHolder<T>>() {
+) : RecyclerView.Adapter<FakeViewHolder<T>>() {
 
     init {
         setHasStableIds(true)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainViewHolder<T> {
-        return MainViewHolder(parent)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FakeViewHolder<T> {
+        return FakeViewHolder(parent)
     }
 
-    override fun onBindViewHolder(holder: MainViewHolder<T>, position: Int) {
+    override fun onBindViewHolder(holder: FakeViewHolder<T>, position: Int) {
         val item = items[position]
         holder.bind(item)
     }

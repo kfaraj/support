@@ -5,9 +5,9 @@ import com.kfaraj.support.recyclerview.widget.SupportRecyclerView
 import com.kfaraj.support.recyclerview.widget.SupportRecyclerView.OnItemClickListener
 
 /**
- * Provides a test double of [OnItemClickListener].
+ * Provides a fake implementation of [OnItemClickListener].
  */
-class TestOnItemClickListener : OnItemClickListener {
+class FakeOnItemClickListener : OnItemClickListener {
 
     /**
      * Whether it has been invoked.

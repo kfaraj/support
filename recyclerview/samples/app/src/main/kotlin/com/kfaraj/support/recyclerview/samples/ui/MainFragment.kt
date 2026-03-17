@@ -12,6 +12,8 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.appbar.AppBarLayout
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import com.kfaraj.support.recyclerview.samples.R
 import com.kfaraj.support.recyclerview.samples.util.applyWindowInsetsPadding
@@ -23,7 +25,7 @@ import java.util.Collections
 import java.util.UUID
 
 /**
- * Demonstrates how to use the RecyclerView library.
+ * Displays the main UI state on the screen.
  */
 class MainFragment : Fragment(R.layout.fragment_main),
     OnClickListener,
@@ -31,12 +33,12 @@ class MainFragment : Fragment(R.layout.fragment_main),
     OnItemLongClickListener,
     MultiChoiceModeListener {
 
-    private lateinit var adapter: MainAdapter<String>
+    private lateinit var adapter: DefaultAdapter<String>
     private lateinit var recyclerView: SupportRecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        adapter = MainAdapter()
+        adapter = DefaultAdapter()
         if (savedInstanceState != null) {
             val items = requireNotNull(savedInstanceState.getStringArrayList(KEY_ITEMS))
             adapter.items.addAll(items)
@@ -45,8 +47,17 @@ class MainFragment : Fragment(R.layout.fragment_main),
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val appBarLayout = ViewCompat.requireViewById<AppBarLayout>(view, R.id.app_bar_layout)
         recyclerView = ViewCompat.requireViewById(view, android.R.id.list)
         val emptyView = ViewCompat.requireViewById<TextView>(view, android.R.id.empty)
+        val fab = ViewCompat.requireViewById<FloatingActionButton>(view, R.id.fab)
+        appBarLayout.applyWindowInsetsPadding(
+            WindowInsetsCompat.Type.systemBars() or
+                    WindowInsetsCompat.Type.displayCutout(),
+            applyLeft = true,
+            applyTop = true,
+            applyRight = true
+        )
         val callback = object : ItemTouchHelper.SimpleCallback(
             ItemTouchHelper.UP or ItemTouchHelper.DOWN,
             ItemTouchHelper.START or ItemTouchHelper.END
@@ -85,6 +96,7 @@ class MainFragment : Fragment(R.layout.fragment_main),
             WindowInsetsCompat.Type.systemBars(),
             applyBottom = true
         )
+        fab.setOnClickListener(this)
     }
 
     override fun onSaveInstanceState(outState: Bundle) {

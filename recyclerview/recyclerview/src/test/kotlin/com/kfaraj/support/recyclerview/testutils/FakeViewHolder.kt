@@ -5,9 +5,9 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 /**
- * Provides a test double of [RecyclerView.ViewHolder].
+ * Provides a fake implementation of [RecyclerView.ViewHolder].
  */
-class TestViewHolder<T : Any>(
+class FakeViewHolder<T : Any>(
     parent: ViewGroup
 ) : RecyclerView.ViewHolder(
     TextView(parent.context)

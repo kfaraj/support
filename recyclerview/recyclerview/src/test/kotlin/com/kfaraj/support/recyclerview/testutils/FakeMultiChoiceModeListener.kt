@@ -6,9 +6,9 @@ import android.view.MenuItem
 import com.kfaraj.support.recyclerview.widget.SupportRecyclerView.MultiChoiceModeListener
 
 /**
- * Provides a test double of [MultiChoiceModeListener].
+ * Provides a fake implementation of [MultiChoiceModeListener].
  */
-class TestMultiChoiceModeListener : MultiChoiceModeListener {
+class FakeMultiChoiceModeListener : MultiChoiceModeListener {
 
     /**
      * Whether it has been invoked.

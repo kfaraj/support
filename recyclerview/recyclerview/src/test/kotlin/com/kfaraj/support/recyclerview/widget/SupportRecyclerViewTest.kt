@@ -6,10 +6,10 @@ import android.view.View.MeasureSpec
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import com.kfaraj.support.recyclerview.testutils.TestAdapter
-import com.kfaraj.support.recyclerview.testutils.TestMultiChoiceModeListener
-import com.kfaraj.support.recyclerview.testutils.TestOnItemClickListener
-import com.kfaraj.support.recyclerview.testutils.TestOnItemLongClickListener
+import com.kfaraj.support.recyclerview.testutils.FakeAdapter
+import com.kfaraj.support.recyclerview.testutils.FakeMultiChoiceModeListener
+import com.kfaraj.support.recyclerview.testutils.FakeOnItemClickListener
+import com.kfaraj.support.recyclerview.testutils.FakeOnItemLongClickListener
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
@@ -23,20 +23,20 @@ class SupportRecyclerViewTest {
 
     private lateinit var recyclerView: SupportRecyclerView
     private lateinit var emptyView: View
-    private lateinit var adapter: TestAdapter<Any>
-    private lateinit var onItemClickListener: TestOnItemClickListener
-    private lateinit var onItemLongClickListener: TestOnItemLongClickListener
-    private lateinit var multiChoiceModeListener: TestMultiChoiceModeListener
+    private lateinit var adapter: FakeAdapter<Any>
+    private lateinit var onItemClickListener: FakeOnItemClickListener
+    private lateinit var onItemLongClickListener: FakeOnItemLongClickListener
+    private lateinit var multiChoiceModeListener: FakeMultiChoiceModeListener
 
     @Before
     fun setUp() {
         val context = ApplicationProvider.getApplicationContext<Context>()
         recyclerView = SupportRecyclerView(context)
         emptyView = View(context)
-        adapter = TestAdapter()
-        onItemClickListener = TestOnItemClickListener()
-        onItemLongClickListener = TestOnItemLongClickListener()
-        multiChoiceModeListener = TestMultiChoiceModeListener()
+        adapter = FakeAdapter()
+        onItemClickListener = FakeOnItemClickListener()
+        onItemLongClickListener = FakeOnItemLongClickListener()
+        multiChoiceModeListener = FakeMultiChoiceModeListener()
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.adapter = adapter
         recyclerView.emptyView = emptyView
