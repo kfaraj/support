@@ -5,10 +5,14 @@
 This library provides additional support for the
 [AndroidX AppCompat library](https://developer.android.com/jetpack/androidx/releases/appcompat).
 
+## Dependencies
+
 It can be included with the following dependencies:
 
 ```kotlin
 implementation("com.kfaraj.support.appcompat:appcompat:5.0.3")
 ```
+
+## Features
 
 It is now completely empty.
