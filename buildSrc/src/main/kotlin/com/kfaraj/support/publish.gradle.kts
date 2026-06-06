@@ -56,8 +56,8 @@ publishing {
                 "https://central.sonatype.com/repository/maven-snapshots/"
             url = uri(if (version.toString().endsWith("-SNAPSHOT")) snapshotsUrl else stagingUrl)
             credentials {
-                username = properties["ossrhUsername"] as String?
-                password = properties["ossrhPassword"] as String?
+                username = properties["ossrhUsername"] as? String
+                password = properties["ossrhPassword"] as? String
             }
         }
     }
@@ -72,9 +72,9 @@ tasks.register("publishToMavenCentral") {
     description = "Publishes all Maven publications produced by this project to Maven Central."
     dependsOn("publish")
     doLast {
-        val username = properties["ossrhUsername"] as String?
-        val password = properties["ossrhPassword"] as String?
-        val namespace = properties["ossrhNamespace"] as String?
+        val username = properties["ossrhUsername"] as? String
+        val password = properties["ossrhPassword"] as? String
+        val namespace = properties["ossrhNamespace"] as? String
         val token = Base64.getEncoder().encodeToString("$username:$password".encodeToByteArray())
         val client = HttpClient.newHttpClient()
         val request = HttpRequest.newBuilder()

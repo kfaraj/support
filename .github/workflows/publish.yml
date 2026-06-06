@@ -1,0 +1,47 @@
+name: Publish
+
+on:
+  workflow_dispatch:
+    inputs:
+      projectDir:
+        description: Project directory
+        type: choice
+        options:
+          - appcompat
+          - recyclerview
+
+jobs:
+  publish:
+    name: Publish
+    runs-on: macos-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+      - name: Setup
+        uses: actions/setup-java@v5
+        with:
+          java-version: 21
+          distribution: jetbrains
+          cache: gradle
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Download
+        run: echo "$SIGNING_SECRET_KEY_RING_FILE" | base64 --decode > ${{ runner.temp }}/secring.gpg
+        env:
+          SIGNING_SECRET_KEY_RING_FILE: ${{ secrets.SIGNING_SECRET_KEY_RING_FILE }}
+      - name: Publish
+        run: ./gradlew publishToMavenCentral -Psigning.secretKeyRingFile="$SIGNING_SECRET_KEY_RING_FILE" -Psigning.password="$SIGNING_PASSWORD" -Psigning.keyId="$SIGNING_KEY_ID" --project-dir ${{ inputs.projectDir }}
+        env:
+          SIGNING_KEY_ID: ${{ secrets.SIGNING_KEY_ID }}
+          SIGNING_PASSWORD: ${{ secrets.SIGNING_PASSWORD }}
+          SIGNING_SECRET_KEY_RING_FILE: ${{ runner.temp }}/secring.gpg
+          ORG_GRADLE_PROJECT_ossrhUsername: ${{ secrets.OSSRH_USERNAME }}
+          ORG_GRADLE_PROJECT_ossrhPassword: ${{ secrets.OSSRH_PASSWORD }}
+          ORG_GRADLE_PROJECT_ossrhNamespace: ${{ secrets.OSSRH_NAMESPACE }}
+      - name: Upload
+        uses: actions/upload-artifact@v7
+        with:
+          name: build
+          path: |
+            **/build/outputs/aar/
+            **/build/publications/
