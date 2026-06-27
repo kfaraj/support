@@ -8,12 +8,9 @@ version = requireNotNull(libs.com.kfaraj.support.recyclerview.get().version)
 
 android {
     namespace = "com.kfaraj.support.recyclerview"
-    compileSdk = 36
+    compileSdk = 37
     defaultConfig {
         minSdk = 23
-        aarMetadata {
-            minCompileSdk = 36
-        }
     }
     publishing {
         singleVariant("release") {

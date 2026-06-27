@@ -22,7 +22,7 @@ import com.kfaraj.support.recyclerview.widget.SupportRecyclerView.MultiChoiceMod
 import com.kfaraj.support.recyclerview.widget.SupportRecyclerView.OnItemClickListener
 import com.kfaraj.support.recyclerview.widget.SupportRecyclerView.OnItemLongClickListener
 import java.util.Collections
-import java.util.UUID
+import kotlin.uuid.Uuid
 
 /**
  * Displays the main UI state on the screen.
@@ -108,7 +108,7 @@ class MainFragment : Fragment(R.layout.fragment_main),
     }
 
     override fun onClick(v: View) {
-        val item = UUID.randomUUID().toString()
+        val item = Uuid.random().toString()
         adapter.items.add(0, item)
         adapter.notifyItemInserted(0)
         recyclerView.scrollToPosition(0)
