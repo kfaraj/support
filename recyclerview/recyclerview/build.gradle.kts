@@ -40,6 +40,6 @@ dependencies {
 
 pom {
     name = "RecyclerView"
-    description = "Additional support for the the AndroidX RecyclerView library"
+    description = "Additional support for the AndroidX RecyclerView library"
     url = "https://github.com/kfaraj/support/tree/main/recyclerview"
 }
