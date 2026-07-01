@@ -2,6 +2,24 @@
 
 These libraries use [Semantic Versioning](https://semver.org/).
 
+## AppCompat Version 5.0.4
+
+**2026-07-01**
+
+- Updated the compile SDK version to API level 37.
+- Updated the minimum SDK version to API level 24.
+- Updated the Kotlin standard library version to 2.4.0.
+- Updated the POM metadata.
+
+## RecyclerView Version 4.1.1
+
+**2026-07-01**
+
+- Updated the compile SDK version to API level 37.
+- Updated the minimum SDK version to API level 24.
+- Updated the Kotlin standard library version to 2.4.0.
+- Updated the POM metadata.
+
 ## RecyclerView Version 4.1.0
 
 **2026-01-29**
@@ -51,7 +69,6 @@ These libraries use [Semantic Versioning](https://semver.org/).
 - Updated the Java toolchain version to JDK 21.
 - Updated the Kotlin standard library version to 2.0.21.
 - Declared public resources.
-- Updated the AAR metadata.
 
 ## RecyclerView Version 4.0.1
 
@@ -60,7 +77,6 @@ These libraries use [Semantic Versioning](https://semver.org/).
 - Updated the compile SDK version to API level 35.
 - Updated the Java toolchain version to JDK 21.
 - Updated the Kotlin standard library version to 2.0.21.
-- Updated the AAR metadata.
 
 ## AppCompat Version 5.0.0
 
