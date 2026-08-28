@@ -21,7 +21,6 @@ import com.kfaraj.support.recyclerview.widget.SupportRecyclerView
 import com.kfaraj.support.recyclerview.widget.SupportRecyclerView.MultiChoiceModeListener
 import com.kfaraj.support.recyclerview.widget.SupportRecyclerView.OnItemClickListener
 import com.kfaraj.support.recyclerview.widget.SupportRecyclerView.OnItemLongClickListener
-import java.util.Collections
 import kotlin.uuid.Uuid
 
 /**
@@ -69,7 +68,9 @@ class MainFragment : Fragment(R.layout.fragment_main),
             ): Boolean {
                 val fromPosition = viewHolder.absoluteAdapterPosition
                 val toPosition = target.absoluteAdapterPosition
-                Collections.swap(adapter.items, fromPosition, toPosition)
+                val tmp = adapter.items[fromPosition]
+                adapter.items[fromPosition] = adapter.items[toPosition]
+                adapter.items[toPosition] = tmp
                 adapter.notifyItemMoved(fromPosition, toPosition)
                 return true
             }

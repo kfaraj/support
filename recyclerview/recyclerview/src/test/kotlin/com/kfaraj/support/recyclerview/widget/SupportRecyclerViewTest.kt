@@ -16,7 +16,6 @@ import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
-import java.util.Collections
 
 @RunWith(AndroidJUnit4::class)
 class SupportRecyclerViewTest {
@@ -213,7 +212,9 @@ class SupportRecyclerViewTest {
         recyclerView.setItemChecked(1, true)
         adapter.items.removeAt(0)
         adapter.items.add(0, Any())
-        Collections.swap(adapter.items, 0, 1)
+        val tmp = adapter.items[0]
+        adapter.items[0] = adapter.items[1]
+        adapter.items[1] = tmp
         adapter.notifyDataSetChanged()
         assertEquals(1, recyclerView.checkedItemCount)
         assertTrue(recyclerView.isItemChecked(0))
@@ -248,7 +249,9 @@ class SupportRecyclerViewTest {
         populateAdapter(2)
         recyclerView.setItemChecked(0, false)
         recyclerView.setItemChecked(1, true)
-        Collections.swap(adapter.items, 0, 1)
+        val tmp = adapter.items[0]
+        adapter.items[0] = adapter.items[1]
+        adapter.items[1] = tmp
         adapter.notifyItemMoved(0, 1)
         assertEquals(1, recyclerView.checkedItemCount)
         assertTrue(recyclerView.isItemChecked(0))
