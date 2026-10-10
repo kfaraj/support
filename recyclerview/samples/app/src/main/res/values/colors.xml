@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <color name="primary_10">#ff00201c</color>
     <color name="primary_20">#ff003731</color>
     <color name="primary_30">#ff005048</color>
@@ -42,6 +42,4 @@
     <color name="neutral_variant_60">#ff899390</color>
     <color name="neutral_variant_80">#ffbec9c6</color>
     <color name="neutral_variant_90">#ffdae5e1</color>
-    <color name="abc_decor_view_status_guard" tools:ignore="PrivateResource">#00000000</color>
-    <color name="abc_decor_view_status_guard_light" tools:ignore="PrivateResource">#00000000</color>
 </resources>
