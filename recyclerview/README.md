@@ -10,7 +10,7 @@ This library provides additional support for the
 It can be included with the following dependencies:
 
 ```kotlin
-implementation("com.kfaraj.support.recyclerview:recyclerview:4.1.1")
+implementation("com.kfaraj.support.recyclerview:recyclerview:$version")
 ```
 
 ## Features
@@ -37,7 +37,7 @@ recyclerView.multiChoiceModeListener = multiChoiceModeListener
 
 ## Samples
 
-This sample demonstrates how to use the RecyclerView library.
+It contains a collection of [samples](samples).
 
 ## Screenshots
 
